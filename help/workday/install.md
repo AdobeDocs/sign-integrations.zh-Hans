@@ -12,7 +12,7 @@ solution: Adobe Sign
 role: User, Developer
 topic: Integrations
 exl-id: 8f12b524-2123-45d4-98d5-b2b23580a5ea
-source-git-commit: ba5e0fccfdb7cd278cc0ae57dc03da1e17b51577
+source-git-commit: 78d6cafa720b41bd638c2ef723b2d4a2def19cd5
 workflow-type: tm+mt
 source-wordcount: '1133'
 ht-degree: 24%
@@ -170,7 +170,7 @@ Adobe Sign 是集成合作伙伴，如果集成获取签名失败或待定签名
 Adobe Sign 客户应当联系各自的客户成功经理 (CSM) 以寻求支持。或者，可以致电 1-866-318-4100 联系 Adobe 技术支持，等待对方播送产品列表，然后输入 4，接着再输入 2（根据提示）。
 
 * [向文档添加Adobe文本标记](https://adobe.com/go/adobesign_text_tag_guide)
-* [查看文档配置和示例](https://www.adobe.com/go/adobesign_workday_quick_start)
+* [查看文档配置和示例](https://www.adobe.com//go/adobesign_workday_quick_start)
 
 ## 常见问题 {#faq}
 
