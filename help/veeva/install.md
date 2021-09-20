@@ -10,9 +10,9 @@ solution: Adobe Sign
 role: User, Developer
 topic: Integrations
 exl-id: 5d61a428-06e4-413b-868a-da296532c964
-source-git-commit: 63a34c2d77ba7a262670da624c86a3730de0fdc5
+source-git-commit: d8b7271cae9bcbe8b66311eba0317b8937ea855c
 workflow-type: tm+mt
-source-wordcount: '2772'
+source-wordcount: '2839'
 ht-degree: 2%
 
 ---
@@ -24,6 +24,16 @@ ht-degree: 2%
 ## 概览 {#overview}
 
 本文档介绍如何将Adobe Sign与[!DNL Veeva Vault]平台建立集成。 [!DNL Veeva Vault] 是为生命科学构建的企业内容管理(ECM)平台。“保管库”是一个内容和数据存储库，通常用于管理法规文件、研究报告、授权申请、一般合同等。 一个企业可以有多个需要单独维护的“金库”。
+
+完成集成的高级步骤包括：
+
+* 在Adobe Sign中激活您的管理帐户（仅限新客户）
+* 创建对象以跟踪Vault中协议生命周期的历史记录。
+* 创建新的安全性配置文件。
+* 在Adobe Sign中配置组以容纳[!DNL Veeva Vault]集成用户。
+* 创建文档字段和格式副本。
+* 配置Web操作并更新文档生命周期。
+* 创建文档类型用户和用户角色设置。
 
 ## 配置[!DNL Veeva Vault]
 

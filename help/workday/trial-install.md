@@ -12,7 +12,7 @@ solution: Adobe Sign
 role: User, Developer
 topic: Integrations
 exl-id: beafe6c0-262f-4f5b-9315-a023a4eef4a2
-source-git-commit: d462ccf41fa5483cfa02f5eaf154c23f26157a1e
+source-git-commit: ba5e0fccfdb7cd278cc0ae57dc03da1e17b51577
 workflow-type: tm+mt
 source-wordcount: '998'
 ht-degree: 40%
@@ -163,6 +163,6 @@ Adobe Sign 客户应当联系各自的客户成功经理 (CSM) 以寻求支持�
 
 * [将 Adobe 文本标记添加到文档](https://adobe.com/go/adobesign_text_tag_guide)
 
-* [查看文档配置和示例](https://experienceleague.adobe.com/docs/dc-sign-integrations/using/workday/quick-start.html)
+* [查看文档配置和示例](https://www.adobe.com/go/adobesign_workday_quick_start)
 
 [**联系 Adobe Sign 技术支持**](https://adobe.com/go/adobesign-support-center_cn)
