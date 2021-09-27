@@ -10,9 +10,9 @@ solution: Adobe Sign
 role: User, Developer
 topic: Integrations
 exl-id: 5d61a428-06e4-413b-868a-da296532c964
-source-git-commit: d8b7271cae9bcbe8b66311eba0317b8937ea855c
+source-git-commit: 3f826e88969562a69279a29dfdd98775ec01fd51
 workflow-type: tm+mt
-source-wordcount: '2839'
+source-wordcount: '3061'
 ht-degree: 2%
 
 ---
@@ -23,7 +23,7 @@ ht-degree: 2%
 
 ## 概览 {#overview}
 
-本文档介绍如何将Adobe Sign与[!DNL Veeva Vault]平台建立集成。 [!DNL Veeva Vault] 是为生命科学构建的企业内容管理(ECM)平台。“保管库”是一个内容和数据存储库，通常用于管理法规文件、研究报告、授权申请、一般合同等。 一个企业可以有多个需要单独维护的“金库”。
+本文档介绍如何将Adobe Sign与[!DNL Veeva Vault]平台建立集成。 [!DNL Veeva Vault] 是为生命科学构建的企业内容管理(ECM)平台。“保管库”是一个内容和数据存储库，通常用于管理法规文件、研究报告、授权申请、一般合同等。 一个企业可以有多个“金库”，必须单独维护。
 
 完成集成的高级步骤包括：
 
@@ -35,9 +35,13 @@ ht-degree: 2%
 * 配置Web操作并更新文档生命周期。
 * 创建文档类型用户和用户角色设置。
 
+>[!NOTE]
+>
+>Adobe Sign管理员必须在Adobe Sign中执行Adobe Sign设置步骤。
+
 ## 配置[!DNL Veeva Vault]
 
-要配置[!DNL Veeva Vault]以与Adobe Sign集成，我们会创建一些对象，帮助跟踪Vault中协议生命周期的历史记录。 管理员需要创建以下对象：
+要配置[!DNL Veeva Vault]以与Adobe Sign集成，我们会创建一些对象，帮助跟踪Vault中协议生命周期的历史记录。 管理员必须创建以下对象：
 
 * 签名
 * 签名人
@@ -46,7 +50,7 @@ ht-degree: 2%
 
 ### 创建签名对象  {#create-signature-object}
 
-创建签名对象以存储协议相关信息。 签名对象是包含以下特定字段下的信息的数据库：
+创建签名对象以存储与协议相关的信息。 Signature对象是一个数据库，它包含以下特定字段下的信息：
 
 **签名对象字段**
 
@@ -137,17 +141,17 @@ Adobe Sign集成的Vault系统帐户用户必须：
 * 具有禁用密码过期的特定安全策略
 * 成为Adobe Sign Admin Group的成员。
 
-要确保系统帐户用户在特定文档生命周期中属于Adobe Sign管理组，您需要创建用户角色设置记录。
+要确保系统帐户用户在特定文档生命周期中属于Adobe Sign管理组，您必须创建用户角色设置记录。
 
 ## 创建应用程序角色 {#create-application-roles}
 
-您需要创建名为&#x200B;*Adobe Sign Admin Role*&#x200B;的应用程序角色。 此角色必须在符合Adobe签名条件的每种文档类型的生命周期中定义。 对于Adobe Sign的每个特定生命周期状态，都会添加Adobe Sign管理员角色并使用相应的权限进行配置。
+必须创建名为&#x200B;*Adobe Sign Admin Role*&#x200B;的应用程序角色。 此角色必须在符合Adobe签名条件的每种文档类型的生命周期中定义。 对于Adobe Sign的每个特定生命周期状态，都会添加Adobe Sign管理员角色并使用相应的权限进行配置。
 
 ![创建应用程序角色的映像](images/create-application-roles.png)
 
 ## 创建文档域 {#create-fields}
 
-要与Adobe Sign建立集成，管理员需要创建以下两个新的共享文档字段：
+要与Adobe Sign建立集成，管理员必须创建以下两个新的共享文档字段：
 
 * 签名(signature__c)
 * 允许Adobe Sign用户操作(allow_adobe_sign_user_actions__c)
@@ -158,13 +162,13 @@ Adobe Sign集成的Vault系统帐户用户必须：
 
 ![签名字段详细信息的图像](images/signature-field-details.png)
 
-管理员需要添加现有共享字段&#x200B;*禁用保管库叠加(disable_vault_overlays__v)*，并对符合Adobe签名条件的所有文档类型将其设置为活动。 （可选）该字段可以具有特定的安全性，该安全性仅允许Adobe Sign管理员组的成员更新其值。
+管理员必须添加现有共享字段&#x200B;*禁用保管库叠加(disable_vault_overlays_v)*，并对于所有符合Adobe签名条件的文档类型将其设置为活动。 （可选）该字段可以具有特定的安全性，该安全性仅允许Adobe Sign管理员组的成员更新其值。
 
 ![允许adobe sign用户操作的图像](images/allow-adobe-sign-user-actions.png)
 
 ## 创建文档格式副本 {#create-renditions}
 
-管理员需要创建一个名为&#x200B;*Adobe Sign Rendition(adobe_sign_rendition__c)*&#x200B;的新格式副本类型，Vault集成使用该类型将签名的PDF文档上载到Adobe Sign。 应为符合Adobe Sign签名条件的每种文档类型声明Adobe格式副本。
+管理员必须创建名为&#x200B;*Adobe Sign Rendition(adobe_sign_rendition__c)*&#x200B;的新格式副本类型，Vault集成使用该类型将签名的PDF文档上载到Adobe Sign。 应为符合Adobe Sign签名条件的每种文档类型声明Adobe格式副本。
 
 ![再现类型的图像](images/rendition-type.png)
 
@@ -259,7 +263,7 @@ Adobe Sign协议生命周期具有以下状态：
 
 ### 创建文档类型组 {#create-document-type-group}
 
-管理员需要创建名为“Adobe Sign文档”的新文档类型组记录。 此文档类型组将添加到符合Adobe Sign流程条件的所有文档分类中。 由于文档类型组属性不是从类型继承到子类型，也不是从子类型继承到分类级别，因此必须为每个符合Adobe Sign条件的文档分类设置该属性。
+管理员必须创建名为“Adobe Sign文档”的新文档类型组记录。 此文档类型组将添加到符合Adobe Sign流程条件的所有文档分类中。 由于文档类型组属性不是从类型继承到子类型，也不是从子类型继承到分类级别，因此必须为每个符合Adobe Sign条件的文档分类设置该属性。
 
 ![文档类型的图像](images/document-type.png)
 
@@ -276,6 +280,53 @@ Adobe Sign协议生命周期具有以下状态：
 >[!NOTE]
 >
 >如果用户角色设置对象不包含引用文档类型组对象的字段，则应添加此字段。
+
+## 使用中间件将[!DNL Veeva Vault]连接到Adobe Sign {#connect-middleware}
+
+Adobe Sign帐户管理员必须按照以下步骤使用中间件将[!DNL Veeva Vault]连接到Adobe Sign:
+
+1. [转到Adobe Sign  [!DNL Veeva Vault] forHome页](https://static.adobesigncdn.com/veevavaultintsvc/index.html)。
+1. 从右上角选择&#x200B;**[!UICONTROL 登录]**。
+
+   ![中间件登录映像](images/middleware_login.png)
+
+1. 在打开的Adobe Sign登录页中，提供帐户管理员电子邮件和密码，然后选择&#x200B;**[!UICONTROL 在]**&#x200B;中使用。
+
+   ![图像](images/middleware-signin.png)
+
+   用户登录后，页面右上角会显示关联的电子邮件ID和其他“设置”选项卡，如下所示。
+
+   ![图像](images/middleware_settings.png)
+
+1. 选择&#x200B;**[!UICONTROL 设置]**&#x200B;选项卡。
+
+   “设置”页面显示可用的连接，在首次设置连接时不显示任何连接，如下所示。
+
+   ![图像](images/middleware_newconnection.png)
+
+1. 选择&#x200B;**[!UICONTROL 添加连接]**&#x200B;以添加新连接。
+
+1. 在打开的“添加连接”对话框中，提供所需的详细信息，包括[!DNL Veeva Vault]凭据。
+
+   Adobe Sign凭据会从初始Adobe Sign登录中自动填充。
+
+   ![图像](images/middleware_addconnection.png)
+
+1. 选择&#x200B;**[!UICONTROL 验证]**&#x200B;以验证帐户详细信息。
+
+   成功验证后，您会看到“用户验证成功”通知，如下所示。
+
+   ![图像](images/middleware_validated.png)
+
+1. 要限制对特定Adobe Sign组的使用，请展开&#x200B;**[!UICONTROL 组]**&#x200B;下拉列表，然后选择可用组之一。
+
+   ![图像](images/middleware_group.png)
+
+1. 选择&#x200B;**[!UICONTROL 保存]**&#x200B;以保存新连接。
+
+   新连接显示在“设置”选项卡下，显示[!DNL Veeva Vault]和Adobe Sign之间的成功集成。
+
+   ![图像](images/middleware_setup.png)
 
 ## 包部署生命周期 {#deployment-lifecycle}
 
