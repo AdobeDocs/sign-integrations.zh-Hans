@@ -12,9 +12,9 @@ solution: Adobe Sign
 role: User, Developer
 topic: Integrations
 exl-id: beafe6c0-262f-4f5b-9315-a023a4eef4a2
-source-git-commit: 3f826e88969562a69279a29dfdd98775ec01fd51
+source-git-commit: c25be043b404e9bf7a90496d4e47c1f22069313d
 workflow-type: tm+mt
-source-wordcount: '1000'
+source-wordcount: '995'
 ht-degree: 39%
 
 ---
@@ -23,13 +23,13 @@ ht-degree: 39%
 
 ## 概览 {#overview}
 
-本文档旨在帮助[!DNL Workday]客户了解如何激活Adobe Sign的试用帐户，然后将其集成到[!DNL Workday]租户中。 要在[!DNL Workday]中使用Adobe Sign，您需要了解如何创建和修改[!DNL Workday]项，例如：
+本文档旨在帮助[!DNL Workday]客户了解如何激活Adobe Sign的试用帐户，然后将其集成到[!DNL Workday]租户中。 要在[!DNL Workday]中使用Adobe Sign，您必须知道如何创建和修改[!DNL Workday]项，例如：
 
 * 业务流程框架
 * 租户设置和配置
 * 报告和[!DNL Workday] Studio集成
 
-**注意**:如果您有现有的Adobe Sign帐户，则无需启动试用版。您可以联系您的客户成功经理以请求[!DNL Workday]集成。
+**注意**:如果您有现有的Adobe Sign帐户，则不必开始试用。您可以联系您的客户成功经理以请求[!DNL Workday]集成。
 
 完成集成的高级步骤如下：
 
@@ -39,9 +39,9 @@ ht-degree: 39%
 
 ## 激活Adobe Sign试用帐户 {#activate-sign-trial-account}
 
-要请求Adobe Sign的30天试用期，您需要填写此[注册表](https://land.echosign.com/esign-trial-workday-registration.html)。
+要请求Adobe Sign的30天试用，必须填写此[注册表](https://land.echosign.com/esign-trial-workday-registration.html)。
 
-**注意**:我们强烈建议您使用有效的功能电子邮件地址来创建试用版电子邮件，而不是临时电子邮件。您需要访问此电子邮件以验证帐户，因此地址必须有效。
+**注意**:我们强烈建议您使用有效的功能电子邮件地址来创建试用版电子邮件，而不是临时电子邮件。您必须访问此电子邮件以验证帐户，因此地址必须有效。
 
 ![试用版申请表单](images/trial-land.png)
 
@@ -49,13 +49,13 @@ ht-degree: 39%
 
 ![来自 Adobe Sign 的欢迎电子邮件](images/welcome-email-2020.png)
 
-按照电子邮件中的指示初始化您的帐户并访问Adobe Sign [!UICONTROL Home]页。
+要初始化您的帐户并访问Adobe Sign [!UICONTROL 主页]页，请按照电子邮件中的说明操作。
 
 ![Adobe Sign功能板](images/classic-home.png)
 
 ## 生成集成密钥 {#generate-an-integration-key}
 
-对于新安装，您需要在Adobe Sign中生成集成密钥，然后将其输入[!DNL Workday]。 此密钥验证Adobe Sign和[!DNL Workday]环境，以相互信任和共享内容。
+对于新安装，必须在Adobe Sign中生成集成密钥，然后将其输入[!DNL Workday]。 此密钥验证Adobe Sign和[!DNL Workday]环境，以相互信任和共享内容。
 
 要在 Adobe Sign 中生成集成密钥，请执行以下操作：
 
@@ -165,4 +165,4 @@ Adobe Sign 客户应当联系各自的客户成功经理 (CSM) 以寻求支持�
 
 * [查看文档配置和示例](https://www.adobe.com//go/adobesign_workday_quick_start){target=&quot;_blank&quot;}
 
-[**联系 Adobe Sign 技术支持**](https://adobe.com/go/adobesign-support-center_cn)
+[**联系 Adobe Sign 技术支持**](https://www.adobe.com/go/adobesign-support-center)
