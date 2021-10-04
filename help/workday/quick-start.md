@@ -11,32 +11,32 @@ solution: Adobe Sign
 role: User, Developer
 topic: Integrations
 exl-id: 8b6fa8b4-e240-4ebe-ae2a-8807d75a6c69
-source-git-commit: d462ccf41fa5483cfa02f5eaf154c23f26157a1e
+source-git-commit: 5ac9dc27dcdb6cab19281e6aafd4ea0524cc01d6
 workflow-type: tm+mt
-source-wordcount: '1352'
-ht-degree: 37%
+source-wordcount: '1348'
+ht-degree: 30%
 
 ---
 
 # [!DNL Workday] 快速入门指南{#workday-quick-start-guide}
 
-[**联系 Adobe Sign 技术支持**](https://adobe.com/go/adobesign-support-center_cn)
+[**联系 Adobe Sign 技术支持**](https://www.adobe.com/go/adobesign-support-center)
 
 ## 概览 {#overview}
 
 本文档旨在帮助[!DNL Workday]管理员了解如何自定义[!DNL Workday]业务流程以包括Adobe Sign以获取电子签名。 要在[!DNL Workday]中使用Adobe Sign，您必须知道如何创建和修改[!DNL Workday]项，例如：
 
-* 业务流程框架
+* [!UICONTROL 业务流程框架]
 * 租户设置和配置
 * 报告和[!DNL Workday] Studio集成
 
 ## 在 中访问 Adobe Sign[!DNL Workday] {#access-adobe-sign}
 
-Adobe Sign电子签名功能在业务流程框架(BPF)中显示为[!UICONTROL 审阅文档步骤]操作，并显示为“分发文档”任务。
+[!UICONTROL Adobe Sign电子签] 名功能在业务流程 [!UICONTROL 框架(BPF)中] 作为审阅文 [!UICONTROL 档步骤操作和作为“分] 发文档”任务呈现。
 
 ## [!UICONTROL 审阅文档步骤] {#review-document-step}
 
-Adobe Sign for [!DNL Workday]通过[!UICONTROL 审阅文档步骤]公开，您可以将该步骤添加到[!DNL Workday]内的400多个业务流程中的任意一个，包括聘用、分发文档和任务、建议报酬等。
+Adobe Sign for [!DNL Workday]通过[!UICONTROL 审阅文档步骤]公开，您可以将该步骤添加到[!DNL Workday]中的400多个业务流程中的任何一个，包括[!UICONTROL Offer]、[!UICONTROL 分发文档和任务]、[!UICONTROL 建议报酬]等……
 
 您可以参阅[!UICONTROL 审阅文档步骤]](https://doc.workday.com/#/reader/3DMnG~27o049IYFWETFtTQ/TboWWKQemecNipWgxLAjqg)上的[[!DNL Workday] 社区文章。
 
@@ -62,7 +62,7 @@ Adobe Sign for [!DNL Workday]通过[!UICONTROL 审阅文档步骤]公开，您�
    * 在角色中的一个人员签名后，行步骤即已完成并且文档将被移到下一个行步骤.
    * 当所有行都已签名后，[!UICONTROL 审阅文档步骤]将完成。
 
-1. 指定要签名的文档。如果这是一个聘用业务流程，您可以使用“生成文档”步骤中的文档。否则，请选择一个现有的文档或报告。
+1. 指定要签名的文档。如果文档是[!UICONTROL 选件BP]，则可以从“生成文档”步骤中使用它。 否则，请选择一个现有的文档或报告。
 
 1. 您可以根据需要对任意数量的文档重复步骤 3。
 
@@ -78,11 +78,11 @@ Adobe Sign for [!DNL Workday]通过[!UICONTROL 审阅文档步骤]公开，您�
 
 ## 业务流程步骤说明 {#business-process-step-notes}
 
-业务流程框架功能强大；但是，您必须确保：
+[!UICONTROL 业务流程框] 架功能强大；但是，您必须确保：
 
 * 每个业务流程都必须有一个完成步骤，这是业务流程结束时的理想选择。
 
-* 完成步骤是在搜索图标的相关操作菜单中设置的。 这只有在“查看”业务流程时才可能，而在“编辑”业务流程时则不可能。
+* 完成步骤将设置为搜索图标的相关操作菜单。 这只有在“查看”业务流程时才可能，而在“编辑”业务流程时则不可能。
 
 * 业务流程的每一个步骤都会按顺序执行.
 
@@ -90,7 +90,7 @@ Adobe Sign for [!DNL Workday]通过[!UICONTROL 审阅文档步骤]公开，您�
 
 ### 示例：优惠 {#example-offer}
 
-聘用业务流程是作业申请动态业务流程的一个子流程，需要配置该子流程以执行聘用业务流程。 当工作申请状态转为“聘用”或“招聘”时会触发此业务流程。
+聘用业务流程是[!UICONTROL 作业应用程序动态业务流程]的子流程，必须配置该子流程才能执行聘用业务流程。 将作业应用程序状态移至“[!UICONTROL 选件]”或“[!UICONTROL 选件]”时触发。
 
 在下例中，[!UICONTROL 审阅文档步骤]在北美和日本都使用动态文档步骤。
 
@@ -120,7 +120,7 @@ Adobe Sign for [!DNL Workday]通过[!UICONTROL 审阅文档步骤]公开，您�
 
 在[!UICONTROL 审阅文档步骤]中，动态文档从上一步引用，并通过两个签名组定义顺序签名过程。
 
-下面所示的行为将首先将动态生成的文档发送给招聘经理，然后将其发送给候选人。
+下面所示的行为首先将动态生成的文档路由到招聘经理，然后路由到候选人。
 
 ![[!DNL Workday] 已定义签名组](images/configure-rd-stepsmaller-575.png)
 
@@ -128,7 +128,7 @@ Adobe Sign for [!DNL Workday]通过[!UICONTROL 审阅文档步骤]公开，您�
 
 在[!DNL Workday] 30中引入的“批量分发文档”或“任务”任务可用于将单个文档发送给由单个签名者组成的大型组(&lt;20K)。 它仅限于每个文档的单个签名。通过从搜索栏访问“[!UICONTROL 创建分发文档或任务]”操作来创建分发。
 
-示例：将员工权益选择表发送给 Global Modern Services 的所有经理。如果需要，您可以进一步将其过滤给单个管理器。
+示例：向所有具有[!UICONTROL Global Modern Services]的经理发送员工股本选择表。 如果需要，您可以进一步将其过滤给单个管理器。
 
 您还可以访问&#x200B;**查看分发文档或任务**&#x200B;报告来跟踪分发进度。
 
@@ -158,7 +158,7 @@ Adobe Sign for [!DNL Workday]通过[!UICONTROL 审阅文档步骤]公开，您�
 
 当文档由所有签名组签名后，已签名文档的副本将通过电子邮件分发给签名组的所有成员。
 
-要抑制此行为，您可联系Adobe Sign成功经理或[Adobe Sign支持团队](https://adobe.com/go/adobesign-support-center)。
+要抑制此行为，可联系您的[!UICONTROL Adobe Sign成功经理]或[Adobe Sign支持团队](https://adobe.com/go/adobesign-support-center)。
 
 在[!DNL Workday]中，您可以访问完整进程记录中的已签名文档。 您可能会发现：
 
@@ -186,9 +186,9 @@ Adobe Sign for [!DNL Workday]通过[!UICONTROL 审阅文档步骤]公开，您�
 
 Adobe Sign 是集成合作伙伴，如果集成获取签名失败或待定签名通知失败时，请联系 Adobe Sign。
 
-Adobe Sign 客户应当联系各自的客户成功经理 (CSM) 以寻求支持。或者，可以致电 1-866-318-4100 联系 Adobe 技术支持，等待对方播送产品列表，然后输入 4，接着再输入 2（根据提示）。
+Adobe Sign客户应联系其客户成功经理以获得支持。 或者，可通过电话联系[!UICONTROL Adobe技术支持]:1-866-318-4100，等待产品列表，然后输入：4和2（根据提示）。
 
-* [将 Adobe 文本标记添加到文档](https://adobe.com/go/adobesign_text_tag_guide)
+* [将 Adobe 文本标记添加到文档](https://www.adobe.com/go/adobesign_text_tag_guide)
 
 <!--
 [Download PDF](images/adobe-sign-for-workday-quick-start-guide-2016.pdf)
