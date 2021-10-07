@@ -7,9 +7,9 @@ type: Documentation
 solution: Adobe Sign
 role: User, Developer
 topic: Integrations
-source-git-commit: 27610773d47a947dbfa1deb3f594667406a9aefb
+source-git-commit: 40fe3649aab0499ce8e5fbd1b11308ffbd759a44
 workflow-type: tm+mt
-source-wordcount: '2336'
+source-wordcount: '2354'
 ht-degree: 1%
 
 ---
@@ -245,6 +245,10 @@ Adobe[!DNL EchoSign]与[!DNL SugarCRM]中的报价直接集成，因此报价的
 [!DNL EchoSign]协议的[!UICONTROL 事件]子面板跟踪发送以请求签名的协议的状态。 要查看[!DNL EchoSign]协议的最新更新，请选择&#x200B;**[!UICONTROL 更新状态]**。 [!UICONTROL 更新状态]按钮仅在发送协议以请求签名后才可用。
 
 ![图像](images/update-cancel-status.png)
+
+在发送协议以请求签名后，选择&#x200B;**[!UICONTROL 更新状态]**&#x200B;以检索最新状态。
+
+![图像](images/events-subpanel.png)
 
 ### 发送提醒 {#send-reminders}
 
