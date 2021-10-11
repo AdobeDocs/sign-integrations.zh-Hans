@@ -1,19 +1,19 @@
 ---
 title: Adobe Sign for [!DNL NetSuite]  — 安装和自定义指南(v4.0.4)
-description: 'Adobe Sign for [!DNL NetSuite]  — 安装和自定义指南 '
+description: Adobe Sign for [!DNL NetSuite]  — 安装和自定义指南
 product: Adobe Sign
 locnotes: All languages; screenshots for Tier 1 and 2 only (see the currently published localized page for guidance)
 type: Documentation
 solution: Adobe Sign
 role: User, Developer
 topic: Integrations
-source-git-commit: 27610773d47a947dbfa1deb3f594667406a9aefb
+exl-id: 378cac01-87c9-4288-8839-482121d49402
+source-git-commit: f8d0bc748872e675dc1c638eb4050efe9e3147ef
 workflow-type: tm+mt
 source-wordcount: '4870'
 ht-degree: 0%
 
 ---
-
 
 # [!DNL NetSuite] 安装和自定义指南(v4.0.4) {#install-customize-NetSuite}
 
@@ -52,9 +52,9 @@ Adobe Sign for [!DNL NetSuite]提供与[!DNL NetSuite]的完整eSignature集成�
 
    ![安装捆绑](images/bundle-details-install.png)
 
-1. In the Install dialog that appears, select **[!UICONTROL OK]** to proceed.
+1. 在出现的“安装”对话框中，选择&#x200B;**[!UICONTROL 确定]**&#x200B;以继续。
 
-   During the installation process, the status of the bundle displays as *[!UICONTROL Pending]*.
+   在安装过程中，捆绑的状态显示为&#x200B;*[!UICONTROL Pending]*。
 
    ![安装捆绑](images/installing-bundles.png)
 
@@ -66,21 +66,21 @@ Adobe Sign for [!DNL NetSuite]提供与[!DNL NetSuite]的完整eSignature集成�
 
 1. 如果您已经是Adobe Sign客户帐户，请执行[安装或升级](#oauth)后配置OAuth的步骤。
 
-   If you do not have an Adobe Sign account, you can [sign up for an enterprise trial](https://esign.adobe.com/adobe-sign-[!DNL NetSuite]-trial-registration.html) account to test the system. Follow the online registration steps to enable your Adobe Sign account.
+   如果您没有Adobe Sign帐户，则可以[注册企业试用版](https://esign.adobe.com/adobe-sign-[!DNL NetSuite]-trial-registration.html)帐户以测试系统。 按照在线注册步骤启用Adobe Sign帐户。
 
-## Configure OAuth after installing or upgrading {#oauth}
+## 安装或升级后配置OAuth {#oauth}
 
 Adobe Sign使用OAuth 2.0对[!DNL NetSuite]中的Adobe Sign帐户进行身份验证。
 
-This protocol authorizes your installed [!DNL NetSuite] bundle to communicate with Adobe Sign without requesting your password. 由于应用程序之间不能直接共享敏感信息，因此您的帐户不太可能会受到威胁。
+此协议授权您安装的[!DNL NetSuite]包与Adobe Sign通信，无需请求密码。 由于应用程序之间不能直接共享敏感信息，因此您的帐户不太可能会受到威胁。
 
 此身份验证不会影响您的实施，但在生产或沙箱帐户中安装或升级捆绑后，必须执行一次性配置。
 
-The [!DNL NetSuite] administrator who configures OAuth must also have an account level admin access to Adobe Sign.
+配置OAuth的[!DNL NetSuite]管理员还必须具有对Adobe Sign的帐户级别管理员访问权限。
 
-1. In [!DNL NetSuite], navigate to the *Adobe Sign Config* list page.
+1. 在[!DNL NetSuite]中，导航到&#x200B;*Adobe Sign Config*&#x200B;列表页。
 
-1. Search for **[!UICONTROL Adobe Sign Config]** (a custom record type) using the Search field in the header.
+1. 使用标题中的“搜索”字段搜索&#x200B;**[!UICONTROL Adobe Sign Config]**（自定义记录类型）。
 
 1. 在“搜索结果”页中，为&#x200B;*Adobe Sign Config*&#x200B;记录选择&#x200B;**视图**。
 
@@ -167,7 +167,7 @@ The [!DNL NetSuite] administrator who configures OAuth must also have an account
 
 1. 从“操作”下拉菜单中，选择&#x200B;**[!UICONTROL Update]**。
 
-   ![Update Action](images/update-action.png)
+   ![更新操作](images/update-action.png)
 
 1. 在“预览包更新”页上，选择&#x200B;**[!UICONTROL 更新包]**，而不更改页面上显示的任何默认值。
 
@@ -177,13 +177,13 @@ The [!DNL NetSuite] administrator who configures OAuth must also have an account
 
    >[!NOTE]
    >
-   >更新捆绑时，可能会收到一条警告消息，如下所示。 If you have not customized your [!DNL NetSuite] eSignature records, you can proceed. If you are unsure, it is suggested that you install the bundle on a Sandbox account to test it first before updating the bundle in a production account.
+   >更新捆绑时，可能会收到一条警告消息，如下所示。 如果您尚未自定义[!DNL NetSuite]电子签名记录，则可以继续。 如果不确定，建议在沙箱帐户上安装捆绑，以在生产帐户中更新捆绑之前先对其进行测试。
 
    ![错误消息](images/netsuite-error.png)
 
 1. 要显示更新状态，请选择&#x200B;**[!UICONTROL 刷新]**。
 
-   ![Installing the upgrade](images/installing-upgrade.png)
+   ![安装升级](images/installing-upgrade.png)
 
    >[!NOTE]
    >
@@ -195,7 +195,7 @@ The [!DNL NetSuite] administrator who configures OAuth must also have an account
 
 ## 配置捆绑 {#configure}
 
-### Set custom preferences  {#set-custom-preferences}
+### 设置自定首选项  {#set-custom-preferences}
 
 您可以使用自定义首选项来指定如何在[!DNL NetSuite]中创建和存储协议。 此外，Adobe Sign *中的*&#x200B;自动设置用户首选项允许您指定在[!DNL NetSuite]发送协议时，Sign服务中是否自动设置[!DNL NetSuite]用户。
 
@@ -265,7 +265,7 @@ Adobe Sign集成包已公开具有许多标准[!DNL NetSuite]对象的Adobe Sign
 
 ## 实体记录 {#entity-records}
 
-If the agreement is created from an Entity record the first recipient is the email address from the record. 与实体记录关联时，只显示“协议”选项卡。
+如果协议是从实体记录创建的，则第一个收件人是记录中的电子邮件地址。 与实体记录关联时，只显示“协议”选项卡。
 
 ## 自定义捆绑 {#customize}
 
