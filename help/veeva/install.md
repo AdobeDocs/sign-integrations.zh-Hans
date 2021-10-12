@@ -10,9 +10,9 @@ solution: Adobe Sign
 role: User, Developer
 topic: Integrations
 exl-id: 5d61a428-06e4-413b-868a-da296532c964
-source-git-commit: b6925abdeb7912ae17161663a86637d9913de1ec
+source-git-commit: d8071d9aa23351e31a9360d3c4d17f6297d0e2f1
 workflow-type: tm+mt
-source-wordcount: '3089'
+source-wordcount: '3115'
 ht-degree: 2%
 
 ---
@@ -283,7 +283,10 @@ Adobe Sign协议生命周期具有以下状态：
 
 ## 使用中间件将[!DNL Veeva Vault]连接到Adobe Sign {#connect-middleware}
 
-完成[!DNL Veeva Vault]和Adobe Sign Admin帐户的设置后，管理员必须使用中间件在两个帐户之间创建连接。 [!DNL Veeva Vault]和Adobe Sign帐户连接由Adobe Sign Identity启动，然后用于存储Veeva Vault标识。Adobe Sign帐户管理员必须按照以下步骤使用中间件将[!DNL Veeva Vault]连接到Adobe Sign:
+完成[!DNL Veeva Vault]和Adobe Sign Admin帐户的设置后，管理员必须使用中间件在两个帐户之间创建连接。 [!DNL Veeva Vault]和Adobe Sign帐户连接由Adobe Sign Identity启动，然后用于存储Veeva Vault标识。
+为了系统安全性和稳定性，管理员必须使用专用的[!DNL Veeva Vault]系统/服务/实用程序帐户（如`adobe.for.veeva@xyz.com`），而不是个人用户帐户（如`bob.smith@xyz.com`）。
+
+Adobe Sign帐户管理员必须按照以下步骤使用中间件将[!DNL Veeva Vault]连接到Adobe Sign:
 
 1. 转到 [!DNL Veeva Vault] 主页](https://static.adobesigncdn.com/veevavaultintsvc/index.html)的[Adobe Sign。
 1. 从右上角选择&#x200B;**[!UICONTROL 登录]**。
