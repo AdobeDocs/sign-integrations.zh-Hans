@@ -10,9 +10,9 @@ solution: Adobe Sign
 role: User, Developer
 topic: Integrations
 exl-id: 5d61a428-06e4-413b-868a-da296532c964
-source-git-commit: a262c45fa21bf5d7d0536588d2a621c50d1e8fa0
+source-git-commit: b6925abdeb7912ae17161663a86637d9913de1ec
 workflow-type: tm+mt
-source-wordcount: '3090'
+source-wordcount: '3089'
 ht-degree: 2%
 
 ---
@@ -168,7 +168,7 @@ Adobe Sign集成的Vault系统帐户用户必须：
 
 ## 创建文档格式副本 {#create-renditions}
 
-管理员必须创建名为&#x200B;*Adobe Sign Rendition(adobe_sign_rendition__c)*&#x200B;的新格式副本类型，Vault集成使用该类型将签名的PDF文档上载到Adobe Sign。 应为符合Adobe Sign签名条件的每种文档类型声明Adobe格式副本。
+管理员必须创建一个名为&#x200B;*Adobe Sign Rendition(adobe_sign_rendition__c)*&#x200B;的新格式副本类型，Vault集成使用该类型将已签名的PDF文档上载到Adobe Sign。 应为符合Adobe Sign签名条件的每种文档类型声明Adobe格式副本。
 
 ![再现类型的图像](images/rendition-type.png)
 
@@ -283,7 +283,7 @@ Adobe Sign协议生命周期具有以下状态：
 
 ## 使用中间件将[!DNL Veeva Vault]连接到Adobe Sign {#connect-middleware}
 
-完成[!DNL Veeva Vault]和Adobe Sign Admin帐户的设置后，管理员必须使用中间件在两个帐户之间创建连接。 [!DNL Veeva Vault]和Adobe Sign帐户连接由Adobe Sign Identity启动，然后用于存储Veeva Vault标识。 Adobe Sign帐户管理员必须按照以下步骤使用中间件将[!DNL Veeva Vault]连接到Adobe Sign:
+完成[!DNL Veeva Vault]和Adobe Sign Admin帐户的设置后，管理员必须使用中间件在两个帐户之间创建连接。 [!DNL Veeva Vault]和Adobe Sign帐户连接由Adobe Sign Identity启动，然后用于存储Veeva Vault标识。Adobe Sign帐户管理员必须按照以下步骤使用中间件将[!DNL Veeva Vault]连接到Adobe Sign:
 
 1. 转到 [!DNL Veeva Vault] 主页](https://static.adobesigncdn.com/veevavaultintsvc/index.html)的[Adobe Sign。
 1. 从右上角选择&#x200B;**[!UICONTROL 登录]**。
