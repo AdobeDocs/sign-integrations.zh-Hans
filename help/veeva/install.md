@@ -10,9 +10,9 @@ solution: Adobe Sign
 role: User, Developer
 topic: Integrations
 exl-id: 5d61a428-06e4-413b-868a-da296532c964
-source-git-commit: d8071d9aa23351e31a9360d3c4d17f6297d0e2f1
+source-git-commit: 45bc2d698396bb07c4a246930d34b7e2ad0f6648
 workflow-type: tm+mt
-source-wordcount: '3115'
+source-wordcount: '3113'
 ht-degree: 2%
 
 ---
@@ -41,7 +41,7 @@ ht-degree: 2%
 
 ## 配置[!DNL Veeva Vault]
 
-要配置[!DNL Veeva Vault]以与Adobe Sign集成，我们会创建一些对象，帮助跟踪Vault中协议生命周期的历史记录。 管理员必须创建以下对象：
+要配置[!DNL Veeva Vault]以与Adobe Sign集成，请创建某些对象，以帮助跟踪Vault中协议生命周期的历史记录。 管理员必须创建以下对象：
 
 * 签名
 * 签名人
@@ -57,7 +57,7 @@ ht-degree: 2%
 | 字段 | 标签 | 类型 | 说明 |
 | --- | --- | ---| --- | 
 | external_id__c | 协议 ID | 字符串(100) | 持有Adobe Sign的唯一协议ID |
-| file_hash_c | 文件哈希 | 字符串(50) | 保存已发送到Adobe Sign的文件的md5小组 |
+| file_hash_c | 文件哈希 | 字符串(50) | 保存已发送到Adobe Sign的文件的md5校验和 |
 | name_v | 名称 | 字符串(128) | 保存协议名称 |
 | sender__c | 发件人 | 对象（用户） | 保存对已创建协议的Vault用户的引用 |
 | signature_status_c | 签名状态 | 字符串(75) | 在Adobe Sign中保持协议状态 |
@@ -223,7 +223,7 @@ Adobe Sign协议生命周期具有以下状态：
 
    ![生命周期状态1的映像](images/lifecycle-state1.png)
 
-* **在Adobe Sign草稿中**:这是状态的占位符名称，指示文档已上载到Adobe Sign且其协议处于DRAFT状态。这是必需状态。 此状态必须遵循以下五个用户操作：
+* **在Adobe Sign草稿中**:这是状态的占位符名称，指示文档已上载到Adobe Sign且其协议处于DRAFT状态。这是必需状态。 此状态必须定义以下五个用户操作：
 
    * 将文档状态更改为&#x200B;*在Adobe Sign编辑中*&#x200B;状态的操作。 对于任何生命周期的所有文档类型，此用户操作的名称必须相同。 如有必要，可将此操作的条件设置为“允许Adobe Sign用户操作等于是”。
    * 将文档状态更改为&#x200B;*处于Adobe签名状态*&#x200B;的操作。 对于任何生命周期的所有文档类型，此用户操作的名称必须相同。 如有必要，可将此操作的条件设置为“允许Adobe Sign用户操作等于是”。
