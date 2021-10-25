@@ -15,7 +15,7 @@ ht-degree: 35%
 + [Adobe Sign集成](home.md)
 + [新增功能](whats-new.md)
 + [产品版本和生命周期](versions.md)
-+ Adobe Sign for [!DNL Workday] {#workday}
++ Adobe Sign [!DNL Workday] {#workday}
    + [安装指南](workday/install.md)
    + [快速入门指南](workday/quick-start.md)
    + [试用帐户设置指南](workday/trial-install.md)
