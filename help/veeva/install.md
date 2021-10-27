@@ -10,7 +10,7 @@ solution: Adobe Sign
 role: User, Developer
 topic: Integrations
 exl-id: 5d61a428-06e4-413b-868a-da296532c964
-source-git-commit: 45bc2d698396bb07c4a246930d34b7e2ad0f6648
+source-git-commit: 1c95f3eb0ddb077cad53a82b1a56358637839b16
 workflow-type: tm+mt
 source-wordcount: '3113'
 ht-degree: 2%
@@ -23,14 +23,14 @@ ht-degree: 2%
 
 ## 概览 {#overview}
 
-本文档介绍如何将Adobe Sign与[!DNL Veeva Vault]平台建立集成。 [!DNL Veeva Vault] 是为生命科学构建的企业内容管理(ECM)平台。“保管库”是一个内容和数据存储库，通常用于管理法规文件、研究报告、授权申请、一般合同等。 一个企业可以有多个“金库”，必须单独维护。
+本文档说明如何将Adobe Sign与 [!DNL Veeva Vault] 平台。 [!DNL Veeva Vault] 是为生命科学构建的企业内容管理(ECM)平台。 “保管库”是一个内容和数据存储库，通常用于管理法规文件、研究报告、授权申请、一般合同等。 一个企业可以有多个“金库”，必须单独维护。
 
 完成集成的高级步骤包括：
 
 * 在Adobe Sign中激活您的管理帐户（仅限新客户）
 * 创建对象以跟踪Vault中协议生命周期的历史记录。
 * 创建新的安全性配置文件。
-* 在Adobe Sign中配置组以容纳[!DNL Veeva Vault]集成用户。
+* 在Adobe Sign中配置组以保存 [!DNL Veeva Vault] 集成用户。
 * 创建文档字段和格式副本。
 * 配置Web操作并更新文档生命周期。
 * 创建文档类型用户和用户角色设置。
@@ -39,9 +39,9 @@ ht-degree: 2%
 >
 >Adobe Sign管理员必须在Adobe Sign中执行Adobe Sign设置步骤。
 
-## 配置[!DNL Veeva Vault]
+## 配置 [!DNL Veeva Vault]
 
-要配置[!DNL Veeva Vault]以与Adobe Sign集成，请创建某些对象，以帮助跟踪Vault中协议生命周期的历史记录。 管理员必须创建以下对象：
+配置 [!DNL Veeva Vault] 要与Adobe Sign集成，请创建某些对象，以帮助跟踪Vault中协议生命周期的历史记录。 管理员必须创建以下对象：
 
 * 签名
 * 签名人
@@ -115,7 +115,7 @@ ht-degree: 2%
 
 ## 创建安全性配置文件{#security-profiles}
 
-为了成功集成Vault，将创建一个名为&#x200B;*Adobe Sign集成配置文件*&#x200B;的新安全配置文件，并为&#x200B;*Adobe Sign管理操作*&#x200B;设置其权限。 Adobe Sign集成配置文件被分配给系统帐户，并由集成在调用Vault API时使用。 此配置允许以下用户具有以下权限：
+为了成功集成保管库，新的安全配置文件称为 *Adobe Sign集成配置文件* 已创建，其权限已设置 *Adobe Sign Admin Actions*. Adobe Sign集成配置文件被分配给系统帐户，并由集成在调用Vault API时使用。 此配置允许以下用户具有以下权限：
 
 * 保管库API
 * 读取、创建、编辑和删除：签名、签名者、签名事件和流程更衣器对象
@@ -128,7 +128,7 @@ ht-degree: 2%
 
 ## 创建组 {#create-group}
 
-要为[!DNL Vault]配置Adobe Sign，将创建一个名为&#x200B;*Adobe Sign管理组*&#x200B;的新组。 此组用于设置Adobe Sign相关字段的文档字段级别安全性，默认情况下应包括&#x200B;*Adobe Sign集成配置文件*。
+配置Adobe Sign [!DNL Vault]，名为 *Adobe Sign管理员组* 。 此组用于设置Adobe Sign相关字段的文档字段级别安全性，并应包括 *Adobe Sign集成配置文件* 默认情况下。
 
 ![签名事件详细信息的图像](images/create-admin-group.png)
 
@@ -145,7 +145,7 @@ Adobe Sign集成的Vault系统帐户用户必须：
 
 ## 创建应用程序角色 {#create-application-roles}
 
-必须创建名为&#x200B;*Adobe Sign Admin Role*&#x200B;的应用程序角色。 此角色必须在符合Adobe签名条件的每种文档类型的生命周期中定义。 对于Adobe Sign的每个特定生命周期状态，都会添加Adobe Sign管理员角色并使用相应的权限进行配置。
+必须创建名为 *Adobe Sign管理员角色*. 此角色必须在符合Adobe签名条件的每种文档类型的生命周期中定义。 对于Adobe Sign的每个特定生命周期状态，都会添加Adobe Sign管理员角色并使用相应的权限进行配置。
 
 ![创建应用程序角色的映像](images/create-application-roles.png)
 
@@ -162,13 +162,13 @@ Adobe Sign集成的Vault系统帐户用户必须：
 
 ![签名字段详细信息的图像](images/signature-field-details.png)
 
-管理员必须添加现有共享字段&#x200B;*禁用保管库叠加(disable_vault_overlays_v)*，并对于所有符合Adobe签名条件的文档类型将其设置为活动。 （可选）该字段可以具有特定的安全性，该安全性仅允许Adobe Sign管理员组的成员更新其值。
+管理员必须添加现有共享字段 *禁用保管库叠加(disable_vault_overlays__v)* 并对所有符合“Adobe签名”条件的文档类型将其设置为“活动”。 （可选）该字段可以具有特定的安全性，该安全性仅允许Adobe Sign管理员组的成员更新其值。
 
 ![允许adobe sign用户操作的图像](images/allow-adobe-sign-user-actions.png)
 
 ## 创建文档格式副本 {#create-renditions}
 
-管理员必须创建一个名为&#x200B;*Adobe Sign Rendition(adobe_sign_rendition__c)*&#x200B;的新格式副本类型，Vault集成使用该类型将已签名的PDF文档上载到Adobe Sign。 应为符合Adobe Sign签名条件的每种文档类型声明Adobe格式副本。
+管理员必须创建名为 *Adobe Sign Rendition(adobe_sign_rendition__c)*,Vault集成使用它将签名的PDF文档上载到Adobe Sign。 应为符合Adobe Sign签名条件的每种文档类型声明Adobe格式副本。
 
 ![再现类型的图像](images/rendition-type.png)
 
@@ -180,15 +180,11 @@ Adobe Sign和保管库集成要求您创建和配置以下两个Web操作：
 
 * **创建Adobe Sign**:它创建或显示Adobe Sign协议。
 
-   类型：文档
-目标：在Vault中显示
-URL:<https://{integrationDomain}/adobe-sign-int/signature?docId=${Document.id}&majVer=${Document.major_version_number__v}&minVer=${Document.minor_version_number__v}&sessionId=${Session.id}&vaultId=${Vault.Id>
+   类型：文档目标：在保管库URL中显示： <https://{integrationDomain}/veevavaultintsvc/partner/agreement?docId=${Document.id}&majVer=${Document.major_version_number__v}&minVer=${Document.minor_version_number__v}&vaultId=${Vault.Id>}
 
 * **取消Adobe Sign**:它取消Adobe Sign中的现有协议，并将文档的状态还原为初始状态。
 
-   类型：文档
-目标：在Vault中显示
-URL:<https://{integrationDomain}/adobe-sign-int/cancel?docId=${Document.id}&majVer=${Document.major_version_number__v}&minVer=${Document.minor_version_number__v}&sessionId=${Session.id}&vaultId=${Vault.Id>
+   类型：文档目标：在保管库URL中显示： <https://{integrationDomain}/veevavaultintsvc/partner/agreement/cancel?docId=${Document.id}&majVer=${Document.major_version_number__v}&minVer=${Document.minor_version_number__v}&vaultId=${Vault.Id>}
 
 ## 更新文档生命周期 {#document-lifecycle}
 
@@ -216,24 +212,24 @@ Adobe Sign协议生命周期具有以下状态：
 
 将Vault文档发送到Adobe Sign时，其状态应与协议所在的状态相对应。 为此，请在符合Adobe签名资格的文档使用的每个生命周期中添加以下状态：
 
-* **Adobe签名前** （已审阅）：这是一个占位符名称，用于表示文档可从中发送到Adobe Sign的状态。根据文档类型，它可以是“草稿”状态或“已审阅”。 可以根据客户的要求自定义文档状态标签。 在Adobe签名状态之前，必须定义以下两个用户操作：
+* **Adobe签名前** （已审阅）：这是一个占位符名称，用于表示文档可从中发送到Adobe Sign的状态。 根据文档类型，它可以是“草稿”状态或“已审阅”。 可以根据客户的要求自定义文档状态标签。 在Adobe签名状态之前，必须定义以下两个用户操作：
 
-   * 将文档状态更改为&#x200B;*在Adobe Sign Draft*&#x200B;状态的操作。 对于任何生命周期的所有文档类型，此用户操作的名称必须相同。 如有必要，可将此操作的条件设置为“允许Adobe Sign用户操作等于是”。
+   * 将文档状态更改为 *在Adobe Sign Draft* 状态。 对于任何生命周期的所有文档类型，此用户操作的名称必须相同。 如有必要，可将此操作的条件设置为“允许Adobe Sign用户操作等于是”。
    * 将Web操作称为“Adobe Sign”的操作。 此状态必须具有允许Adobe Sign管理员角色执行以下操作的安全性：查看文档、查看内容、编辑域、编辑关系、下载源、管理可查看的节目和更改状态。
 
    ![生命周期状态1的映像](images/lifecycle-state1.png)
 
-* **在Adobe Sign草稿中**:这是状态的占位符名称，指示文档已上载到Adobe Sign且其协议处于DRAFT状态。这是必需状态。 此状态必须定义以下五个用户操作：
+* **在Adobe Sign Draft**:这是状态的占位符名称，指示文档已上载到Adobe Sign且其协议处于DRAFT状态。 这是必需状态。 此状态必须定义以下五个用户操作：
 
-   * 将文档状态更改为&#x200B;*在Adobe Sign编辑中*&#x200B;状态的操作。 对于任何生命周期的所有文档类型，此用户操作的名称必须相同。 如有必要，可将此操作的条件设置为“允许Adobe Sign用户操作等于是”。
-   * 将文档状态更改为&#x200B;*处于Adobe签名状态*&#x200B;的操作。 对于任何生命周期的所有文档类型，此用户操作的名称必须相同。 如有必要，可将此操作的条件设置为“允许Adobe Sign用户操作等于是”。
-   * 将文档状态更改为&#x200B;*Adobe Sign Cancelled*&#x200B;状态的操作。 对于任何生命周期的所有文档类型，此用户操作的名称必须相同。 如有必要，可将此操作的条件设置为“允许Adobe Sign用户操作等于是”。
+   * 将文档状态更改为 *在Adobe Sign Authoring中* 状态。 对于任何生命周期的所有文档类型，此用户操作的名称必须相同。 如有必要，可将此操作的条件设置为“允许Adobe Sign用户操作等于是”。
+   * 将文档状态更改为 *处于Adobe签名状态*. 对于任何生命周期的所有文档类型，此用户操作的名称必须相同。 如有必要，可将此操作的条件设置为“允许Adobe Sign用户操作等于是”。
+   * 将文档状态更改为 *Adobe Sign已取消* 状态。 对于任何生命周期的所有文档类型，此用户操作的名称必须相同。 如有必要，可将此操作的条件设置为“允许Adobe Sign用户操作等于是”。
    * 将Web操作称为“Adobe Sign”的操作。
    * 调用Web动作“取消Adobe Sign”的动作。 此状态必须具有允许Adobe Sign管理员角色执行以下操作的安全性：查看文档、查看内容、编辑域、编辑关系、下载源、管理可查看的节目和更改状态。
 
    ![生命周期状态2的映像](images/lifecycle-state2.png)
 
-* **在Adobe Sign编辑中**:这是状态的占位符名称，指示文档已上载到Adobe Sign，且其协议处于“编辑”或“DOCUMENTS_NOT_YET_PROCESSED”状态。这是必需状态。 此状态必须定义以下四个用户操作：
+* **在Adobe Sign Authoring中**:这是状态的占位符名称，指示文档已上载到Adobe Sign，且其协议处于“编辑”或“DOCUMENTS_NOT_YET_PROCESSED”状态。 这是必需状态。 此状态必须定义以下四个用户操作：
 
    * 将文档状态更改为“Adobe Sign已取消”状态的操作。 无论生命周期是什么，所有文档类型的此用户操作的名称都必须相同。 如有必要，可将此操作的条件设置为“允许Adobe Sign用户操作等于是”。
    * 将文档状态更改为“正在Adobe签名”状态的操作。 无论生命周期是什么，所有文档类型的此用户操作的名称都必须相同。 如有必要，可将此操作的条件设置为“允许Adobe Sign用户操作等于是”。
@@ -242,17 +238,17 @@ Adobe Sign协议生命周期具有以下状态：
 
    ![生命周期状态3的映像](images/lifecycle-state3.png)
 
-* **在Adobe签名中**:这是状态的占位符名称，指示文档已上载到Adobe Sign且其协议已发送给参与者（OUT_FOR_SIGNATURE或OUT_FOR_APPROVAL状态）。这是必需状态。 此状态必须定义以下五个用户操作：
+* **在Adobe签名中**:这是状态的占位符名称，指示文档已上载到Adobe Sign且其协议已发送给参与者（OUT_FOR_SIGNATURE或OUT_FOR_APPROVAL状态）。 这是必需状态。 此状态必须定义以下五个用户操作：
 
    * 将文档状态更改为“Adobe Sign已取消”状态的操作。 此操作的目标状态可以是任何客户要求，也可以是不同类型的不同状态。 无论生命周期是什么，所有文档类型的此用户操作的名称都必须相同。 如有必要，可将此操作的条件设置为“允许Adobe Sign用户操作等于是”。
    * 将文档状态更改为“Adobe Sign拒绝”状态的操作。 此操作的目标状态可以是任何客户要求，也可以是不同类型的不同状态。 无论生命周期是什么，所有文档类型的此用户操作的名称都必须相同。 如有必要，可将此操作的条件设置为“允许Adobe Sign用户操作等于是”。
    * 将文档状态更改为“Adobe签名”状态的操作。 此操作的目标状态可以是任何客户要求，也可以是不同类型的不同状态。 但是，无论生命周期是什么，所有用户操作的名称都必须相同。 如有必要，可将此操作的条件设置为“允许Adobe Sign用户操作等于是”。
-   * 调用Web操作&#x200B;*Adobe Sign*&#x200B;的操作。
-   * 调用Web操作&#x200B;*取消Adobe Sign*&#x200B;的操作。 此状态必须具有允许Adobe Sign管理员角色执行以下操作的安全性：查看文档、查看内容、编辑域、编辑关系、下载源、管理可查看的节目和更改状态。
+   * 调用Web动作的动作 *Adobe Sign*.
+   * 调用Web动作的动作 *取消Adobe Sign*. 此状态必须具有允许Adobe Sign管理员角色执行以下操作的安全性：查看文档、查看内容、编辑域、编辑关系、下载源、管理可查看的节目和更改状态。
 
    ![生命周期状态4的映像](images/lifecycle-state4.png)
 
-* **Adobe已签名（已批准）**:这是状态的占位符名称，指示文档已上载到Adobe Sign且其协议已完成（“已签名”或“已批准”状态）。它是必需状态，可以是现有的生命周期状态，如“已批准”。
+* **Adobe已签名（已批准）**:这是状态的占位符名称，指示文档已上载到Adobe Sign且其协议已完成（“已签名”或“已批准”状态）。 它是必需状态，可以是现有的生命周期状态，如“已批准”。
 此状态不需要用户操作。 此状态必须具有允许Adobe Sign管理员角色执行以下操作的安全性：查看文档、查看内容和编辑域。
 
 下图演示了Adobe Sign协议和Vault文档状态之间的映射，其中“Adobe签名前”状态为“草稿”。
@@ -281,19 +277,19 @@ Adobe Sign协议生命周期具有以下状态：
 >
 >如果用户角色设置对象不包含引用文档类型组对象的字段，则应添加此字段。
 
-## 使用中间件将[!DNL Veeva Vault]连接到Adobe Sign {#connect-middleware}
+## 连接 [!DNL Veeva Vault] Adobe Sign使用中间件 {#connect-middleware}
 
-完成[!DNL Veeva Vault]和Adobe Sign Admin帐户的设置后，管理员必须使用中间件在两个帐户之间创建连接。 [!DNL Veeva Vault]和Adobe Sign帐户连接由Adobe Sign Identity启动，然后用于存储Veeva Vault标识。
-为了系统安全性和稳定性，管理员必须使用专用的[!DNL Veeva Vault]系统/服务/实用程序帐户（如`adobe.for.veeva@xyz.com`），而不是个人用户帐户（如`bob.smith@xyz.com`）。
+在完成 [!DNL Veeva Vault] 和Adobe Sign管理员帐户，管理员必须使用中间件在两个帐户之间创建连接。 在 [!DNL Veeva Vault] 和Adobe Sign帐户连接由Adobe Sign Identity启动，然后用于存储Veeva Vault标识。
+为了系统安全性和稳定性，管理员必须使用专用 [!DNL Veeva Vault] 系统/服务/实用程序帐户，例如 `adobe.for.veeva@xyz.com`，而不是个人用户帐户，例如 `bob.smith@xyz.com`.
 
-Adobe Sign帐户管理员必须按照以下步骤使用中间件将[!DNL Veeva Vault]连接到Adobe Sign:
+Adobe Sign帐户管理员必须按照以下步骤进行连接 [!DNL Veeva Vault] Adobe Sign使用中间件：
 
-1. 转到 [!DNL Veeva Vault] 主页](https://static.adobesigncdn.com/veevavaultintsvc/index.html)的[Adobe Sign。
-1. 从右上角选择&#x200B;**[!UICONTROL 登录]**。
+1. 转到 [Adobe Sign [!DNL Veeva Vault] 主页](https://static.adobesigncdn.com/veevavaultintsvc/index.html).
+1. 选择 **[!UICONTROL 登录]** 从右上角。
 
    ![中间件登录映像](images/middleware_login.png)
 
-1. 在打开的Adobe Sign登录页中，提供帐户管理员电子邮件和密码，然后选择&#x200B;**[!UICONTROL 在]**&#x200B;中使用。
+1. 在打开的Adobe Sign登录页中，提供帐户管理员的电子邮件和密码，然后选择 **[!UICONTROL 唱歌]**.
 
    ![图像](images/middleware-signin.png)
 
@@ -301,33 +297,33 @@ Adobe Sign帐户管理员必须按照以下步骤使用中间件将[!DNL Veeva V
 
    ![图像](images/middleware_settings.png)
 
-1. 选择&#x200B;**[!UICONTROL 设置]**&#x200B;选项卡。
+1. 选择 **[!UICONTROL 设置]** 按钮。
 
    “设置”页面显示可用的连接，在首次设置连接时不显示任何连接，如下所示。
 
    ![图像](images/middleware_newconnection.png)
 
-1. 选择&#x200B;**[!UICONTROL 添加连接]**&#x200B;以添加新连接。
+1. 选择 **[!UICONTROL 添加连接]** 添加新连接。
 
-1. 在打开的“添加连接”对话框中，提供所需的详细信息，包括[!DNL Veeva Vault]凭据。
+1. 在打开的“添加连接”对话框中，提供所需的详细信息，包括 [!DNL Veeva Vault] 凭据。
 
    Adobe Sign凭据会从初始Adobe Sign登录中自动填充。
 
    ![图像](images/middleware_addconnection.png)
 
-1. 选择&#x200B;**[!UICONTROL 验证]**&#x200B;以验证帐户详细信息。
+1. 选择 **[!UICONTROL 验证]** 以验证帐户详细信息。
 
    成功验证后，您会看到“用户验证成功”通知，如下所示。
 
    ![图像](images/middleware_validated.png)
 
-1. 要限制对特定Adobe Sign组的使用，请展开&#x200B;**[!UICONTROL 组]**&#x200B;下拉列表，然后选择可用组之一。
+1. 要限制对特定Adobe Sign组的使用，请展开 **[!UICONTROL 组]** 下拉列表，然后选择一个可用组。
 
    ![图像](images/middleware_group.png)
 
-1. 选择&#x200B;**[!UICONTROL 保存]**&#x200B;以保存新连接。
+1. 选择 **[!UICONTROL 保存]** 以保存新连接。
 
-   新连接显示在“设置”选项卡下，显示[!DNL Veeva Vault]和Adobe Sign之间的成功集成。
+   新连接显示在“设置”选项卡下，显示成功集成 [!DNL Veeva Vault] 和Adobe Sign。
 
    ![图像](images/middleware_setup.png)
 
@@ -347,7 +343,7 @@ Adobe Sign帐户管理员必须按照以下步骤使用中间件将[!DNL Veeva V
 
 **步骤6.** 为需要访问Vault中Adobe Sign历史记录的用户将所有安全配置文件的读者权限分配给“签名”、“签名”和“签名事件”对象。
 
-**第7步。** 在符合Adobe Sign签名资格的每种文档类型的生命周期中定义Admin Role。对于每个Adobe Sign特定的生命周期状态，将添加此角色并使用相应的权限进行配置。
+**第7步。** 在符合Adobe Sign签名资格的每种文档类型的生命周期中定义Admin Role。 对于每个Adobe Sign特定的生命周期状态，将添加此角色并使用相应的权限进行配置。
 
 **第8步。** 为符合Adobe Sign签名条件的每种文档类型声明Adobe Rendition。
 
@@ -355,7 +351,7 @@ Adobe Sign帐户管理员必须按照以下步骤使用中间件将[!DNL Veeva V
 
 **第10步。** 为所有符合Adobe Sign流程条件的文档分类添加名为“Adobe Sign文档”的文档类型组。
 
-**第11步。** 完成所有配置后，系统应确保Adobe Sign Admin用户由DAC添加，以用于所有符合Adobe Sign进程条件的文档。为此，请创建相应的用户角色设置记录，将文档类型组指定为“Adobe Sign文档”，将应用程序角色指定为“Adobe Sign管理员角色”和集成用户。
+**第11步。** 完成所有配置后，系统应确保Adobe Sign Admin用户由DAC添加，以用于所有符合Adobe Sign进程条件的文档。 为此，请创建相应的用户角色设置记录，将文档类型组指定为“Adobe Sign文档”，将应用程序角色指定为“Adobe Sign管理员角色”和集成用户。
 
 ### 特定部署生命周期 {#specific-deployment}
 
