@@ -10,9 +10,9 @@ solution: Adobe Sign
 role: User, Developer
 topic: Integrations
 exl-id: 5d61a428-06e4-413b-868a-da296532c964
-source-git-commit: 1c95f3eb0ddb077cad53a82b1a56358637839b16
+source-git-commit: 7ded835b48519cba656f160e691c697c91e2c8d0
 workflow-type: tm+mt
-source-wordcount: '3113'
+source-wordcount: '3131'
 ht-degree: 2%
 
 ---
@@ -39,7 +39,7 @@ ht-degree: 2%
 >
 >Adobe Sign管理员必须在Adobe Sign中执行Adobe Sign设置步骤。
 
-## 配置 [!DNL Veeva Vault]
+## 配置 [!DNL Veeva Vault] {#configure-veeva}
 
 配置 [!DNL Veeva Vault] 要与Adobe Sign集成，请创建某些对象，以帮助跟踪Vault中协议生命周期的历史记录。 管理员必须创建以下对象：
 
@@ -180,11 +180,11 @@ Adobe Sign和保管库集成要求您创建和配置以下两个Web操作：
 
 * **创建Adobe Sign**:它创建或显示Adobe Sign协议。
 
-   类型：文档目标：在保管库URL中显示： <https://{integrationDomain}/veevavaultintsvc/partner/agreement?docId=${Document.id}&majVer=${Document.major_version_number__v}&minVer=${Document.minor_version_number__v}&vaultId=${Vault.Id>}
+   类型：文档目标：在保管库URL中显示： <https://api.na1.adobesign.com/api/gateway/veevavaultintsvc/partner/agreement?docId=${Document.id}&majVer=${Document.major_version_number__v}&minVer=${Document.minor_version_number__v}&vaultid=${Vault.id}&useWaitPage=true>
 
 * **取消Adobe Sign**:它取消Adobe Sign中的现有协议，并将文档的状态还原为初始状态。
 
-   类型：文档目标：在保管库URL中显示： <https://{integrationDomain}/veevavaultintsvc/partner/agreement/cancel?docId=${Document.id}&majVer=${Document.major_version_number__v}&minVer=${Document.minor_version_number__v}&vaultId=${Vault.Id>}
+   类型：文档目标：在保管库URL中显示：: <https://api.na1.adobesign.com/api/gateway/veevavaultintsvc/partner/agreement/cancel?docId=${Document.id}&majVer=${Document.major_version_number__v}&minVer=${Document.minor_version_number__v}&vaultid=${Vault.id}&useWaitPage=true>
 
 ## 更新文档生命周期 {#document-lifecycle}
 
@@ -217,7 +217,7 @@ Adobe Sign协议生命周期具有以下状态：
    * 将文档状态更改为 *在Adobe Sign Draft* 状态。 对于任何生命周期的所有文档类型，此用户操作的名称必须相同。 如有必要，可将此操作的条件设置为“允许Adobe Sign用户操作等于是”。
    * 将Web操作称为“Adobe Sign”的操作。 此状态必须具有允许Adobe Sign管理员角色执行以下操作的安全性：查看文档、查看内容、编辑域、编辑关系、下载源、管理可查看的节目和更改状态。
 
-   ![生命周期状态1的映像](images/lifecycle-state1.png)
+      ![生命周期状态1的映像](images/lifecycle-state1.png)
 
 * **在Adobe Sign Draft**:这是状态的占位符名称，指示文档已上载到Adobe Sign且其协议处于DRAFT状态。 这是必需状态。 此状态必须定义以下五个用户操作：
 
@@ -227,7 +227,7 @@ Adobe Sign协议生命周期具有以下状态：
    * 将Web操作称为“Adobe Sign”的操作。
    * 调用Web动作“取消Adobe Sign”的动作。 此状态必须具有允许Adobe Sign管理员角色执行以下操作的安全性：查看文档、查看内容、编辑域、编辑关系、下载源、管理可查看的节目和更改状态。
 
-   ![生命周期状态2的映像](images/lifecycle-state2.png)
+      ![生命周期状态2的映像](images/lifecycle-state2.png)
 
 * **在Adobe Sign Authoring中**:这是状态的占位符名称，指示文档已上载到Adobe Sign，且其协议处于“编辑”或“DOCUMENTS_NOT_YET_PROCESSED”状态。 这是必需状态。 此状态必须定义以下四个用户操作：
 
@@ -236,7 +236,7 @@ Adobe Sign协议生命周期具有以下状态：
    * 将Web操作称为“Adobe Sign”的操作
    * 调用Web动作“取消Adobe Sign”的动作。 此状态必须具有允许Adobe Sign管理员角色执行以下操作的安全性：查看文档、查看内容、编辑域、编辑关系、下载源、管理可查看的节目和更改状态。
 
-   ![生命周期状态3的映像](images/lifecycle-state3.png)
+      ![生命周期状态3的映像](images/lifecycle-state3.png)
 
 * **在Adobe签名中**:这是状态的占位符名称，指示文档已上载到Adobe Sign且其协议已发送给参与者（OUT_FOR_SIGNATURE或OUT_FOR_APPROVAL状态）。 这是必需状态。 此状态必须定义以下五个用户操作：
 
@@ -246,7 +246,7 @@ Adobe Sign协议生命周期具有以下状态：
    * 调用Web动作的动作 *Adobe Sign*.
    * 调用Web动作的动作 *取消Adobe Sign*. 此状态必须具有允许Adobe Sign管理员角色执行以下操作的安全性：查看文档、查看内容、编辑域、编辑关系、下载源、管理可查看的节目和更改状态。
 
-   ![生命周期状态4的映像](images/lifecycle-state4.png)
+      ![生命周期状态4的映像](images/lifecycle-state4.png)
 
 * **Adobe已签名（已批准）**:这是状态的占位符名称，指示文档已上载到Adobe Sign且其协议已完成（“已签名”或“已批准”状态）。 它是必需状态，可以是现有的生命周期状态，如“已批准”。
 此状态不需要用户操作。 此状态必须具有允许Adobe Sign管理员角色执行以下操作的安全性：查看文档、查看内容和编辑域。
@@ -262,6 +262,8 @@ Adobe Sign协议生命周期具有以下状态：
 管理员必须创建名为“Adobe Sign文档”的新文档类型组记录。 此文档类型组将添加到符合Adobe Sign流程条件的所有文档分类中。 由于文档类型组属性不是从类型继承到子类型，也不是从子类型继承到分类级别，因此必须为每个符合Adobe Sign条件的文档分类设置该属性。
 
 ![文档类型的图像](images/document-type.png)
+
+![文档类型的图像](images/document-edit-details.png)
 
 ### 创建用户角色设置 {#create-user-role-setup}
 
@@ -335,13 +337,13 @@ Adobe Sign帐户管理员必须按照以下步骤进行连接 [!DNL Veeva Vault]
 
 **步骤 2.** 创建一个名为“Adobe Sign文档”的新文档类型组。
 
-**步骤 3.** 部署包。
+**步骤 3.** [部署包](https://helpx.adobe.com/content/dam/help/en/PKG-AdobeSign-Integration.zip).
 
 **步骤4.** 新建一个名为“Adobe Sign管理组”的用户管理组。
 
 **步骤5.** 使用安全配置文件“Adobe Sign集成配置文件”创建集成用户配置文件，并将其分配给Adobe Sign管理组。
 
-**步骤6.** 为需要访问Vault中Adobe Sign历史记录的用户将所有安全配置文件的读者权限分配给“签名”、“签名”和“签名事件”对象。
+**步骤6.** 为需要访问Vault中Adobe Sign历史记录的用户将所有安全配置文件的阅读器权限分配给签名、签名和签名事件对象。
 
 **第7步。** 在符合Adobe Sign签名资格的每种文档类型的生命周期中定义Admin Role。 对于每个Adobe Sign特定的生命周期状态，将添加此角色并使用相应的权限进行配置。
 
@@ -359,7 +361,7 @@ Adobe Sign帐户管理员必须按照以下步骤进行连接 [!DNL Veeva Vault]
 
 **步骤 2.** 新建一个名为“Adobe Sign文档”的文档类型组。
 
-**步骤 3.** 部署包。
+**步骤 3.** [部署包](https://helpx.adobe.com/content/dam/help/en/PKG-AdobeSign-Integration.zip).
 
 **步骤4.** 创建一个名为“Adobe Sign管理组”的新用户管理组。
 
