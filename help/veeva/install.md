@@ -10,9 +10,9 @@ solution: Adobe Sign
 role: User, Developer
 topic: Integrations
 exl-id: 5d61a428-06e4-413b-868a-da296532c964
-source-git-commit: aef70e46f24bb019b07092d84d69519fe16846e4
+source-git-commit: 1cf95ee799d0a349636027db0c06467f4529663c
 workflow-type: tm+mt
-source-wordcount: '3163'
+source-wordcount: '3164'
 ht-degree: 2%
 
 ---
@@ -363,7 +363,7 @@ Adobe Sign帐户管理员必须按照以下步骤进行连接 [!DNL Veeva Vault]
 
 **第10步。** 为所有符合Adobe Sign流程条件的文档分类添加名为“Adobe Sign文档”的文档类型组。
 
-**第11步。** 完成所有配置后，系统应确保Adobe Sign Admin用户由DAC添加，以用于所有符合Adobe Sign进程条件的文档。 为此，请创建相应的用户角色设置记录，将文档类型组指定为“Adobe Sign文档”，将应用程序角色指定为“Adobe Sign管理员角色”和集成用户。
+**第11步。** 完成所有配置后，系统应确保Adobe Sign Admin用户由DAC添加，以用于所有符合Adobe Sign进程资格的文档。 为此，请创建相应的用户角色设置记录，将文档类型组指定为“Adobe Sign文档”，将应用程序角色指定为“Adobe Sign管理员角色”和集成用户。
 
 ### 特定部署生命周期 {#specific-deployment}
 
