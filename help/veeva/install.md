@@ -10,9 +10,9 @@ solution: Adobe Sign
 role: User, Developer
 topic: Integrations
 exl-id: 5d61a428-06e4-413b-868a-da296532c964
-source-git-commit: 7ded835b48519cba656f160e691c697c91e2c8d0
+source-git-commit: aef70e46f24bb019b07092d84d69519fe16846e4
 workflow-type: tm+mt
-source-wordcount: '3131'
+source-wordcount: '3163'
 ht-degree: 2%
 
 ---
@@ -182,9 +182,13 @@ Adobe Sign和保管库集成要求您创建和配置以下两个Web操作：
 
    类型：文档目标：在保管库URL中显示： <https://api.na1.adobesign.com/api/gateway/veevavaultintsvc/partner/agreement?docId=${Document.id}&majVer=${Document.major_version_number__v}&minVer=${Document.minor_version_number__v}&vaultid=${Vault.id}&useWaitPage=true>
 
+   ![创建Adobe Sign的图像](images/create-adobe-sign.png)
+
 * **取消Adobe Sign**:它取消Adobe Sign中的现有协议，并将文档的状态还原为初始状态。
 
    类型：文档目标：在保管库URL中显示：: <https://api.na1.adobesign.com/api/gateway/veevavaultintsvc/partner/agreement/cancel?docId=${Document.id}&majVer=${Document.major_version_number__v}&minVer=${Document.minor_version_number__v}&vaultid=${Vault.id}&useWaitPage=true>
+
+   ![取消图像Adobe Sign](images/cancel-adobe-sign.png)
 
 ## 更新文档生命周期 {#document-lifecycle}
 
@@ -192,12 +196,16 @@ Adobe Sign和保管库集成要求您创建和配置以下两个Web操作：
 
 ### 生命周期角色 {#lifecycle-role}
 
-Adobe Sign管理应用程序角色必须添加到符合Adobe签名资格的文档使用的所有生命周期中。 应使用以下选项创建此角色：
-
-* 启用动态访问控制
-* 仅包含文档类型组的文档共享规则
+Adobe SignAdobe角色必须添加到有资格进行管理签名的文档使用的所有生命周期中，如下所示。
 
 ![生命周期管理员角色的映像](images/document-lifecycle-admin-role.png)
+
+应使用以下选项创建管理员角色：
+
+* 已启用动态访问控制。
+* 仅包含“文档类型组”的文档共享规则，如下图所示。
+
+![adobe sign共享规则的图像](images/adobe-sign-sharing-rule.png)
 
 ### 生命周期状态 {#lifecycle-states}
 
@@ -263,7 +271,9 @@ Adobe Sign协议生命周期具有以下状态：
 
 ![文档类型的图像](images/document-type.png)
 
-![文档类型的图像](images/document-edit-details.png)
+![文档编辑详细信息的图像](images/document-edit-details.png)
+
+![文档类型组的图像](images/document-type-groups.png)
 
 ### 创建用户角色设置 {#create-user-role-setup}
 
