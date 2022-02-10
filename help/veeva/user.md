@@ -9,9 +9,9 @@ solution: Adobe Sign
 role: User, Developer
 topic: Integrations
 exl-id: 39a43637-af3f-432e-a784-8f472aa86df5
-source-git-commit: e1394c24aebd1e026eb6c5a33935149f33ef8ea4
+source-git-commit: f460f23ac3e412b527a91668561fff48ac518941
 workflow-type: tm+mt
-source-wordcount: '668'
+source-wordcount: '667'
 ht-degree: 2%
 
 ---
@@ -20,7 +20,7 @@ ht-degree: 2%
 
 [**联系 Adobe Sign 技术支持**](https://adobe.com/go/adobesign-support-center_cn)
 
-本文档旨在帮助您 [!DNL Veeva Vault] 客户了解如何使用Adobe Sign for [!DNL Veeva Vault] 集成，以发送协议。
+本文档旨在帮助您 [!DNL Veeva Vault] 客户了解如何使用Adobe Sign for [!DNL Veeva Vault] 用于发送协议的集成。
 
 ## 概览 {#overview}
 
@@ -30,7 +30,7 @@ Adobe Sign与 [!DNL Veeva Vault] 对于需要合法签名或可审核文档处�
 
 Adobe Sign与 [!DNL Veeva Vault] 简化并加速您的文档和签名工作流程。 通过使用集成工作流程，您可以：
 
-* 节省了在邮寄、隔夜和传真上花费的时间和资源。
+* 节省在蜗牛邮件、邮寄或传真上花费的时间和资源。
 * 发送合同以进行电子签名或审批 [!DNL Veeva Vault]、访问实时合同历史记录，并查看保存的合同。
 * 实时跟踪贵组织中的交易，并在查看、签署、取消或拒绝协议时获取更新。
 * 使用 20 多种语言进行电子签名，并在全球 50 多个区域支持回传服务.
@@ -103,7 +103,7 @@ Adobe Sign与 [!DNL Veeva Vault] 简化并加速您的文档和签名工作流�
 
    ![](images/iFrame-contact-administrator.png)
 
-1. 处理文档后，将签名字段从右侧面板拖放并选择 **[!UICONTROL 发送]**&#x200B;的
+1. 处理文档后，从右侧面板拖放签名字段并选择 **[!UICONTROL 发送]**&#x200B;的
 
    ![](images/add-signature-fields.png)
 

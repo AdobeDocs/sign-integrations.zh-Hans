@@ -10,9 +10,9 @@ solution: Adobe Sign
 role: User, Developer
 topic: Integrations
 exl-id: 5d61a428-06e4-413b-868a-da296532c964
-source-git-commit: f647d0573f3e44f5a7e7997a309a8d18886959be
+source-git-commit: f460f23ac3e412b527a91668561fff48ac518941
 workflow-type: tm+mt
-source-wordcount: '3317'
+source-wordcount: '3319'
 ht-degree: 2%
 
 ---
@@ -27,7 +27,7 @@ ht-degree: 2%
 
 完成集成的高级步骤包括：
 
-* 在Adobe Sign中激活您的管理帐户（仅限新客户）
+* 在Adobe Sign中激活您的管理帐户（仅限新客户）。
 * 在Vault中创建对象以跟踪协议生命周期的历史记录。
 * 创建新的安全性配置文件。
 * 在Adobe Sign中配置组以容纳 [!DNL Veeva Vault] 集成用户。
@@ -41,7 +41,7 @@ ht-degree: 2%
 
 ## 配置 [!DNL Veeva Vault] {#configure-veeva}
 
-要配置 [!DNL Veeva Vault] 要与Adobe Sign集成，您需要实施以下步骤：
+要配置 [!DNL Veeva Vault] 要与Adobe Sign集成，您需要实施下面列出的步骤。
 
 ### 步骤 1. 创建组 {#create-group}
 
@@ -194,7 +194,7 @@ Adobe Sign集成的Vault系统帐户用户必须：
 
 ![用户角色设置的图像](images/user-role-setup.png)
 
-**注意：** 如果用户角色设置对象不包含引用文档类型组对象的字段，则必须添加该字段。 要执行此操作，请转到对象>用户角色设置>字段，并完成所需步骤，如下图所示。
+**注意：** 如果用户角色设置对象不包含引用文档类型组对象的字段，则必须添加该字段。 为此，请转到 **[!UICONTROL 对象]** > **[!UICONTROL 用户角色设置]** > **[!UICONTROL 字段]** 并完成所需的步骤，如下图所示。
 
 ![用户角色设置的图像](images/create-setup-field.png)
 
@@ -209,13 +209,13 @@ Adobe Sign集成的Vault系统帐户用户必须：
 
 要设置文档字段，请执行以下操作：
 
-1. 转到“配置”选项卡并选择 **文档字段** > **共享字段**&#x200B;的
-1. 在显示区段字段中，选择创建显示区段并分配Adobe签名作为区段标签。
+1. 转到“配置”选项卡并选择 **[!UICONTROL 文档字段]** > **[!UICONTROL 共享字段]**&#x200B;的
+1. 在“显示区段”字段中，选择 **[!UICONTROL 创建显示部分]** 和分配 **[!UICONTROL Adobe签名]** 作为章节标签。
 
    ![文档详细信息的图像](images/create-display-section.png)
 
-1. 对于两个共享文档字段(signature__c和allow_adobe_sign_user_actions__c)，请使用“Adobe签名”部分标签更新UI部分。
-1. 将这三个共享字段添加到所有符合文档签名条件的Adobe类型。 为此，在“基本文档”页面中，选择 **添加** > **现有共享字段** 右上角。
+1. 对于两个共享文档字段(signature__c和allow_adobe_sign_user_actions__c)，请使用以下内容更新UI部分： **[!UICONTROL Adobe签名]** 作为章节标签。
+1. 将这三个共享字段添加到所有符合文档签名条件的Adobe类型。 为此，请在“基本文档”页面中选择 **[!UICONTROL 添加]** > **[!UICONTROL 现有共享字段]** 右上角。
 
    ![文档详细信息的图像](images/add-existing-fields.png)
 
@@ -225,13 +225,13 @@ Adobe Sign集成的Vault系统帐户用户必须：
 
    ![文档详细信息的图像](images/security-overrides.png)
 
-1. 管理员必须添加现有的共享字段 *禁用电子仓库叠加(disable_vault_overlays__v)* 对于所有有资格使用“Adobe签名”的文档类型，请将其设置为“活动”。 或者，该字段可以具有特定的安全性，该安全性仅允许Adobe Sign管理员组的成员更新其值。
+1. 管理员必须添加现有的共享字段 *禁用电子仓库叠加(disable_vault_overlays__v)* 并将其设置为 **[!UICONTROL 活动]** 适用于符合“Adobe签名”的所有文档类型。 或者，该字段可以具有特定的安全性，该安全性仅允许Adobe Sign管理员组的成员更新其值。
 
    ![允许Adobe Sign用户操作的图像](images/allow-adobe-sign-user-actions.png)
 
 ### 步骤 8. 声明文档演绎版 {#declare-renditions}
 
-Vault集成使用名为*Adobe Sign Rendition(adobe_sign_rendition__c)的新格式副本类型将已签名的PDF文档上传到Adobe Sign。 应针对有资格使用“Adobe签名”的每个文档类型声明Adobe Sign呈现形式。
+新的格式副本类型称为 *Adobe Sign Rendition(adobe_sign_rendition__c)* 由Vault集成用于将已签名的PDF文档上传到Adobe Sign。 您必须为每个文档类型声明Adobe Sign格式副本，才有资格进行Adobe签名。
 
 ![呈现类型的图像](images/rendition-type.png)
 
@@ -255,22 +255,20 @@ Adobe Sign和Vault集成要求您创建和配置以下两个Web操作：
 
 ### 步骤 10. 更新文档生命周期 {#document-lifecycle}
 
-对于有资格进行Adobe签名的每种文档类型，必须通过添加新生命周期角色和状态来更新相应的文档生命周期。
+对于符合“Adobe签名”条件的每个文档类型，您都必须通过添加新生命周期角色和状态来更新相应的文档生命周期。
 
 Adobe Sign协议生命周期包括以下状态：
 
-    *草稿
-    * AUTHORING或DOCUMENTS_NOT_YET_PROCESSED
-    * OUT_FOR_SIGNATURE或OUT_FOR_APPROVAL
-    *已签名或已批准
-    *已取消
-    *已过期
+* 草稿
+* AUTHORING或DOCUMENTS_NOT_YET_PROCESSED
+* OUT_FOR_SIGNATURE或OUT_FOR_APPROVAL
+* 已签名或已批准
+* 已取消
+* 已过期
 
 要更新文档生命周期，请执行以下步骤：
 
-1. 添加生命周期角色
-
-   必须将Adobe Sign管理员应用程序角色添加到有资格进行Adobe签名的文档使用的所有生命周期中，如下所示。
+1. 添加生命周期角色。 必须将Adobe Sign管理员应用程序角色添加到有资格进行Adobe签名的文档使用的所有生命周期中，如下所示。
 
    ![生命周期管理角色图像](images/document-lifecycle-admin-role.png)
 
@@ -281,27 +279,32 @@ Adobe Sign协议生命周期包括以下状态：
 
    ![Adobe Sign共享规则的图像](images/adobe-sign-sharing-rule.png)
 
-2. 创建生命周期状态。 为此，请转到 **设置** > **配置** > **文档生命周期** > **一般生命周期** > **状态** > **创建**&#x200B;的 接下来，创建以下状态：
+2. 创建生命周期状态。 为此，请转到 **[!UICONTROL 设置]** > **[!UICONTROL 配置]** > **[!UICONTROL 文档生命周期]** > **[!UICONTROL 一般生命周期]** > **[!UICONTROL 状态]** > **[!UICONTROL 创建]**&#x200B;的 接下来，创建以下状态：
 
    * 在Adobe Sign Draft中
-      ![Adobe Sign共享规则的图像](images/create-draft-state.png)
+
+   ![Adobe Sign共享规则的图像](images/create-draft-state.png)
+
    * 在Adobe Sign Authoring中
-      ![Adobe Sign共享规则的图像](images/create-authoring-state.png)
+
+   ![Adobe Sign共享规则的图像](images/create-authoring-state.png)
+
    * Adobe签名
-      ![Adobe Sign共享规则的图像](images/create-signing-state.png)
+
+   ![Adobe Sign共享规则的图像](images/create-signing-state.png)
 
 3. 将用户操作添加到以下列出的状态。
 
    将Vault文档发送到Adobe Sign时，其状态应对应于协议所处的状态。 为此，请在符合“Adobe签名”条件的文档所使用的每个生命周期中添加以下状态：
 
-* **进行Adobe签名** （审阅）：这是文档可以从中发送到Adobe Sign的状态的占位符名称。 根据文档类型，可以将其设为“草稿”状态或“审阅”。 可以根据客户要求自定义文档状态标签。 在“Adobe签名”状态之前，必须定义以下两个用户操作：
+   * **进行Adobe签名** （审阅）：这是文档可以从中发送到Adobe Sign的状态的占位符名称。 根据文档类型，可以将其设为“草稿”状态或“审阅”。 可以根据客户要求自定义文档状态标签。 在“Adobe签名”状态之前，必须定义以下两个用户操作：
 
    * 将文档状态更改为 *在Adobe Sign Draft中* 状态。 对于任何生命周期的所有文档类型，此用户操作的名称必须相同。 如有必要，可将此操作的条件设置为“允许Adobe Sign用户操作等于是”。
    * 调用Web操作“Adobe Sign”的操作。 此状态必须具有允许Adobe Sign管理员角色执行以下操作的安全性：查看文档、查看内容、编辑字段、编辑关系、下载源、管理可查看的呈现形式以及更改状态。
 
-      ![生命周期状态1的图像](images/lifecycle-state1.png)
+   ![生命周期状态1的图像](images/lifecycle-state1.png)
 
-* **在Adobe Sign Draft中**:这是一个占位符名称，表示文档已上载至Adobe Sign，且其协议处于“草稿”状态。 这是必需状态。 此状态必须定义以下五个用户操作：
+   * **在Adobe Sign Draft中**:这是一个占位符名称，表示文档已上载至Adobe Sign，且其协议处于“草稿”状态。 这是必需状态。 此状态必须定义以下五个用户操作：
 
    * 将文档状态更改为 *在Adobe Sign Authoring中* 状态。 对于任何生命周期的所有文档类型，此用户操作的名称必须相同。 如有必要，可将此操作的条件设置为“允许Adobe Sign用户操作等于是”。
    * 将文档状态更改为 *处于Adobe签名状态*&#x200B;的 对于任何生命周期的所有文档类型，此用户操作的名称必须相同。 如有必要，可将此操作的条件设置为“允许Adobe Sign用户操作等于是”。
@@ -309,18 +312,18 @@ Adobe Sign协议生命周期包括以下状态：
    * 调用Web操作“Adobe Sign”的操作。
    * 调用Web操作“取消Adobe Sign”的操作。 此状态必须具有允许Adobe Sign管理员角色执行以下操作的安全性：查看文档、查看内容、编辑字段、编辑关系、下载源、管理可查看的呈现形式以及更改状态。
 
-      ![生命周期状态2的图像](images/lifecycle-state2.png)
+   ![生命周期状态2的图像](images/lifecycle-state2.png)
 
-* **在Adobe Sign Authoring中**:这是指示文档已上载到Adobe Sign及其协议处于AUTHORING或DOCUMENTS_NOT_YET_PROCESSED状态的状态的状态的占位符名称。 这是必需状态。 此状态必须定义了以下四个用户操作：
+   * **在Adobe Sign Authoring中**:这是指示文档已上载到Adobe Sign及其协议处于AUTHORING或DOCUMENTS_NOT_YET_PROCESSED状态的状态的状态的占位符名称。 这是必需状态。 此状态必须定义了以下四个用户操作：
 
    * 将文档状态更改为“Adobe Sign已取消”状态的操作。 无论生命周期如何，此用户操作的名称对于所有文档类型都必须相同。 如有必要，可将此操作的条件设置为“允许Adobe Sign用户操作等于是”。
    * 将文档状态更改为“进行Adobe签名”状态的操作。 无论生命周期如何，此用户操作的名称对于所有文档类型都必须相同。 如有必要，可将此操作的条件设置为“允许Adobe Sign用户操作等于是”。
    * 调用Web操作“Adobe Sign”的操作
    * 调用Web操作“取消Adobe Sign”的操作。 此状态必须具有允许Adobe Sign管理员角色执行以下操作的安全性：查看文档、查看内容、编辑字段、编辑关系、下载源、管理可查看的呈现形式以及更改状态。
 
-      ![生命周期状态3的图像](images/lifecycle-state3.png)
+   ![生命周期状态3的图像](images/lifecycle-state3.png)
 
-* **Adobe签名**:这是指示文档已上载到Adobe Sign且其协议已发送给参与者的状态的占位符名称（OUT_FOR_SIGNATURE或OUT_FOR_APPROVAL状态）。 这是必需状态。 此状态必须定义了以下五个用户操作：
+   * **Adobe签名**:这是指示文档已上载到Adobe Sign且其协议已发送给参与者的状态的占位符名称（OUT_FOR_SIGNATURE或OUT_FOR_APPROVAL状态）。 这是必需状态。 此状态必须定义了以下五个用户操作：
 
    * 将文档状态更改为“Adobe Sign已取消”状态的操作。 此操作的目标状态可以是任何客户要求，也可以是不同类型的不同状态。 无论生命周期如何，此用户操作的名称对于所有文档类型都必须相同。 如有必要，可将此操作的条件设置为“允许Adobe Sign用户操作等于是”。
    * 将文档状态更改为“Adobe Sign已拒绝”状态的操作。 此操作的目标状态可以是任何客户要求，也可以是不同类型的不同状态。 无论生命周期如何，此用户操作的名称对于所有文档类型都必须相同。 如有必要，可将此操作的条件设置为“允许Adobe Sign用户操作等于是”。
@@ -328,14 +331,14 @@ Adobe Sign协议生命周期包括以下状态：
    * 调用Web操作的操作 *Adobe Sign*&#x200B;的
    * 调用Web操作的操作 *取消Adobe Sign*&#x200B;的 此状态必须具有允许Adobe Sign管理员角色执行以下操作的安全性：查看文档、查看内容、编辑字段、编辑关系、下载源、管理可查看的呈现形式以及更改状态。
 
-      ![生命周期状态4的图像](images/lifecycle-state4.png)
+   ![生命周期状态4的图像](images/lifecycle-state4.png)
 
-* **Adobe已签名（已批准）**:这是一个占位符名称，表示已将文档上传到Adobe Sign并且其协议已完成（处于已签名或批准状态）的状态的文档。 它是必需状态，并且可以是现有的生命周期状态，例如“已批准”。
-此状态不需要用户操作。 此状态必须具有允许Adobe Sign管理员角色执行以下操作的安全性：查看文档、查看内容和编辑字段。
+   * **Adobe已签名（已批准）**:这是一个占位符名称，表示已将文档上传到Adobe Sign并且其协议已完成（处于已签名或批准状态）的状态的文档。 它是必需状态，并且可以是现有的生命周期状态，例如“已批准”。
+此状态不需要用户操作。 其安全性必须允许Adobe Sign管理员角色：查看文档、查看内容和编辑字段。
 
-下图说明了Adobe Sign协议与Vault文档状态之间的映射，其中“Adobe签名前”状态为“草稿”。
+   下图说明了Adobe Sign协议与Vault文档状态之间的映射，其中“Adobe签名前”状态为“草稿”。
 
-![Adobe Sign Vault映射的图像](images/sign-vault-mappings.png)
+   ![Adobe Sign Vault映射的图像](images/sign-vault-mappings.png)
 
 ### 步骤 11. 将Adobe Sign阶段添加到生命周期阶段组中的常规生命周期
 
