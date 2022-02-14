@@ -10,9 +10,9 @@ solution: Adobe Sign
 role: User, Developer
 topic: Integrations
 exl-id: 5d61a428-06e4-413b-868a-da296532c964
-source-git-commit: c3ad36ec887230d746d8d2084127155615f1d0b9
+source-git-commit: db0d9022e520e9db39254e78b66aab8b913f353a
 workflow-type: tm+mt
-source-wordcount: '3145'
+source-wordcount: '3169'
 ht-degree: 3%
 
 ---
@@ -34,6 +34,7 @@ ht-degree: 3%
 * 创建文档字段和演绎版。
 * 配置Web操作并更新文档生命周期。
 * 创建文档类型用户和用户角色设置。
+* 使用中间件将Veeva Vault连接到Adobe Sign。
 
 >[!NOTE]
 >
@@ -233,13 +234,13 @@ Adobe Sign和Vault集成要求您创建和配置以下两个Web操作：
 
 * **创建Adobe Sign**:它会创建或显示Adobe Sign协议。
 
-   类型：文档目标：在Vault URL中显示： <https://api.na1.adobesign.com/api/gateway/veevavaultintsvc/partner/agreement?docId=${Document.id}&majVer=${Document.major_version_number__v}&minVer=${Document.minor_version_number__v}&vaultid=${Vault.id}&useWaitPage=true>
+   类型：文档目标：在保管库凭据中显示：通过发布消息URL启用发布会话凭据： <https://api.na1.adobesign.com/api/gateway/veevavaultintsvc/partner/agreement?docId=${Document.id}&majVer=${Document.major_version_number__v}&minVer=${Document.minor_version_number__v}&vaultid=${Vault.id}&useWaitPage=true>
 
    ![创建Adobe Sign的图像](images/create-adobe-sign.png)
 
 * **取消Adobe Sign**:这会取消Adobe Sign中的现有协议，并将文档状态恢复为初始协议。
 
-   类型：文档目标：在Vault URL中显示：: <https://api.na1.adobesign.com/api/gateway/veevavaultintsvc/partner/agreement/cancel?docId=${Document.id}&majVer=${Document.major_version_number__v}&minVer=${Document.minor_version_number__v}&vaultid=${Vault.id}&useWaitPage=true>
+   类型：文档目标：在保管库凭据中显示：通过发布消息URL启用发布会话凭据：: <https://api.na1.adobesign.com/api/gateway/veevavaultintsvc/partner/agreement/cancel?docId=${Document.id}&majVer=${Document.major_version_number__v}&minVer=${Document.minor_version_number__v}&vaultid=${Vault.id}&useWaitPage=true>
 
    ![取消Adobe Sign的图像](images/cancel-adobe-sign.png)
 
