@@ -10,9 +10,9 @@ solution: Adobe Sign
 role: User, Developer
 topic: Integrations
 exl-id: 5d61a428-06e4-413b-868a-da296532c964
-source-git-commit: db0d9022e520e9db39254e78b66aab8b913f353a
+source-git-commit: 535c4510e876c708679d7f6a800206264a9876e2
 workflow-type: tm+mt
-source-wordcount: '3169'
+source-wordcount: '3428'
 ht-degree: 3%
 
 ---
@@ -125,13 +125,51 @@ ht-degree: 3%
 | participant_role__c | 参与人角色 | 字符串 | 具有Adobe Sign参与者的角色 |
 | signature__c | 签名 | 对象（签名） | 保留对签名父记录的引用 |
 
-![签名事件详细信息的图像](images/signature-event-object-details.png)
+![图像](images/signature-event-object-details.png)
 
 #### Process Locker对象 {#process-locker}
 
 将创建进程锁存器对象以锁定Adobe Sign集成进程。 它不需要任何自定义字段。
 
 ![签名事件详细信息的图像](images/process-locker-details.png)
+
+作为部署包的一部分提供的“签名”、“签名事件”、“签名事件”和“处理保险箱”对象默认启用“此对象的审核数据更改”属性。
+
+**注意：** 要在审核日志中包含存储库捕获对象记录数据更改，请启用“审核数据更改”设置。 默认情况下，此设置处于关闭状态。 启用此设置并创建记录后，便无法禁用它。 如果关闭此设置且记录存在，则只有Vault所有者才能更新设置。
+
+#### **显示签名对象的参与者和历史记录** {#display-participants-history}
+
+作为部署包的一部分提供的“签名”对象随 [签名详细信息页面布局](https://vvtechpartner-adobe-rim.veevavault.com/ui/#admin/content_setup/object_schema/pagelayout?t=signature__c&amp;d=signature_detail_page_layout__c)的 “页面布局”中包含“参与者”和“历史记录”部分。
+
+* 在 *参与者* 章节的“相关对象”部分已如下图所示进行配置。
+
+   ![图像](images/edit-related-objects.png)
+
+* 您可以编辑将为参与者显示的列，如下所示。
+
+   ![图像](images/set-columns-to-display.png)
+
+* 在 *历史记录* 章节的“相关对象”部分已如下图所示进行配置。
+
+   ![图像](images/edit-related-object-in-history.png)
+
+* 您可以编辑为“历史记录”显示的列，如下所示。
+
+   ![图像](images/select-columns-to-display.png)
+
+#### **查看Adobe Sign文档的参与者和审核历史记录** {#view-participants-audit-history}
+
+* 要查看Adobe Sign文档的参与者和审核历史记录，请选择文档“Adobe签名”部分中的链接。
+
+   ![图像](images/view-participants-audit-history.png)
+
+* 打开的页面将显示Adobe Sign文档的参与者和历史记录，如下所示。
+
+   ![图像](images/participants-and-history.png)
+
+* 查看供签名的试听追踪，如下所示。
+
+   ![图像](images/audit-trail.png)
 
 ### 步骤 3. 设置安全性配置文件 {#security-profiles}
 
