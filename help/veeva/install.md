@@ -10,9 +10,9 @@ solution: Adobe Sign
 role: User, Developer
 topic: Integrations
 exl-id: 5d61a428-06e4-413b-868a-da296532c964
-source-git-commit: 535c4510e876c708679d7f6a800206264a9876e2
+source-git-commit: 928bbadab28f041de2d8bc17ad8383f61033a6c0
 workflow-type: tm+mt
-source-wordcount: '3428'
+source-wordcount: '3431'
 ht-degree: 3%
 
 ---
@@ -135,7 +135,7 @@ ht-degree: 3%
 
 作为部署包的一部分提供的“签名”、“签名事件”、“签名事件”和“处理保险箱”对象默认启用“此对象的审核数据更改”属性。
 
-**注意：** 要在审核日志中包含存储库捕获对象记录数据更改，请启用“审核数据更改”设置。 默认情况下，此设置处于关闭状态。 启用此设置并创建记录后，便无法禁用它。 如果关闭此设置且记录存在，则只有Vault所有者才能更新设置。
+**注意：** 通过启用“审核数据更改”设置，可以使Vault捕获对象在审核日志中记录数据更改。 默认情况下，此设置处于关闭状态。 启用此设置并创建记录后，便无法再禁用它。 如果关闭此设置且记录存在，则只有Vault所有者才能更新设置。
 
 #### **显示签名对象的参与者和历史记录** {#display-participants-history}
 
@@ -167,7 +167,7 @@ ht-degree: 3%
 
    ![图像](images/participants-and-history.png)
 
-* 查看供签名的试听追踪，如下所示。
+* 查看签名的审核记录，如下所示。
 
    ![图像](images/audit-trail.png)
 
