@@ -1,10 +1,10 @@
 ---
 cloud: Document Cloud
 type: Documentation
-solution: Document Cloud, Adobe Sign
+solution: Document Cloud, Acrobat Sign, Adobe Sign
 mini-toc-levels: 2
-git-repo: https://git.corp.adobe.com/AdobeDocs/sign-integrations.zh-Hans
-source-git-commit: 1d3fe474a7fd9d6f50b7355753451e60dd3c601a
+git-repo: https://github.com/AdobeDocs/sign-integrations.zh-Hans
+source-git-commit: f315aa6b1230b1d4357b2fe9ea030310d8cad230
 workflow-type: tm+mt
 source-wordcount: '130'
 ht-degree: 0%
@@ -14,21 +14,21 @@ ht-degree: 0%
 
 # 供内部使用的元数据
 
-metadata.md文件包括传递给用户指南的回购协议级元数据，这些文件位于回购协议中。 如果要更改任何用户指南的metadata.md内容，请在任何TOC.md文件中进行更改。
+metadata.md文件包含存储库级别的元数据，这些元数据会传递到存储库中用户指南TOC.md文件中。 如果要更改任何用户指南的metadata.md内容，请在任何TOC.md文件中进行更改。
 
-| 元数据 | 它做什么 |
+| 元数据 | 功能 |
 |--- |--- |
-| 解决方案标题 | 在文章标题中用作链接 |
-| solution-hub-url | 打开helpx中心页面 |
-| 解决方案图标 | 在解决方案标题旁边显示解决方案图标。 尚未实施 |
-| getting-started-url | 帮助快速入门页面的链接 |
-| tutorials-url | 视频教程链接 — 帮助教程或KT教程 |
-| 小型目录级别 | 确定显示在右边栏中的标题级别数。 默认值为2 |
-| git-repo | 指定主回购协议的位置供内部使用 |
+| solution-title | 在文章标题中用作链接 |
+| solution-hub-url | 打开Helpx中心页面 |
+| solution-icon | 在解决方案标题旁边显示解决方案图标。 尚未执行 |
+| getting-started-url | 指向Helpx快速入门页面的链接 |
+| tutorials-url | 视频教程（Helpx教程或KT教程）的链接 |
+| mini-toc-levels | 确定右边栏中显示的标题级别数。 默认值为2 |
+| git-repo | 指定供内部使用的主存储库的位置 |
 
 在TOC.md文件中
 
-| 元数据 | 它做什么 |
+| 元数据 | 功能 |
 |--- |--- |
-| 用户指南标题 | 在文章标题中用作链接 |
-| user-guide-url | 打开helpx中心页面 |
+| user-guide-title | 在文章标题中用作链接 |
+| user-guide-url | 打开Helpx中心页面 |
