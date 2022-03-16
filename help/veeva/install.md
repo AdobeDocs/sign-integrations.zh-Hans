@@ -10,9 +10,9 @@ solution: Adobe Sign
 role: User, Developer
 topic: Integrations
 exl-id: 5d61a428-06e4-413b-868a-da296532c964
-source-git-commit: 04a3e58da81c1a034318807776077d0076eec85f
+source-git-commit: ad78f32d6c418ac9c7120899831b74bec9d5620d
 workflow-type: tm+mt
-source-wordcount: '3431'
+source-wordcount: '3503'
 ht-degree: 3%
 
 ---
@@ -60,6 +60,7 @@ ht-degree: 3%
 * 签名者对象页面布局
 * Process Locker对象页面布局
 * Adobe Sign Rendition type
+* 原始格式副本类型
 * 共享字段__c , allow_adobe_sign_user_actions__c
 * Adobe Sign Web操作
 * 取消Adobe Sign Web操作
@@ -266,6 +267,10 @@ Adobe Sign集成的Vault系统帐户用户必须：
 
 ![呈现类型的图像](images/edit-details-clinical-type.png)
 
+新的格式副本类型称为 *原始格式副本(original_rendition__c)* 被Vault集成用作格式副本的名称，如果签名文档导入为可视格式副本，则应当使用该格式副本存储原始可视格式副本。
+
+![图像](images/original-rendition.png)
+
 ### 步骤 9. 更新Web操作 {#web-actions}
 
 Adobe Sign和Vault集成要求您创建和配置以下两个Web操作：
@@ -440,6 +445,10 @@ Adobe Sign帐户管理员必须按照以下步骤进行连接 [!DNL Veeva Vault]
    **注意：** 只有在启用新Adobe Sign用户之外，还在Adobe Sign的Adobe Sign帐户级别中启用了该新用户后，该新用户才会自动设置 **[!UICONTROL 自动设置Sign用户]** 对于[!DNL Veeva Vault]Adobe Sign集成，由Adobe Sign帐户管理员如下所示。
 
    ![图像](images/allow-auto-provisioning.png)
+
+1. 要将Adobe Sign演绎版配置为显示在“视频”中而不是显示在“原始演绎版”中，请选中复选框 **[!UICONTROL 显示Adobe Sign Rendition]**&#x200B;的
+
+   ![图像](images/edit-connection-dispplay-adobe-sign-rendition.png)
 
 1. 选择 **[!UICONTROL 保存]** 以保存新连接。
 
