@@ -10,9 +10,9 @@ solution: Adobe Sign
 role: User, Developer
 topic: Integrations
 exl-id: 5d61a428-06e4-413b-868a-da296532c964
-source-git-commit: 23263a9dab4c74fd7fed05ed5a36bede67feaaf8
+source-git-commit: b9d0ac0cccc8785469172fd805e7b878743c7c07
 workflow-type: tm+mt
-source-wordcount: '3501'
+source-wordcount: '3498'
 ht-degree: 3%
 
 ---
@@ -265,7 +265,7 @@ Adobe Sign集成的Vault系统帐户用户必须：
 
 ![呈现类型的图像](images/rendition-type.png)
 
-![呈现类型的图像](images/edit-details-clinical-type.png)
+![图像](images/edit-details-clinical-type.png)
 
 新的格式副本类型称为 *原始格式副本(original_rendition__c)* 被Vault集成用作格式副本的名称，如果签名文档导入为可视格式副本，则应当使用该格式副本存储原始可视格式副本。
 
