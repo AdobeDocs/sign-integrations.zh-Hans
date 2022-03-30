@@ -9,7 +9,7 @@ solution: Acrobat Sign, Adobe Sign
 role: User, Developer
 topic: Integrations
 exl-id: 39a43637-af3f-432e-a784-8f472aa86df5
-source-git-commit: 1eafeb73f7b7055fa958b15a02148898f7c9d406
+source-git-commit: 2c2d7ebe427166222cc62c5ab8f867275a97cce9
 workflow-type: tm+mt
 source-wordcount: '721'
 ht-degree: 2%
@@ -56,7 +56,7 @@ Adobe Acrobat Sign与 [!DNL Veeva Vault] 简化并加速您的文档和签名工
 
    ![](images/choose-document-type.png)
 
-1. 选择 **[!UICONTROL 确定]** 关闭对话框。
+1. 要关闭该对话框，请选择 **[!UICONTROL 确定]**&#x200B;的
 
 1. 选择 **[!UICONTROL 下一个]**&#x200B;的
 
@@ -117,7 +117,7 @@ Adobe Acrobat Sign与 [!DNL Veeva Vault] 简化并加速您的文档和签名工
 
 1. 在Adobe Acrobat Sign中捕获并完成所有签名后，文档Vault中的状态变为 [!UICONTROL 已批准]的
 
-1. 选择 **[!UICONTROL 文档文件]** 选项并展开 **[!UICONTROL 演绎版]** 部分。 当文档处于“已批准”状态时，它会自动创建一个名为“Adobe Sign Rendition”的新格式副本。
+1. 选择 **[!UICONTROL 文档文件]** 选项并展开 **[!UICONTROL 演绎版]** 部分。 当文档处于“已批准”状态时，它会自动创建一个名为“Adobe Sign格式副本”的格式副本。
 
    ![](images/document-files.png)
 

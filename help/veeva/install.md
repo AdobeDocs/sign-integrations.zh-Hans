@@ -10,9 +10,9 @@ solution: Acrobat Sign, Adobe Sign
 role: User, Developer
 topic: Integrations
 exl-id: 5d61a428-06e4-413b-868a-da296532c964
-source-git-commit: 1eafeb73f7b7055fa958b15a02148898f7c9d406
+source-git-commit: 2c2d7ebe427166222cc62c5ab8f867275a97cce9
 workflow-type: tm+mt
-source-wordcount: '3573'
+source-wordcount: '3568'
 ht-degree: 3%
 
 ---
@@ -42,7 +42,7 @@ ht-degree: 3%
 
 ## 配置 [!DNL Veeva Vault] {#configure-veeva}
 
-要配置 [!DNL Veeva Vault] 要与Adobe Acrobat Sign集成，您需要实施下面列出的步骤。
+要配置 [!DNL Veeva Vault] 要与Adobe Acrobat Sign集成，您必须实施下面列出的步骤。
 
 ### 步骤 1. 创建组 {#create-group}
 
@@ -210,7 +210,7 @@ Adobe Acrobat Sign集成的Vault系统帐户用户必须：
 
 ![文档类型组的图像](images/document-type-groups.png)
 
-您需要为适用于Adobe Acrobat Sign流程的所有文档分类添加此文档类型组。 由于文档类型组属性既不是从类型继承到子类型，也不是从子类型继承到分类级别，因此必须为符合Adobe Acrobat Sign条件的每个文档分类设置该属性。
+您必须为适用于Adobe Acrobat Sign流程的所有文档分类添加此文档类型组。 由于文档类型组属性既不是从类型继承到子类型，也不是从子类型继承到分类级别，因此必须为符合Adobe Acrobat Sign条件的每个文档分类设置该属性。
 
 ![文档编辑详细信息的图像](images/document-edit-details.png)
 
@@ -247,7 +247,7 @@ Adobe Acrobat Sign集成的Vault系统帐户用户必须：
    ![图像](images/create-display-section.png)
 
 1. 对于两个共享文档字段(signature__c和allow_adobe_sign_user_actions__c)，请使用以下内容更新UI部分： **[!UICONTROL Adobe签名]** 作为章节标签。
-1. 将这三个共享字段添加到有资格使用Adobe Acrobat签名的所有文档类型中。 为此，请在“基本文档”页面中选择 **[!UICONTROL 添加]** > **[!UICONTROL 现有共享字段]** 右上角。
+1. 将这三个共享字段添加到有资格使用Adobe Acrobat签名的所有文档类型中。 为此，请在基础文档页面中选择 **[!UICONTROL 添加]** > **[!UICONTROL 现有共享字段]** （位于右上角）。
 
    ![图像](images/create-document-fields.png)
 
@@ -255,7 +255,7 @@ Adobe Acrobat Sign集成的Vault系统帐户用户必须：
 
    ![图像](images/use-shared-fields.png)
 
-1. 请注意，这两个字段必须具有仅允许Adobe Sign管理员组成员更新其值的特定安全性。
+1. 这两个字段必须具有仅允许Adobe Sign管理员组成员更新其值的特定安全性。
 
    ![图像](images/security-overrides.png)
 
