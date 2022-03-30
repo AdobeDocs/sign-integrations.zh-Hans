@@ -9,26 +9,26 @@ solution: Acrobat Sign, Adobe Sign
 role: User, Developer
 topic: Integrations
 exl-id: 39a43637-af3f-432e-a784-8f472aa86df5
-source-git-commit: b326a9afa2c16333d390cac3b30a2c7c741a4360
+source-git-commit: 1eafeb73f7b7055fa958b15a02148898f7c9d406
 workflow-type: tm+mt
-source-wordcount: '667'
+source-wordcount: '721'
 ht-degree: 2%
 
 ---
 
 # 适用于 [!DNL Veeva Vault]:用户指南 {#veeva-vault-user-guide}
 
-[**联系 Adobe Sign 技术支持**](https://adobe.com/go/adobesign-support-center_cn)
+[**联系Adobe Acrobat Sign支持**](https://adobe.com/go/adobesign-support-center_cn)
 
-本文档旨在帮助您 [!DNL Veeva Vault] 客户了解如何使用Adobe Sign for [!DNL Veeva Vault] 用于发送协议的集成。
+本文档旨在帮助您 [!DNL Veeva Vault] 客户了解如何将Adobe Acrobat Sign用于 [!DNL Veeva Vault] 用于发送协议的集成。
 
 ## 概览 {#overview}
 
-Adobe Sign与 [!DNL Veeva Vault] 对于需要合法签名或可审核文档处理的任何文档，可加快获取签名或审批的过程。
+Adobe Acrobat Sign与 [!DNL Veeva Vault] 对于需要合法签名或可审核文档处理的任何文档，可加快获取签名或审批的过程。
 
 发送文档进行签名的整个过程与发送电子邮件类似，因此大多数用户可轻松采用这种方式。
 
-Adobe Sign与 [!DNL Veeva Vault] 简化并加速您的文档和签名工作流程。 通过使用集成工作流程，您可以：
+Adobe Acrobat Sign与 [!DNL Veeva Vault] 简化并加速您的文档和签名工作流程。 通过使用集成工作流程，您可以：
 
 * 节省在蜗牛邮件、邮寄或传真上花费的时间和资源。
 * 发送合同以进行电子签名或审批 [!DNL Veeva Vault]、访问实时合同历史记录，并查看保存的合同。
@@ -36,9 +36,9 @@ Adobe Sign与 [!DNL Veeva Vault] 简化并加速您的文档和签名工作流�
 * 使用 20 多种语言进行电子签名，并在全球 50 多个区域支持回传服务.
 * 创建用于发送选项的可重用协议模板。
 
-## 使用Adobe Sign for [!DNL Veeva Vault] {#send-sign-vault-agreement}
+## 使用Adobe Acrobat Sign for [!DNL Veeva Vault] {#send-sign-vault-agreement}
 
-要使用Adobe Sign for Veeva发送协议，请执行以下操作：
+要使用适用于Veeva的Adobe Acrobat Sign发送协议，请执行以下操作：
 
 1. 转到 [[!DNL Veeva Vault] 登录页](https://login.veevavault.com/) 然后输入您的用户名和密码。 这将打开Vault的主页，如下所示。
 
@@ -86,20 +86,24 @@ Adobe Sign与 [!DNL Veeva Vault] 简化并加速您的文档和签名工作流�
 
    ![](images/select-adobe-sign.png)
 
+1. 如果在Adobe Acrobat Sign帐户中启用了UMG（位于多个组的用户）功能，并且发件人属于多个组，则会看到如下所示的对话框。 在对话框中，选择组，然后选择 **[!UICONTROL 确定]**&#x200B;的
+
+   ![](images/umg-dialog.png)
+
 1. 在Vault中打开的iFrame窗口中，输入收件人的电子邮件地址并选择 **[!UICONTROL 下一个]**&#x200B;的
 
    ![](images/iframe.png)
 
-   **注意：** 如果发送者的电子邮件不存在Adobe Sign用户帐户，则iFrame窗口会显示一条消息，如下所示。 它还会向用户发送一封电子邮件，其中包含激活帐户的说明。
+   **注意：** 如果不存在用于发送者电子邮件的Adobe Acrobat Sign用户帐户，则iFrame窗口会显示一条消息，如下所示。 它还会向用户发送一封电子邮件，其中包含激活帐户的说明。
 
    ![](images/iFrame-registration-message.png)
 
    ![](images/iFrame-confirm-email.png)
 
-   但是，如果 *自动设置Sign用户* 功能已禁用，Adobe Sign用户创建失败，并且iFrame窗口显示一条消息，要求用户联系其Adobe Sign帐户管理员。 Adobe Sign帐户管理员可以采取以下任一操作：
+   但是，如果 *自动设置Sign用户* 该功能已禁用，Adobe Acrobat Sign用户创建失败，并且iFrame窗口显示一条消息，要求用户联系其Adobe Acrobat Sign帐户管理员。 Adobe Acrobat Sign帐户管理员可以采取以下任一操作：
 
    * 启用 *自动设置Sign用户* 功能。
-   * 使用Veeva Vault Adobe Sign集成之前，在Adobe Sign中创建用户。
+   * 使用Veeva Vault Adobe Acrobat Sign集成之前，请在Adobe Acrobat Sign中创建用户。
 
    ![](images/iFrame-contact-administrator.png)
 
@@ -111,7 +115,7 @@ Adobe Sign与 [!DNL Veeva Vault] 简化并加速您的文档和签名工作流�
 
    ![](images/in-adobe-signing.png)
 
-1. 在Adobe Sign中捕获并完成所有签名后，文档Vault中的状态变为 [!UICONTROL 已批准]的
+1. 在Adobe Acrobat Sign中捕获并完成所有签名后，文档Vault中的状态变为 [!UICONTROL 已批准]的
 
 1. 选择 **[!UICONTROL 文档文件]** 选项并展开 **[!UICONTROL 演绎版]** 部分。 当文档处于“已批准”状态时，它会自动创建一个名为“Adobe Sign Rendition”的新格式副本。
 
@@ -121,7 +125,7 @@ Adobe Sign与 [!DNL Veeva Vault] 简化并加速您的文档和签名工作流�
 
    ![](images/verify-signature.png)
 
-## 使用Adobe Sign for [!DNL Veeva Vault] {#cancel-sign-vault-agreement}
+## 使用Adobe Acrobat Sign for [!DNL Veeva Vault] {#cancel-sign-vault-agreement}
 
 1. 转到 [[!DNL Veeva Vault] 登录页](https://login.veevavault.com/) 然后输入您的用户名和密码。 这将打开Vault的主页，如下所示。
 
