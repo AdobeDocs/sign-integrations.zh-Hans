@@ -158,7 +158,7 @@ ht-degree: 30%
 
 所有签名组对文档进行签名后，系统会通过电子邮件将签名文档的副本分发给签名组的所有成员。
 
-要禁止此行为，您可以联系 [!UICONTROL Adobe Sign Success Manager] 或 [Adobe Sign支持团队](https://adobe.com/go/adobesign-support-center)的
+要禁止此行为，您可以联系 [!UICONTROL Adobe Sign Success Manager] 或 [Adobe Sign支持团队](https://adobe.com/go/adobesign-support-center_cn)的
 
 在 [!DNL Workday]，您可以在完整流程记录中访问已签名的文档。 您可能会发现：
 
