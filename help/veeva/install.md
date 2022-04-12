@@ -10,9 +10,9 @@ solution: Acrobat Sign
 role: User, Developer
 topic: Integrations
 exl-id: 5d61a428-06e4-413b-868a-da296532c964
-source-git-commit: 4d73ff36408283805386bd3266b683bc187d6031
+source-git-commit: aa8f965e516bacda8b4172d256da4700d479eab8
 workflow-type: tm+mt
-source-wordcount: '3568'
+source-wordcount: '3909'
 ht-degree: 3%
 
 ---
@@ -59,15 +59,17 @@ ht-degree: 3%
 * 签名事件对象页面布局
 * 签名者对象页面布局
 * Process Locker对象页面布局
+* Adobe Sign集成任务日志对象页面布局
 * Adobe Sign Rendition type
 * 原始格式副本类型
-* 共享字段__c , allow_adobe_sign_user_actions__c
+* 共享字段签名__c
 * Adobe Sign Web操作
 * 取消Adobe Sign Web操作
 * Adobe Sign管理员操作权限集
 * Adobe Sign Integration Profile安全配置文件
 * 应用程序角色Adobe Sign管理员角色
 * 文档类型组“Adobe Sign Document”
+* Adobe Sign集成任务日志对象
 
 #### 签名对象 {#signature-object}
 
@@ -87,6 +89,9 @@ ht-degree: 3%
 | cancellation_date__c | 取消日期 | 日期时间 | 保留取消协议的日期。 |
 | completion_date__c | 完成日期 | 日期时间 | 保留协议完成的日期。 |
 | viewable_rendition_used__c | 已使用可查看的呈现形式 | 布尔 | 指示是否已发送可查看的呈现形式以进行签名的标记。 （默认情况下为true） |
+| plugin_version__c | 插件版本 | 文本(10) | 它用于允许在部署新版本4.0之前正确处理创建的所有协议。 注意：部署4.0自定义Web应用程序版本后，每次创建签名记录时，此字段将设置为4.0。 |
+| external_environment__c | 外部环境 | 文本(20) | 保留创建协议时使用的Adobe Sign环境名称。 |
+
 
 ![签名对象详细信息的图像](images/signature-object-details.png)
 
@@ -101,7 +106,7 @@ ht-degree: 3%
 | email__c | 电子邮件 | 字符串(120) | 保存Adobe Acrobat Sign的唯一协议ID |
 | external_id__c | 参与者Id | 字符串(80) | 保留Adobe Acrobat Sign唯一参与者的标识符 |
 | name__v | 名称 | 字符串(128) | 包含Adobe Acrobat Sign参与者的姓名 |
-| order__c | 顺序 | 数字 | 保留Adobe Acrobat Sign协议参与者的订单编号 |
+| order__c | 顺序 | 数字 | 保留Adobe Acrobat Sign协议参与人的订单编号 |
 | role__c | 角色 | 字符串(30) | 持有Adobe Acrobat Sign协议参与者的角色 |
 | signature__c | 签名 | 对象（签名） | 保留对签名父记录的引用 |
 | signature_status__c | 签名状态 | 字符串(100) | 保留Adobe Acrobat Sign协议参与者的状态 |
@@ -127,6 +132,7 @@ ht-degree: 3%
 | participant_email__c | 参与者电子邮件 | 字符串 | 保留Adobe Acrobat Sign参与者的电子邮件 |
 | participant_role__c | 参与人角色 | 字符串 | 具有Adobe Acrobat Sign参与者的角色 |
 | signature__c | 签名 | 对象（签名） | 保留对签名父记录的引用 |
+| external_id__c | 外部ID | 文本(200) | 暂挂由Adobe Sign生成的协议事件标识符。 |
 
 ![图像](images/signature-event-object-details.png)
 
@@ -136,7 +142,27 @@ ht-degree: 3%
 
 ![签名事件详细信息的图像](images/process-locker-details.png)
 
-作为部署包的一部分提供的“签名”、“签名事件”、“签名事件”和“处理保险箱”对象默认启用“此对象的审核数据更改”属性。
+#### Adobe Sign集成任务日志对象 {#task-log}
+
+创建Adobe Sign集成任务日志(as_int_task_log__c)。 它是用于跟踪AgreementsEventsSynchronizerJob和AgreementsEventsProcessingJob执行情况的高容量对象。
+AgreementsEventsSynchronizerJob:此任务可确保Adobe Sign中所有缺失的协议事件作为活动签名事件创建在Vault中，以供过去N天内Vault中创建的所有签名使用。
+AgreementsEventsProcessingJob:此任务可确保处理所有具有活动签名事件记录的文档，具体取决于事件类型。
+
+Adobe Sign集成任务日志对象字段
+
+| 字段 | 标签 | 类型 | 说明 |
+| --- | --- | ---| --- | 
+| start_date__c | 开始日期 | 日期时间 | 任务开始日期 |
+| end_date__c | 结束日期 | 日期时间 | 任务结束日期 |
+| task_status__c | 任务状态 | 选择列表 | 暂挂任务状态：已完成(task_completed__c)完成但出现错误(task_completed_with_errors__c)失败(task_failed__c) |
+| task_type__c | 任务类型 | 选择列表 | 暂挂任务类型：协议事件同步(agreements_events_synchronization__c)协议事件处理(agreements_events_processing__c) |
+| 消息__c | 消息 | 长市(32000) | 保留任务消息 |
+
+![任务日志对象详细信息的图像](images/task-log.png)
+
+![任务日志对象字段的图像](images/task-log-fields.png)
+
+作为部署包一部分的“签名”、“签名事件”、“进程保险箱”和“任务日志”对象默认启用“此对象的审核数据更改”属性。
 
 **注意：** 通过启用“审核数据更改”设置，可以使Vault捕获对象在审核日志中记录数据更改。 默认情况下，此设置处于关闭状态。 启用此设置并创建记录后，便无法再禁用它。 如果关闭此设置且记录存在，则只有Vault所有者才能更新设置。
 
@@ -166,7 +192,7 @@ ht-degree: 3%
 
    ![图像](images/view-participants-audit-history.png)
 
-* 此时打开的页面将显示Adobe Acrobat Sign文档的参与者和历史记录，如下所示。
+* 打开的页面将显示Adobe Acrobat Sign文档的参与者和历史记录，如下所示。
 
    ![图像](images/participants-and-history.png)
 
@@ -232,12 +258,11 @@ Adobe Acrobat Sign集成的Vault系统帐户用户必须：
 
 ### 步骤 7. 设置文档字段 {#create-fields}
 
-包部署将创建以下两个新的共享文档字段，它们对于建立集成是必需的：
+包部署将创建以下新的共享文档字段，这些字段是建立集成所必需的：
 
 * 签名(签名__c)
-* 允许Adobe Sign用户操作(allow_adobe_sign_user_actions__c)
 
-![图像](images/2-document-fields.png)
+![图像](images/document-fields.png)
 
 要设置文档字段，请执行以下操作：
 
@@ -246,8 +271,8 @@ Adobe Acrobat Sign集成的Vault系统帐户用户必须：
 
    ![图像](images/create-display-section.png)
 
-1. 对于两个共享文档字段(signature__c和allow_adobe_sign_user_actions__c)，请使用以下内容更新UI部分： **[!UICONTROL Adobe签名]** 作为章节标签。
-1. 将这三个共享字段添加到有资格使用Adobe Acrobat签名的所有文档类型中。 为此，请在基础文档页面中选择 **[!UICONTROL 添加]** > **[!UICONTROL 现有共享字段]** （位于右上角）。
+1. 对于共享文档字段(签名__c)，请用以下参数更新UI部分 **[!UICONTROL Adobe签名]** 作为章节标签。
+1. 将这两个共享字段添加到有资格使用Adobe Acrobat签名的所有文档类型中。 为此，请在基础文档页面中选择 **[!UICONTROL 添加]** > **[!UICONTROL 现有共享字段]** （位于右上角）。
 
    ![图像](images/create-document-fields.png)
 
@@ -335,41 +360,63 @@ Adobe Acrobat Sign协议生命周期包括以下状态：
 
    * **进行Adobe签名** （审阅）：这是文档可以从中发送到Adobe Acrobat Sign的状态的占位符名称。 根据文档类型，可以将其设为“草稿”状态或“审阅”。 可以根据客户要求自定义文档状态标签。 在“Adobe签名”状态之前，必须定义以下两个用户操作：
 
-      * 将文档状态更改为 *在Adobe Sign Draft中* 状态。 对于任何生命周期的所有文档类型，此用户操作的名称必须相同。 如有必要，可将此操作的条件设置为“允许Adobe Sign用户操作等于是”。
+      * 将文档状态更改为 *在Adobe Sign Draft中* 状态。 对于任何生命周期的所有文档类型，此用户操作的名称必须相同。
       * 调用Web操作“Adobe Sign”的操作。 此状态必须具有允许Adobe Sign管理员角色执行以下操作的安全性：查看文档、查看内容、编辑字段、编辑关系、下载源、管理可查看的呈现形式以及更改状态。
 
       ![生命周期状态1的图像](images/lifecycle-state1.png)
 
+      * 修改 *已审阅* 状态原子安全设置 *在Adobe Sign Draft中* 默认情况下，设置为“隐藏”，仅执行 *Adobe Sign管理员角色*&#x200B;的
+      **注意：** 如果 *Adobe Sign管理员角色* 角色不是属于 *原子安全：用户操作*，添加 **[!UICONTROL Adobe Sign管理员角色]** 通过选择 **[!UICONTROL 编辑]**> **[!UICONTROL 角色覆盖]**&#x200B;的 下一步，添加 **Adobe Sign管理员角色** 用于 *已审阅* 状态。
+
+      ![图像](images/lifecycle-state-reviewed.png)
+      ![图像](images/lifecycle-state-reviewed-1.png)
+      ![图像](images/lifecycle-state-reviewed-2.png)
+
    * **在Adobe Sign Draft中**:这是指示文档已上载到Adobe Acrobat Sign且其协议处于“草稿”状态的状态的状态的占位符名称。 这是必需状态。 此状态必须定义以下五个用户操作：
 
-      * 将文档状态更改为 *在Adobe Sign Authoring中* 状态。 对于任何生命周期的所有文档类型，此用户操作的名称必须相同。 如有必要，可将此操作的条件设置为“允许Adobe Sign用户操作等于是”。
-      * 将文档状态更改为 *处于Adobe签名状态*&#x200B;的 对于任何生命周期的所有文档类型，此用户操作的名称必须相同。 如有必要，可将此操作的条件设置为“允许Adobe Sign用户操作等于是”。
-      * 将文档状态更改为 *Adobe Sign Cancelled* 状态。 对于任何生命周期的所有文档类型，此用户操作的名称必须相同。 如有必要，可将此操作的条件设置为“允许Adobe Sign用户操作等于是”。
-      * 调用Web操作“Adobe Sign”的操作。
-      * 调用Web操作“取消Adobe Sign”的操作。 此状态必须具有允许Adobe Sign管理员角色执行以下操作的安全性：查看文档、查看内容、编辑字段、编辑关系、下载源、管理可查看的呈现形式以及更改状态。
+      * 将文档状态更改为 *在Adobe Sign Authoring中* 状态。 对于任何生命周期的所有文档类型，此用户操作的名称必须相同。
+      * 将文档状态更改为 *处于Adobe签名状态*&#x200B;的 对于任何生命周期的所有文档类型，此用户操作的名称必须相同。
+      * 将文档状态更改为 *Adobe Sign Cancelled* 状态。 对于任何生命周期的所有文档类型，此用户操作的名称必须相同。
+      * 调用Web操作的操作 *Adobe Sign*&#x200B;的
+      * 调用Web操作的操作 *取消Adobe Sign*&#x200B;的 此状态必须具有允许Adobe Sign管理员角色执行以下操作的安全性：查看文档、查看内容、编辑字段、编辑关系、下载源、管理可查看的呈现形式以及更改状态。
 
       ![生命周期状态2的图像](images/lifecycle-state2.png)
 
-   * **在Adobe Sign Authoring中**:这是一个占位符名称，表示文档已上载至Adobe Acrobat Sign，且其协议处于AUTHORING或DOCUMENTS_NOT_YET_PROCESSED状态。 这是必需状态。 此状态必须定义了以下四个用户操作：
+      * 修改 *在Adobe Sign Draft中* 国家原子安全：动作 *Adobe Sign Cancelled*, *在Adobe Sign Authoring中*, *Adobe签名* 必须对除Adobe Sign管理员角色之外的所有人隐藏
+      **注意：** 如果 *Adobe Sign管理员角色* 不属于 *原子安全：用户操作*，添加 **[!UICONTROL Adobe Sign管理员角色]** 通过选择 **[!UICONTROL 编辑]** > **[!UICONTROL 角色覆盖]**&#x200B;的 下一步，添加 **[!UICONTROL Adobe Sign管理员角色]** 角色 *在Adobe Sign Draft中* 状态。
 
-      * 将文档状态更改为“Adobe Sign已取消”状态的操作。 无论生命周期如何，此用户操作的名称对于所有文档类型都必须相同。 如有必要，可将此操作的条件设置为“允许Adobe Sign用户操作等于是”。
-      * 将文档状态更改为“进行Adobe签名”状态的操作。 无论生命周期如何，此用户操作的名称对于所有文档类型都必须相同。 如有必要，可将此操作的条件设置为“允许Adobe Sign用户操作等于是”。
+      ![图像](images/atomic-security.png)
+
+   * **在Adobe Sign Authoring中**:这是指示文档已上载到Adobe Acrobat Sign及其协议处于AUTHORING或DOCUMENTS_NOT_YET_PROCESSED状态的状态的状态的占位符名称。 这是必需状态。 此状态必须定义了以下四个用户操作：
+
+      * 将文档状态更改为“Adobe Sign已取消”状态的操作。 无论生命周期如何，此用户操作的名称对于所有文档类型都必须相同。
+      * 将文档状态更改为“进行Adobe签名”状态的操作。 无论生命周期如何，此用户操作的名称对于所有文档类型都必须相同。
       * 调用Web操作“Adobe Sign”的操作
       * 调用Web操作“取消Adobe Sign”的操作。 此状态必须具有允许Adobe Sign管理员角色执行以下操作的安全性：查看文档、查看内容、编辑字段、编辑关系、下载源、管理可查看的呈现形式以及更改状态。
 
       ![生命周期状态3的图像](images/lifecycle-state3.png)
 
+      * 修改 *在Adobe Sign Authoring中* 国家原子安全：动作 *Adobe Sign Cancelled* 和 *Adobe签名* 必须对除Adobe Sign管理员角色之外的所有人隐藏
+      **注意：** 如果 *Adobe Sign管理员角色* 不属于 *原子安全：用户操作*，添加 **[!UICONTROL Adobe Sign管理员角色]** 通过选择 **[!UICONTROL 编辑]** > **[!UICONTROL 角色覆盖]**&#x200B;的 下一步，添加 **[!UICONTROL Adobe Sign管理员角色]** 角色 *在Adobe Sign Authoring中* 状态。
+
+      ![图像](images/adobe-sing-authoring.png)
+
    * **Adobe签名**:这是指示文档已上载到Adobe Acrobat Sign且其协议已发送给参与者的状态的占位符名称（OUT_FOR_SIGNATURE或OUT_FOR_APPROVAL状态）。 这是必需状态。 此状态必须定义了以下五个用户操作：
 
-      * 将文档状态更改为“Adobe Sign已取消”状态的操作。 此操作的目标状态可以是任何客户要求，也可以是不同类型的不同状态。 无论生命周期如何，此用户操作的名称对于所有文档类型都必须相同。 如有必要，可将此操作的条件设置为“允许Adobe Sign用户操作等于是”。
-      * 将文档状态更改为“Adobe Sign已拒绝”状态的操作。 此操作的目标状态可以是任何客户要求，也可以是不同类型的不同状态。 无论生命周期如何，此用户操作的名称对于所有文档类型都必须相同。 如有必要，可将此操作的条件设置为“允许Adobe Sign用户操作等于是”。
-      * 将文档状态更改为“Adobe签名”状态的操作。 此操作的目标状态可以是任何客户要求，也可以是不同类型的不同状态。 但是，无论生命周期如何，此用户操作的名称对于所有文档类型都必须相同。 如有必要，可将此操作的条件设置为“允许Adobe Sign用户操作等于是”。
+      * 将文档状态更改为“Adobe Sign已取消”状态的操作。 此操作的目标状态可以是任何客户要求，也可以是不同类型的不同状态。 无论生命周期如何，此用户操作的名称对于所有文档类型都必须相同。
+      * 将文档状态更改为“Adobe Sign已拒绝”状态的操作。 此操作的目标状态可以是任何客户要求，也可以是不同类型的不同状态。 无论生命周期如何，此用户操作的名称对于所有文档类型都必须相同。
+      * 将文档状态更改为“Adobe签名”状态的操作。 此操作的目标状态可以是任何客户要求，也可以是不同类型的不同状态。 但是，无论生命周期如何，此用户操作的名称对于所有文档类型都必须相同。
       * 调用Web操作的操作 *Adobe Sign*&#x200B;的
       * 调用Web操作的操作 *取消Adobe Sign*&#x200B;的 此状态必须具有允许Adobe Sign管理员角色执行以下操作的安全性：查看文档、查看内容、编辑字段、编辑关系、下载源、管理可查看的呈现形式以及更改状态。
 
       ![生命周期状态4的图像](images/lifecycle-state4.png)
 
-      * **Adobe已签名（已批准）**:这是一个占位符名称，表示文档已上载至Adobe Acrobat Sign且协议已完成（处于已签名或批准状态）的状态的状态。 它是必需状态，并且可以是现有的生命周期状态，例如“已批准”。
+      * 修改 *Adobe签名* 国家原子安全：动作 *Adobe Sign Cancelled*, *Adobe Sign已拒绝*&#x200B;和 *Adobe已签名* 必须对除Adobe Sign管理员角色之外的所有人隐藏
+      **注意：** 如果 *Adobe Sign管理员角色* 不属于 *原子安全：用户操作*，添加 **[!UICONTROL Adobe Sign管理员角色]** 通过选择 **[!UICONTROL 编辑]** > **[!UICONTROL 角色覆盖]**&#x200B;的 下一步，添加 **[!UICONTROL Adobe Sign管理员角色]** 角色 *Adobe签名* 状态。
+
+      ![图像](images/in-adobe-signing-2.png)
+
+      * **Adobe已签名（已批准）**:这是一个占位符名称，表示已将文档上传到Adobe Acrobat Sign并且其协议已完成（处于已签名或批准状态）的状态的文档。 它是必需状态，并且可以是现有的生命周期状态，例如“已批准”。
 此状态不需要用户操作。 其安全性必须允许Adobe Sign管理员角色：查看文档、查看内容和编辑字段。
 
    下图说明了Adobe Acrobat Sign协议与Vault文档状态之间的映射，其中“Adobe签名前”状态为“草稿”。
