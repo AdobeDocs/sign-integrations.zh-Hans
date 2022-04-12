@@ -10,7 +10,7 @@ solution: Acrobat Sign
 role: User, Developer
 topic: Integrations
 exl-id: 5d61a428-06e4-413b-868a-da296532c964
-source-git-commit: 1026d696587b898b6e1132ca1a69642d799dcf1d
+source-git-commit: c6c0257204ab45776450f77a5a95291a99371063
 workflow-type: tm+mt
 source-wordcount: '3909'
 ht-degree: 3%
@@ -23,7 +23,7 @@ ht-degree: 3%
 
 ## 概览 {#overview}
 
-本文档介绍如何建立Adobe Acrobat Sign与 [!DNL Veeva Vault] 平台。 [!DNL Veeva Vault] 是一个为生命科学而构建的企业内容管理(ECM)平台。 “存储库”是一个内容和数据存储库，通常用于法规归档、研究报告、授权应用程序、总承包等。 单个企业可以有多个必须单独维护的“保管库”。
+本文档介绍如何将Adobe Acrobat Sign与 [!DNL Veeva Vault] 平台。 [!DNL Veeva Vault] 是一个为生命科学而构建的企业内容管理(ECM)平台。 “存储库”是一个内容和数据存储库，通常用于法规归档、研究报告、授权应用程序、总承包等。 单个企业可以有多个必须单独维护的“保管库”。
 
 完成集成的高级步骤包括：
 
@@ -83,7 +83,7 @@ ht-degree: 3%
 | file_hash__c | 文件哈希 | 字符串(50) | 保留已发送到Adobe Acrobat Sign的文件的md5校验和 |
 | name__v | 名称 | 字符串(128) | 保留协议名称 |
 | sender__c | 发件人 | 对象（用户） | 保留对创建协议的存储库用户的引用 |
-| signature_status__c | 签名状态 | 字符串(75) | 保存协议在Adobe Acrobat Sign中的状态 |
+| signature_status__c | 签名状态 | 字符串(75) | 保留协议在Adobe Acrobat Sign中的状态 |
 | signature_type__c | 签名类型 | 字符串(20) | 在Adobe Acrobat Sign（书面或ESIGN）中保留协议的签名类型 |
 | start_date__c | 开始日期 | 日期时间 | 发送协议以请求签名的日期 |
 | cancellation_date__c | 取消日期 | 日期时间 | 保留取消协议的日期。 |
@@ -108,7 +108,7 @@ ht-degree: 3%
 | order__c | 顺序 | 数字 | 保留Adobe Acrobat Sign协议参与者的订单编号 |
 | role__c | 角色 | 字符串(30) | 持有Adobe Acrobat Sign协议参与者的角色 |
 | signature__c | 签名 | 对象（签名） | 保留对签名父记录的引用 |
-| signature_status__c | 签名状态 | 字符串(100) | 保留Adobe Acrobat Sign协议参与者的状态 |
+| signature_status__c | 签名状态 | 字符串(100) | 保留Adobe Acrobat Sign协议参与人的状态 |
 | user__c | 用户 | 对象（用户） | 如果参与者是保管库用户，则保存对签名人用户记录的引用 |
 
 ![签名者详细信息的图像](images/signatory-object-details.png)
@@ -150,11 +150,11 @@ AgreementsEventsProcessingJob:此任务可确保处理所有具有活动签名�
 Adobe Sign集成任务日志对象字段
 
 | 字段 | 标签 | 类型 | 说明 |
-|---|---|---|---| 
+|:--|:--|:--|:---------| 
 | start_date__c | 开始日期 | 日期时间 | 任务开始日期 |
 | end_date__c | 结束日期 | 日期时间 | 任务结束日期 |
-| task_status__c | 任务状态 | 选择列表 | 暂挂任务状态：已完成(task_completed__c)完成但出现错误(task_completed_with_errors__c)失败(task_failed__c) |
-| task_type__c | 任务类型 | 选择列表 | 暂挂任务类型：协议事件同步(agreements_events_synchronization__c)协议事件处理(agreements_events_processing__c) |
+| task_status__c | 任务状态 | 选择列表 | 暂挂任务状态： <br><br> 已完成(task_completed__c) <br><br> 完成但出现错误(task_completed_with_errors__c) <br><br> 失败(task_failed__c) |
+| task_type__c | 任务类型 | 选择列表 | 暂挂任务类型： <br><br> 协议事件同步(agreements_events_synchronization__c) <br><br> 协议事件处理(agreements_events_processing__c) |
 | 消息__c | 消息 | 长市(32000) | 保留任务消息 |
 
 ![任务日志对象详细信息的图像](images/task-log.png)
@@ -247,7 +247,7 @@ Adobe Acrobat Sign集成的Vault系统帐户用户必须：
 
 ### 步骤 6. 创建用户角色设置 {#create-user-role-setup}
 
-正确配置生命周期后，系统应确保DAC为适用于Adobe Sign进程的所有文档添加Adobe Acrobat Sign管理员用户。 为此，请创建相应的用户角色设置记录，其中指定：
+正确配置生命周期后，系统应确保DAC为适用于Adobe Acrobat Sign进程的所有文档添加Adobe Sign管理员用户。 为此，请创建相应的用户角色设置记录，其中指定：
 
 * 文档类型组作为Adobe Sign文档
 * 作为Adobe Sign管理员角色的应用程序角色
@@ -371,7 +371,7 @@ Adobe Acrobat Sign协议生命周期包括以下状态：
       ![图像](images/lifecycle-state-reviewed-1.png)
       ![图像](images/lifecycle-state-reviewed-2.png)
 
-   * **在Adobe Sign Draft中**:这是指示文档已上载到Adobe Acrobat Sign且其协议处于“草稿”状态的状态的状态的占位符名称。 这是必需状态。 此状态必须定义以下五个用户操作：
+   * **在Adobe Sign Draft中**:这是一个占位符名称，表示文档已上载至Adobe Acrobat Sign，且其协议处于“草稿”状态。 这是必需状态。 此状态必须定义以下五个用户操作：
 
       * 将文档状态更改为 *在Adobe Sign Authoring中* 状态。 对于任何生命周期的所有文档类型，此用户操作的名称必须相同。
       * 将文档状态更改为 *处于Adobe签名状态*&#x200B;的 对于任何生命周期的所有文档类型，此用户操作的名称必须相同。
@@ -386,7 +386,7 @@ Adobe Acrobat Sign协议生命周期包括以下状态：
 
       ![图像](images/atomic-security.png)
 
-   * **在Adobe Sign Authoring中**:这是一个占位符名称，表示文档已上载至Adobe Acrobat Sign，且其协议处于AUTHORING或DOCUMENTS_NOT_YET_PROCESSED状态。 这是必需状态。 此状态必须定义了以下四个用户操作：
+   * **在Adobe Sign Authoring中**:这是指示文档已上载到Adobe Acrobat Sign及其协议处于AUTHORING或DOCUMENTS_NOT_YET_PROCESSED状态的状态的状态的占位符名称。 这是必需状态。 此状态必须定义了以下四个用户操作：
 
       * 将文档状态更改为“Adobe Sign已取消”状态的操作。 无论生命周期如何，此用户操作的名称对于所有文档类型都必须相同。
       * 将文档状态更改为“进行Adobe签名”状态的操作。 无论生命周期如何，此用户操作的名称对于所有文档类型都必须相同。
@@ -442,10 +442,10 @@ Adobe Acrobat Sign协议生命周期包括以下状态：
 
 ## Connect [!DNL Veeva Vault] 到Adobe Acrobat Sign使用中间件 {#connect-middleware}
 
-完成设置后 [!DNL Veeva Vault] 对于Adobe Acrobat Sign管理员帐户，管理员必须使用中间件在两个帐户之间建立连接。 在 [!DNL Veeva Vault] 和Adobe Acrobat Sign帐户连接由Adobe Acrobat Sign Identity启动，然后用于存储[!DNL Veeva Vault] 身份。
+完成设置后 [!DNL Veeva Vault] 对于Adobe Acrobat Sign管理员帐户，管理员必须使用中间件在两个帐户之间建立连接。 在 [!DNL Veeva Vault] 和Adobe Acrobat Sign帐户连接由Adobe Acrobat Sign身份发起，然后用于存储[!DNL Veeva Vault] 身份。
 为了系统安全和稳定，管理员必须使用专用的 [!DNL Veeva Vault] 系统/服务/实用程序帐户，例如 `adobe.for.veeva@xyz.com`而不是个人用户帐户，例如 `bob.smith@xyz.com`的
 
-Adobe Acrobat Sign帐户管理员必须按照以下步骤进行连接 [!DNL Veeva Vault] 要使用中间件访问Adobe Acrobat Sign，请执行以下操作：
+Adobe Acrobat Sign帐户管理员必须按照以下步骤进行连接 [!DNL Veeva Vault] 到Adobe Acrobat Sign使用中间件：
 
 1. 转到 [适用于 [!DNL Veeva Vault] 主页](https://static.adobesigncdn.com/veevavaultintsvc/index.html)的
 1. 选择 **[!UICONTROL 登录]** （位于右上角）。
