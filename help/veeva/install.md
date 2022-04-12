@@ -10,7 +10,7 @@ solution: Acrobat Sign
 role: User, Developer
 topic: Integrations
 exl-id: 5d61a428-06e4-413b-868a-da296532c964
-source-git-commit: aa8f965e516bacda8b4172d256da4700d479eab8
+source-git-commit: 1026d696587b898b6e1132ca1a69642d799dcf1d
 workflow-type: tm+mt
 source-wordcount: '3909'
 ht-degree: 3%
@@ -30,7 +30,7 @@ ht-degree: 3%
 * 在Adobe Acrobat Sign中激活您的管理帐户（仅限新客户）。
 * 在Vault中创建对象以跟踪协议生命周期的历史记录。
 * 创建新的安全性配置文件。
-* 在Adobe Acrobat Sign中配置一个组，将 [!DNL Veeva Vault] 集成用户。
+* 在Adobe Acrobat Sign中配置组以容纳 [!DNL Veeva Vault] 集成用户。
 * 创建文档字段和演绎版。
 * 配置Web操作并更新文档生命周期。
 * 创建文档类型用户和用户角色设置。
@@ -92,7 +92,6 @@ ht-degree: 3%
 | plugin_version__c | 插件版本 | 文本(10) | 它用于允许在部署新版本4.0之前正确处理创建的所有协议。 注意：部署4.0自定义Web应用程序版本后，每次创建签名记录时，此字段将设置为4.0。 |
 | external_environment__c | 外部环境 | 文本(20) | 保留创建协议时使用的Adobe Sign环境名称。 |
 
-
 ![签名对象详细信息的图像](images/signature-object-details.png)
 
 #### 签署人对象 {#signatory-object}
@@ -106,7 +105,7 @@ ht-degree: 3%
 | email__c | 电子邮件 | 字符串(120) | 保存Adobe Acrobat Sign的唯一协议ID |
 | external_id__c | 参与者Id | 字符串(80) | 保留Adobe Acrobat Sign唯一参与者的标识符 |
 | name__v | 名称 | 字符串(128) | 包含Adobe Acrobat Sign参与者的姓名 |
-| order__c | 顺序 | 数字 | 保留Adobe Acrobat Sign协议参与人的订单编号 |
+| order__c | 顺序 | 数字 | 保留Adobe Acrobat Sign协议参与者的订单编号 |
 | role__c | 角色 | 字符串(30) | 持有Adobe Acrobat Sign协议参与者的角色 |
 | signature__c | 签名 | 对象（签名） | 保留对签名父记录的引用 |
 | signature_status__c | 签名状态 | 字符串(100) | 保留Adobe Acrobat Sign协议参与者的状态 |
@@ -126,10 +125,10 @@ ht-degree: 3%
 | acting_user_name__c | 代理用户名 | 字符串 | 保留执行导致生成事件的操作的Adobe Acrobat Sign用户的名称 |
 | description__c | 说明 | 字符串 | 包含Adobe Acrobat Sign事件的描述 |
 | event_date__c | 事件日期 | 日期时间 | 保存Adobe Acrobat Sign事件的日期和时间 |
-| event_type__c | 事件类型 | 字符串 | 包含Adobe Acrobat Sign事件的类型 |
+| event_type__c | 事件类型 | 字符串 | 保留Adobe Acrobat Sign事件的类型 |
 | name__v | 名称 | 字符串 | 自动生成的事件名称 |
 | participant_comment__c | 参与者注释 | 字符串 | 包含Adobe Acrobat Sign参与人的注释（如果有） |
-| participant_email__c | 参与者电子邮件 | 字符串 | 保留Adobe Acrobat Sign参与者的电子邮件 |
+| participant_email__c | 参与者电子邮件 | 字符串 | 保留Adobe Acrobat Sign参与人的电子邮件 |
 | participant_role__c | 参与人角色 | 字符串 | 具有Adobe Acrobat Sign参与者的角色 |
 | signature__c | 签名 | 对象（签名） | 保留对签名父记录的引用 |
 | external_id__c | 外部ID | 文本(200) | 暂挂由Adobe Sign生成的协议事件标识符。 |
@@ -151,7 +150,7 @@ AgreementsEventsProcessingJob:此任务可确保处理所有具有活动签名�
 Adobe Sign集成任务日志对象字段
 
 | 字段 | 标签 | 类型 | 说明 |
-| --- | --- | ---| --- | 
+|---|---|---|---| 
 | start_date__c | 开始日期 | 日期时间 | 任务开始日期 |
 | end_date__c | 结束日期 | 日期时间 | 任务结束日期 |
 | task_status__c | 任务状态 | 选择列表 | 暂挂任务状态：已完成(task_completed__c)完成但出现错误(task_completed_with_errors__c)失败(task_failed__c) |
@@ -248,7 +247,7 @@ Adobe Acrobat Sign集成的Vault系统帐户用户必须：
 
 ### 步骤 6. 创建用户角色设置 {#create-user-role-setup}
 
-正确配置生命周期后，系统应确保DAC为适用于Adobe Acrobat Sign进程的所有文档添加Adobe Sign管理员用户。 为此，请创建相应的用户角色设置记录，其中指定：
+正确配置生命周期后，系统应确保DAC为适用于Adobe Sign进程的所有文档添加Adobe Acrobat Sign管理员用户。 为此，请创建相应的用户角色设置记录，其中指定：
 
 * 文档类型组作为Adobe Sign文档
 * 作为Adobe Sign管理员角色的应用程序角色
@@ -387,7 +386,7 @@ Adobe Acrobat Sign协议生命周期包括以下状态：
 
       ![图像](images/atomic-security.png)
 
-   * **在Adobe Sign Authoring中**:这是指示文档已上载到Adobe Acrobat Sign及其协议处于AUTHORING或DOCUMENTS_NOT_YET_PROCESSED状态的状态的状态的占位符名称。 这是必需状态。 此状态必须定义了以下四个用户操作：
+   * **在Adobe Sign Authoring中**:这是一个占位符名称，表示文档已上载至Adobe Acrobat Sign，且其协议处于AUTHORING或DOCUMENTS_NOT_YET_PROCESSED状态。 这是必需状态。 此状态必须定义了以下四个用户操作：
 
       * 将文档状态更改为“Adobe Sign已取消”状态的操作。 无论生命周期如何，此用户操作的名称对于所有文档类型都必须相同。
       * 将文档状态更改为“进行Adobe签名”状态的操作。 无论生命周期如何，此用户操作的名称对于所有文档类型都必须相同。
@@ -443,7 +442,7 @@ Adobe Acrobat Sign协议生命周期包括以下状态：
 
 ## Connect [!DNL Veeva Vault] 到Adobe Acrobat Sign使用中间件 {#connect-middleware}
 
-完成设置后 [!DNL Veeva Vault] 对于Adobe Acrobat Sign管理员帐户，管理员必须使用中间件在两个帐户之间建立连接。 在 [!DNL Veeva Vault] 和Adobe Acrobat Sign帐户连接由Adobe Acrobat Sign身份发起，然后用于存储[!DNL Veeva Vault] 身份。
+完成设置后 [!DNL Veeva Vault] 对于Adobe Acrobat Sign管理员帐户，管理员必须使用中间件在两个帐户之间建立连接。 在 [!DNL Veeva Vault] 和Adobe Acrobat Sign帐户连接由Adobe Acrobat Sign Identity启动，然后用于存储[!DNL Veeva Vault] 身份。
 为了系统安全和稳定，管理员必须使用专用的 [!DNL Veeva Vault] 系统/服务/实用程序帐户，例如 `adobe.for.veeva@xyz.com`而不是个人用户帐户，例如 `bob.smith@xyz.com`的
 
 Adobe Acrobat Sign帐户管理员必须按照以下步骤进行连接 [!DNL Veeva Vault] 要使用中间件访问Adobe Acrobat Sign，请执行以下操作：
