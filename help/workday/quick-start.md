@@ -11,9 +11,9 @@ solution: Acrobat Sign
 role: User, Developer
 topic: Integrations
 exl-id: 8b6fa8b4-e240-4ebe-ae2a-8807d75a6c69
-source-git-commit: 4d73ff36408283805386bd3266b683bc187d6031
+source-git-commit: 2cc0ea55ee7dca3682896c61c85eec29a555339c
 workflow-type: tm+mt
-source-wordcount: '1348'
+source-wordcount: '1347'
 ht-degree: 30%
 
 ---
@@ -78,7 +78,7 @@ ht-degree: 30%
 
 ## 业务流程步骤说明 {#business-process-step-notes}
 
-[!UICONTROL 业务流程框架] 功能强大；但是，您必须确保：
+在 [!UICONTROL 业务流程框架] 功能强大；但是，您必须确保：
 
 * 每个业务流程都必须有一个完成步骤，最好是在业务流程结束时。
 
@@ -114,7 +114,7 @@ ht-degree: 30%
 
 以下动态聘用信是在 [!DNL Workday] 富文本编辑器。 高亮显示的项目 *灰色* 是 [!DNL Workday] 提供了引用上下文数据的对象。
 
-{{括号}} 中的项目是 [Adobe 文本标记](https://adobe.com/go/adobesign_text_tag_guide_cn)。
+中的项目 {{brackets}} 是 [Adobe文本标记](https://adobe.com/go/adobesign_text_tag_guide_cn)的
 
 ![动态表单示例](images/script.png)
 
@@ -186,7 +186,7 @@ ht-degree: 30%
 
 Adobe Sign 是集成合作伙伴，如果集成获取签名失败或待定签名通知失败时，请联系 Adobe Sign。
 
-Adobe Sign客户应联系其客户成功经理以获得支持。 或者， [!UICONTROL Adobe技术支持] 可通过电话联系：1-866-318-4100，等待产品列表，然后输入：4和2（根据提示）。
+Adobe Sign客户应联系 [!UICONTROL 客户成功经理] 以获取支持。 或者， [!UICONTROL Adobe技术支持] 可通过电话联系：1-866-318-4100，等待产品列表，然后输入：4和2（根据提示）。
 
 * [将 Adobe 文本标记添加到文档](https://www.adobe.com/go/adobesign_text_tag_guide)
 
