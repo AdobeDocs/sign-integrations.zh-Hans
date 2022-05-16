@@ -8,10 +8,10 @@ solution: Acrobat Sign
 role: User, Developer
 topic: Integrations
 exl-id: 378cac01-87c9-4288-8839-482121d49402
-source-git-commit: 4d73ff36408283805386bd3266b683bc187d6031
+source-git-commit: 0577f30c35a348174bed27c6eb309fce43f03eca
 workflow-type: tm+mt
-source-wordcount: '4870'
-ht-degree: 0%
+source-wordcount: '4871'
+ht-degree: 1%
 
 ---
 
@@ -243,7 +243,7 @@ Adobe Sign集成捆绑包允许您自动在中接收更新 [!DNL NetSuite] 关�
 
    * 在SuiteScript部分中，启用 **[!UICONTROL 客户端SuiteScript]** 和 **[!UICONTROL Server SuiteScript]** 并同意两种解决方案的服务条款。
 
-1. 选择 **[!UICONTROL 保存]**&#x200B;的
+1. 选择&#x200B;**[!UICONTROL 保存]**。
 
    您的选项如下图所示。
 
@@ -312,7 +312,7 @@ Adobe Sign集成捆绑已公开包含许多标准的Adobe Sign协议对象 [!DNL
 
    * 使用 **[!UICONTROL Audience]** 子选项卡处于活动状态（默认情况下处于活动状态），选择要授予访问权限的特定角色或用户。 如果要为所有角色和用户授予访问权限，请启用相应的 **[!UICONTROL 全选]** 选项。
 
-   * 选择 **[!UICONTROL 保存]**&#x200B;的 当显示更改确认时，选择 **[!UICONTROL 返回]**&#x200B;的
+   * 选择&#x200B;**[!UICONTROL 保存]**。当显示更改确认时，选择 **[!UICONTROL 返回]**&#x200B;的
 
 
 1. 选择 **[!UICONTROL 列表]** 位于“脚本部署”页面的顶部，可返回 *脚本* 列表页面。
@@ -355,7 +355,7 @@ Adobe Sign集成捆绑已公开包含许多标准的Adobe Sign协议对象 [!DNL
 
    >[!NOTE]
    >
-   >请参阅 *[设置自定义记录类型的权限列表](https://system)。[!DNL NetSuite].com/app/help/helpcenter.nl?fid=section_N2879931.html)* 中的主题 [!DNL NetSuite] Help Center以了解更多信息
+   >请参阅 *[设置自定义记录类型的权限列表](https://system)。[!DNL NetSuite].com/app/help/helpcenter.nl?fid=section_N2879931.html)* 有关更多信息，请参阅NetSuite帮助中心中的主题
 
    1. 从 *角色* 列表中。
    1. 设置 *级别* 来 **[!UICONTROL 完全]**&#x200B;的
