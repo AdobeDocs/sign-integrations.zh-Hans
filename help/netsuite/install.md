@@ -8,7 +8,7 @@ solution: Acrobat Sign
 role: User, Developer
 topic: Integrations
 exl-id: 378cac01-87c9-4288-8839-482121d49402
-source-git-commit: 581b336b4a3610cfe3fd0d92f2a4eebe55b89b27
+source-git-commit: 568d001a05bd0e642036b4a73067689e987c02ba
 workflow-type: tm+mt
 source-wordcount: '4870'
 ht-degree: 1%
@@ -581,7 +581,7 @@ Adobe Sign直接集成了 [!DNL NetSuite] 以便自动生成报价PDF并将其�
 
 ## 疑难解答
 
-### 确定更新的进度  {#determineprogress}
+### 确定更新的进度 {#determineprogress}
 
 如果更新所用的时间似乎超过了此时间，可以检查Adobe Sign Bundle Installation脚本的“执行日志”子选项卡，以按如下方式确定更新的进度：
 
