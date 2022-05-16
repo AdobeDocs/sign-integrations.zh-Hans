@@ -8,9 +8,9 @@ solution: Acrobat Sign
 role: User, Developer
 topic: Integrations
 exl-id: 378cac01-87c9-4288-8839-482121d49402
-source-git-commit: c54f848d7832e831dc10c8069ac572226f0b31e8
+source-git-commit: 581b336b4a3610cfe3fd0d92f2a4eebe55b89b27
 workflow-type: tm+mt
-source-wordcount: '4873'
+source-wordcount: '4870'
 ht-degree: 1%
 
 ---
@@ -66,7 +66,7 @@ ht-degree: 1%
 
 1. 如果您已经是Adobe Sign客户帐户，请按照以下步骤执行操作：  [安装或升级后配置OAuth](#oauth)的
 
-   如果您没有Adobe Sign帐户，则可以 [注册企业试用版](https://esign.adobe.com/adobe-sign-DNL NetSuite-trial-registration.html)帐户来测试系统。 请按照在线注册步骤启用您的Adobe Sign帐户。
+   如果您没有Adobe Sign帐户，则可以 [注册企业试用版](https://esign.adobe.com/adobe-sign-netsuite-trial-registration.html) 帐户以测试系统。 请按照在线注册步骤启用您的Adobe Sign帐户。
 
 ## 安装或升级后配置OAuth {#oauth}
 
@@ -111,13 +111,13 @@ Adobe Sign使用OAuth 2.0验证您的Adobe Sign帐户 [!DNL NetSuite]的
    >在沙箱帐户中配置OAuth时，授权完成时可能会遇到“无法确定客户合成ID”错误。
    >
    >
-   >若要继续，您必须更改URL（系统）的帐户域部分。[!DNL NetSuite].com)，以返回 [!DNL NetSuite] 沙箱，如下所示：
+   >若要继续，您必须更改浏览器中URL(system.netsuite.com)的帐户域部分，以指向 [!DNL NetSuite] 沙箱，如下所示：
    >
    >
    >更改:
    >
    >
-   >系统。[!DNL NetSuite].com/app/site/hosting/scriptlet.nl?script=745&amp;deploy=1&amp;web_access_point=https://echosign.com
+   >system.netsuite.com/app/site/hosting/scriptlet.nl?script=745&amp;deploy=1&amp;web_access_point=https://echosign.com
    >
    >
    >收件人：
@@ -581,7 +581,7 @@ Adobe Sign直接集成了 [!DNL NetSuite] 以便自动生成报价PDF并将其�
 
 ## 疑难解答
 
-### 确定更新的进度
+### 确定更新的进度  {#determineprogress}
 
 如果更新所用的时间似乎超过了此时间，可以检查Adobe Sign Bundle Installation脚本的“执行日志”子选项卡，以按如下方式确定更新的进度：
 
