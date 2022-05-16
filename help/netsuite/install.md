@@ -8,9 +8,9 @@ solution: Acrobat Sign
 role: User, Developer
 topic: Integrations
 exl-id: 378cac01-87c9-4288-8839-482121d49402
-source-git-commit: 0577f30c35a348174bed27c6eb309fce43f03eca
+source-git-commit: c54f848d7832e831dc10c8069ac572226f0b31e8
 workflow-type: tm+mt
-source-wordcount: '4871'
+source-wordcount: '4873'
 ht-degree: 1%
 
 ---
@@ -21,7 +21,7 @@ ht-degree: 1%
 
 适用于 [!DNL NetSuite] 提供与 [!DNL NetSuite]的 您可将Adobe Sign用于 [!DNL NetSuite] 集成可直接从 [!DNL NetSuite]的 您可以从客户、潜在客户、报价和其他人创建和发送Adobe Sign协议 [!DNL NetSuite] 记录。 Adobe Sign更新 [!DNL NetSuite] 并存储与关联方之间的协议 [!DNL NetSuite] 完全执行记录后。 您可以查看所有发送协议的历史记录 [!DNL NetSuite] 从产品内部。
 
-请参阅 [适用于 [!DNL NetSuite] 发行说明](https://experienceleague.adobe.com/docs/sign-integrations/using/netsuite/release-notes.html?lang=en) 了解更多信息。
+请参阅 [Adobe Sign for NetSuite发行说明](https://experienceleague.adobe.com/docs/sign-integrations/using/netsuite/release-notes.html?lang=en) 了解更多信息。
 
 ## 安装捆绑包并配置OAuth {#install}
 
@@ -66,7 +66,7 @@ ht-degree: 1%
 
 1. 如果您已经是Adobe Sign客户帐户，请按照以下步骤执行操作：  [安装或升级后配置OAuth](#oauth)的
 
-   如果您没有Adobe Sign帐户，则可以 [注册企业试用版](https://esign.adobe.com/adobe-sign-[!DNL NetSuite]-trial-registration.html)帐户以测试系统。 请按照在线注册步骤启用您的Adobe Sign帐户。
+   如果您没有Adobe Sign帐户，则可以 [注册企业试用版](https://esign.adobe.com/adobe-sign-DNL NetSuite-trial-registration.html)帐户来测试系统。 请按照在线注册步骤启用您的Adobe Sign帐户。
 
 ## 安装或升级后配置OAuth {#oauth}
 
@@ -123,7 +123,7 @@ Adobe Sign使用OAuth 2.0验证您的Adobe Sign帐户 [!DNL NetSuite]的
    >收件人：
    >
    >
-   >系统。**沙箱。**[!DNL NetSuite].com/app/site/hosting/scriptlet.nl?script=745&amp;deploy=1&amp;web_access_point=https://echosign.com
+   >系统。**沙箱。** netsuite.com/app/site/hosting/scriptlet.nl?script=745&amp;deploy=1&amp;web_access_point=https://echosign.com
 
 ## 更新捆绑包（现有用户）
 
@@ -355,7 +355,7 @@ Adobe Sign集成捆绑已公开包含许多标准的Adobe Sign协议对象 [!DNL
 
    >[!NOTE]
    >
-   >请参阅 *[设置自定义记录类型的权限列表](https://system)。[!DNL NetSuite].com/app/help/helpcenter.nl?fid=section_N2879931.html)* 有关更多信息，请参阅NetSuite帮助中心中的主题
+   >请参阅 *[设置自定义记录类型的权限列表](https://system.netsuite.com/app/help/helpcenter.nl?fid=section_N2879931.html)* 有关更多信息，请参阅NetSuite帮助中心中的主题
 
    1. 从 *角色* 列表中。
    1. 设置 *级别* 来 **[!UICONTROL 完全]**&#x200B;的
@@ -573,7 +573,7 @@ Adobe Sign直接集成了 [!DNL NetSuite] 以便自动生成报价PDF并将其�
 
 ## 卸载捆绑包
 
-要卸载该捆绑包，请按照 [!DNL NetSuite] 帮助。 请参阅 *[卸载捆绑包](https://docs.oracle.com/cloud/latest/[!DNL NetSuite]cs_gs/NSBDL/NSBDL.pdf)* 中的主题 [!DNL NetSuite] 有关更多信息，请参阅帮助中心。
+要卸载该捆绑包，请按照 [!DNL NetSuite] 帮助。 请参阅 *[卸载捆绑包](https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_N3400972.html)* 中的主题 [!DNL NetSuite] 有关更多信息，请参阅帮助中心。
 
 卸载捆绑后，将删除未签名的协议。 不影响已签名的协议及其相应的审核PDF文件。
 
