@@ -10,9 +10,9 @@ solution: Acrobat Sign
 role: User, Developer
 topic: Integrations
 exl-id: 5d61a428-06e4-413b-868a-da296532c964
-source-git-commit: 0577f30c35a348174bed27c6eb309fce43f03eca
+source-git-commit: c60fd19fa52fb203fd19da69d58792ef6fb88eec
 workflow-type: tm+mt
-source-wordcount: '3909'
+source-wordcount: '3931'
 ht-degree: 3%
 
 ---
@@ -83,7 +83,7 @@ ht-degree: 3%
 | file_hash__c | 文件哈希 | 字符串(50) | 保留已发送到Adobe Acrobat Sign的文件的md5校验和 |
 | name__v | 名称 | 字符串(128) | 保留协议名称 |
 | sender__c | 发件人 | 对象（用户） | 保留对创建协议的存储库用户的引用 |
-| signature_status__c | 签名状态 | 字符串(75) | 保存协议在Adobe Acrobat Sign中的状态 |
+| signature_status__c | 签名状态 | 字符串(75) | 保留协议在Adobe Acrobat Sign中的状态 |
 | signature_type__c | 签名类型 | 字符串(20) | 在Adobe Acrobat Sign（书面或ESIGN）中保留协议的签名类型 |
 | start_date__c | 开始日期 | 日期时间 | 发送协议以请求签名的日期 |
 | cancellation_date__c | 取消日期 | 日期时间 | 保留取消协议的日期。 |
@@ -105,7 +105,7 @@ ht-degree: 3%
 | email__c | 电子邮件 | 字符串(120) | 保存Adobe Acrobat Sign的唯一协议ID |
 | external_id__c | 参与者Id | 字符串(80) | 保留Adobe Acrobat Sign唯一参与者的标识符 |
 | name__v | 名称 | 字符串(128) | 包含Adobe Acrobat Sign参与者的姓名 |
-| order__c | 顺序 | 数字 | 保留Adobe Acrobat Sign协议参与人的订单编号 |
+| order__c | 顺序 | 数字 | 保留Adobe Acrobat Sign协议参与者的订单编号 |
 | role__c | 角色 | 字符串(30) | 持有Adobe Acrobat Sign协议参与者的角色 |
 | signature__c | 签名 | 对象（签名） | 保留对签名父记录的引用 |
 | signature_status__c | 签名状态 | 字符串(100) | 保留Adobe Acrobat Sign协议参与者的状态 |
@@ -125,7 +125,7 @@ ht-degree: 3%
 | acting_user_name__c | 代理用户名 | 字符串 | 保留执行导致生成事件的操作的Adobe Acrobat Sign用户的名称 |
 | description__c | 说明 | 字符串 | 包含Adobe Acrobat Sign事件的描述 |
 | event_date__c | 事件日期 | 日期时间 | 保存Adobe Acrobat Sign事件的日期和时间 |
-| event_type__c | 事件类型 | 字符串 | 包含Adobe Acrobat Sign事件的类型 |
+| event_type__c | 事件类型 | 字符串 | 保留Adobe Acrobat Sign事件的类型 |
 | name__v | 名称 | 字符串 | 自动生成的事件名称 |
 | participant_comment__c | 参与者注释 | 字符串 | 包含Adobe Acrobat Sign参与人的注释（如果有） |
 | participant_email__c | 参与者电子邮件 | 字符串 | 保留Adobe Acrobat Sign参与人的电子邮件 |
@@ -247,7 +247,7 @@ Adobe Acrobat Sign集成的Vault系统帐户用户必须：
 
 ### 步骤 6. 创建用户角色设置 {#create-user-role-setup}
 
-正确配置生命周期后，系统应确保DAC为适用于Adobe Sign进程的所有文档添加Adobe Acrobat Sign管理员用户。 为此，请创建相应的用户角色设置记录，其中指定：
+正确配置生命周期后，系统应确保DAC为适用于Adobe Acrobat Sign进程的所有文档添加Adobe Sign管理员用户。 为此，请创建相应的用户角色设置记录，其中指定：
 
 * 文档类型组作为Adobe Sign文档
 * 作为Adobe Sign管理员角色的应用程序角色
@@ -371,7 +371,7 @@ Adobe Acrobat Sign协议生命周期包括以下状态：
       ![图像](images/lifecycle-state-reviewed-1.png)
       ![图像](images/lifecycle-state-reviewed-2.png)
 
-   * **在Adobe Sign Draft中**:这是一个占位符名称，表示文档已上载至Adobe Acrobat Sign，且其协议处于“草稿”状态。 这是必需状态。 此状态必须定义以下五个用户操作：
+   * **在Adobe Sign Draft中**:这是指示文档已上载到Adobe Acrobat Sign且其协议处于“草稿”状态的状态的状态的占位符名称。 这是必需状态。 此状态必须定义以下五个用户操作：
 
       * 将文档状态更改为 *在Adobe Sign Authoring中* 状态。 对于任何生命周期的所有文档类型，此用户操作的名称必须相同。
       * 将文档状态更改为 *处于Adobe签名状态*&#x200B;的 对于任何生命周期的所有文档类型，此用户操作的名称必须相同。
@@ -415,7 +415,7 @@ Adobe Acrobat Sign协议生命周期包括以下状态：
 
       ![图像](images/in-adobe-signing-2.png)
 
-      * **Adobe已签名（已批准）**:这是一个占位符名称，表示文档已上载至Adobe Acrobat Sign且协议已完成（处于已签名或批准状态）的状态的状态。 它是必需状态，并且可以是现有的生命周期状态，例如“已批准”。
+      * **Adobe已签名（已批准）**:这是一个占位符名称，表示已将文档上传到Adobe Acrobat Sign并且其协议已完成（处于已签名或批准状态）的状态的文档。 它是必需状态，并且可以是现有的生命周期状态，例如“已批准”。
 此状态不需要用户操作。 其安全性必须允许Adobe Sign管理员角色：查看文档、查看内容和编辑字段。
 
    下图说明了Adobe Acrobat Sign协议与Vault文档状态之间的映射，其中“Adobe签名前”状态为“草稿”。
@@ -451,6 +451,10 @@ Adobe Acrobat Sign帐户管理员必须按照以下步骤进行连接 [!DNL Veev
 1. 选择 **[!UICONTROL 登录]** （位于右上角）。
 
    ![中间件登录图像](images/middleware_login.png)
+
+1. 要授权对应用程序的访问级别，请选择Acrobat Sign OAuth范围作为 **[!UICONTROL 帐户]** 或 **[!UICONTROL 编组]**&#x200B;的 接下来，选择 **[!UICONTROL 授权]**&#x200B;的
+
+   ![图像](images/middleware_oauth.png)
 
 1. 在打开的Adobe Acrobat Sign登录页面中，提供帐户管理员电子邮件地址和密码，然后选择 **[!UICONTROL 登录]**&#x200B;的
 
