@@ -10,7 +10,7 @@ solution: Acrobat Sign
 role: User, Developer
 topic: Integrations
 exl-id: 5d61a428-06e4-413b-868a-da296532c964
-source-git-commit: c60fd19fa52fb203fd19da69d58792ef6fb88eec
+source-git-commit: c164692d78608c436d136caef44b19fe8d37b9d8
 workflow-type: tm+mt
 source-wordcount: '3931'
 ht-degree: 3%
@@ -52,7 +52,7 @@ ht-degree: 3%
 
 ### 步骤 2. 部署包 {#deploy-package}
 
-[部署包](https://helpx.adobe.com/content/dam/help/en/PKG-AdobeSign-Integration.zip) 然后按照步骤操作。 部署后，程序包将创建：
+[部署包](https://helpx.adobe.com/content/dam/help/en/PKG-AdobeSign-Integration-veeva.zip) 然后按照步骤操作。 部署后，程序包将创建：
 
 * 自定义对象：签名对象、签名者对象、签名事件对象、处理保险箱对象
 * 签名对象页面布局
@@ -79,8 +79,8 @@ ht-degree: 3%
 
 | 字段 | 标签 | 类型 | 说明 |
 |:---|:---|:---|:------- | 
-| external_id__c | 协议 ID | 字符串(100) | 保存Adobe Acrobat Sign的唯一协议ID |
-| file_hash__c | 文件哈希 | 字符串(50) | 保留已发送到Adobe Acrobat Sign的文件的md5校验和 |
+| external_id__c | 协议 ID | 字符串(100) | 保留Adobe Acrobat Sign的唯一协议ID |
+| file_hash__c | 文件哈希 | 字符串(50) | 保存已发送到Adobe Acrobat Sign的文件的md5校验和 |
 | name__v | 名称 | 字符串(128) | 保留协议名称 |
 | sender__c | 发件人 | 对象（用户） | 保留对创建协议的存储库用户的引用 |
 | signature_status__c | 签名状态 | 字符串(75) | 保留协议在Adobe Acrobat Sign中的状态 |
@@ -102,13 +102,13 @@ ht-degree: 3%
 
 | 字段 | 标签 | 类型 | 说明 |
 |:---|:---|:---|:------- | 
-| email__c | 电子邮件 | 字符串(120) | 保存Adobe Acrobat Sign的唯一协议ID |
+| email__c | 电子邮件 | 字符串(120) | 保留Adobe Acrobat Sign的唯一协议ID |
 | external_id__c | 参与者Id | 字符串(80) | 保留Adobe Acrobat Sign唯一参与者的标识符 |
 | name__v | 名称 | 字符串(128) | 包含Adobe Acrobat Sign参与者的姓名 |
-| order__c | 顺序 | 数字 | 保留Adobe Acrobat Sign协议参与者的订单编号 |
+| order__c | 顺序 | 数字 | 保留Adobe Acrobat Sign协议参与人的订单编号 |
 | role__c | 角色 | 字符串(30) | 持有Adobe Acrobat Sign协议参与者的角色 |
 | signature__c | 签名 | 对象（签名） | 保留对签名父记录的引用 |
-| signature_status__c | 签名状态 | 字符串(100) | 保留Adobe Acrobat Sign协议参与者的状态 |
+| signature_status__c | 签名状态 | 字符串(100) | 保留Adobe Acrobat Sign协议参与人的状态 |
 | user__c | 用户 | 对象（用户） | 如果参与者是保管库用户，则保存对签名人用户记录的引用 |
 
 ![签名者详细信息的图像](images/signatory-object-details.png)
@@ -247,7 +247,7 @@ Adobe Acrobat Sign集成的Vault系统帐户用户必须：
 
 ### 步骤 6. 创建用户角色设置 {#create-user-role-setup}
 
-正确配置生命周期后，系统应确保DAC为适用于Adobe Acrobat Sign进程的所有文档添加Adobe Sign管理员用户。 为此，请创建相应的用户角色设置记录，其中指定：
+正确配置生命周期后，系统应确保DAC为适用于Adobe Sign进程的所有文档添加Adobe Acrobat Sign管理员用户。 为此，请创建相应的用户角色设置记录，其中指定：
 
 * 文档类型组作为Adobe Sign文档
 * 作为Adobe Sign管理员角色的应用程序角色
@@ -371,7 +371,7 @@ Adobe Acrobat Sign协议生命周期包括以下状态：
       ![图像](images/lifecycle-state-reviewed-1.png)
       ![图像](images/lifecycle-state-reviewed-2.png)
 
-   * **在Adobe Sign Draft中**:这是指示文档已上载到Adobe Acrobat Sign且其协议处于“草稿”状态的状态的状态的占位符名称。 这是必需状态。 此状态必须定义以下五个用户操作：
+   * **在Adobe Sign Draft中**:这是一个占位符名称，表示文档已上载至Adobe Acrobat Sign，且其协议处于“草稿”状态。 这是必需状态。 此状态必须定义以下五个用户操作：
 
       * 将文档状态更改为 *在Adobe Sign Authoring中* 状态。 对于任何生命周期的所有文档类型，此用户操作的名称必须相同。
       * 将文档状态更改为 *处于Adobe签名状态*&#x200B;的 对于任何生命周期的所有文档类型，此用户操作的名称必须相同。
@@ -386,7 +386,7 @@ Adobe Acrobat Sign协议生命周期包括以下状态：
 
       ![图像](images/atomic-security.png)
 
-   * **在Adobe Sign Authoring中**:这是一个占位符名称，表示文档已上载至Adobe Acrobat Sign，且其协议处于AUTHORING或DOCUMENTS_NOT_YET_PROCESSED状态。 这是必需状态。 此状态必须定义了以下四个用户操作：
+   * **在Adobe Sign Authoring中**:这是指示文档已上载到Adobe Acrobat Sign及其协议处于AUTHORING或DOCUMENTS_NOT_YET_PROCESSED状态的状态的状态的占位符名称。 这是必需状态。 此状态必须定义了以下四个用户操作：
 
       * 将文档状态更改为“Adobe Sign已取消”状态的操作。 无论生命周期如何，此用户操作的名称对于所有文档类型都必须相同。
       * 将文档状态更改为“进行Adobe签名”状态的操作。 无论生命周期如何，此用户操作的名称对于所有文档类型都必须相同。
@@ -440,9 +440,9 @@ Adobe Acrobat Sign协议生命周期包括以下状态：
 
 ![图像](images/create-cancel-message.png)
 
-## Connect [!DNL Veeva Vault] 到Adobe Acrobat Sign使用中间件 {#connect-middleware}
+## Connect [!DNL Veeva Vault] 到Adobe Acrobat Sign的中间件 {#connect-middleware}
 
-完成设置后 [!DNL Veeva Vault] 对于Adobe Acrobat Sign管理员帐户，管理员必须使用中间件在两个帐户之间建立连接。 在 [!DNL Veeva Vault] 和Adobe Acrobat Sign帐户连接由Adobe Acrobat Sign身份发起，然后用于存储[!DNL Veeva Vault] 身份。
+完成设置后 [!DNL Veeva Vault] 对于Adobe Acrobat Sign管理员帐户，管理员必须使用中间件在两个帐户之间建立连接。 在 [!DNL Veeva Vault] 和Adobe Acrobat Sign帐户连接由Adobe Acrobat Sign Identity启动，然后用于存储[!DNL Veeva Vault] 身份。
 为了系统安全和稳定，管理员必须使用专用的 [!DNL Veeva Vault] 系统/服务/实用程序帐户，例如 `adobe.for.veeva@xyz.com`而不是个人用户帐户，例如 `bob.smith@xyz.com`的
 
 Adobe Acrobat Sign帐户管理员必须按照以下步骤进行连接 [!DNL Veeva Vault] 到Adobe Acrobat Sign使用中间件：
@@ -494,11 +494,11 @@ Adobe Acrobat Sign帐户管理员必须按照以下步骤进行连接 [!DNL Veev
 
 1. 要允许在Adobe Acrobat Sign中自动设置用户，请选中复选框 **[!UICONTROL 自动设置Sign用户]**&#x200B;的
 
-   **注意：** 只有在启用新Adobe Acrobat Sign用户之外，还在Adobe Acrobat Sign的Adobe Acrobat Sign帐户级别中启用了该新用户后，该新用户自动设置才有效 **[!UICONTROL 自动设置Sign用户]** 对于[!DNL Veeva Vault] Adobe Acrobat Sign集成，由Adobe Acrobat Sign帐户管理员如下所示。
+   **注意：** 只有在启用新Adobe Acrobat Sign用户之外，还在Adobe Acrobat Sign的Adobe Acrobat Sign帐户级别中启用了该新用户后，该新用户才会自动设置 **[!UICONTROL 自动设置Sign用户]** 对于[!DNL Veeva Vault] Adobe Acrobat Sign集成，由Adobe Acrobat Sign帐户管理员如下所示。
 
    ![图像](images/allow-auto-provisioning.png)
 
-1. 要将Adobe Sign演绎版配置为显示在“视频”中而不是显示在“原始演绎版”中，请选中复选框 **[!UICONTROL 显示Acrobat Sign呈现形式]**&#x200B;的
+1. 要将Adobe Sign演绎版配置为显示在“视频”中而不是显示在“原始演绎版”中，请选中复选框 **[!UICONTROL 显示Acrobat Sign Rendition]**&#x200B;的
 
    ![图像](images/edit-connection-dispplay-adobe-sign-rendition.png)
 

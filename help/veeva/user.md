@@ -9,7 +9,7 @@ solution: Acrobat Sign
 role: User, Developer
 topic: Integrations
 exl-id: 39a43637-af3f-432e-a784-8f472aa86df5
-source-git-commit: 076c575d179f576366c1d9a76be0a582154574b1
+source-git-commit: c164692d78608c436d136caef44b19fe8d37b9d8
 workflow-type: tm+mt
 source-wordcount: '721'
 ht-degree: 2%
@@ -20,7 +20,7 @@ ht-degree: 2%
 
 [**联系Adobe Acrobat Sign支持**](https://adobe.com/go/adobesign-support-center_cn)
 
-本文档旨在帮助您 [!DNL Veeva Vault] 客户了解如何将Adobe Acrobat Sign用于 [!DNL Veeva Vault] 用于发送协议的集成。
+本文档旨在帮助您 [!DNL Veeva Vault] 客户了解如何使用Adobe Acrobat Sign for [!DNL Veeva Vault] 用于发送协议的集成。
 
 ## 概览 {#overview}
 
@@ -38,7 +38,7 @@ Adobe Acrobat Sign与 [!DNL Veeva Vault] 简化并加速您的文档和签名工
 
 ## 使用Adobe Acrobat Sign for [!DNL Veeva Vault] {#send-sign-vault-agreement}
 
-要使用适用于Veeva的Adobe Acrobat Sign发送协议，请执行以下操作：
+要使用Adobe Acrobat Sign for Veeva发送协议，请执行以下操作：
 
 1. 转到 [[!DNL Veeva Vault] 登录页](https://login.veevavault.com/) 然后输入您的用户名和密码。 这将打开Vault的主页，如下所示。
 
@@ -54,11 +54,12 @@ Adobe Acrobat Sign与 [!DNL Veeva Vault] 简化并加速您的文档和签名工
 
 1. 在出现的对话框中，选择 **[!UICONTROL 文字]** 作为 *[!UICONTROL 临床]* 然后选择 **[!UICONTROL 子类型]** 和 **[!UICONTROL 分类]**，如果需要。
 
+
    ![](images/choose-document-type.png)
 
 1. 要关闭该对话框，请选择 **[!UICONTROL 确定]**&#x200B;的
 
-1. 选择 **[!UICONTROL 下一个]**&#x200B;的
+1. 选择&#x200B;**[!UICONTROL 下一步]**。
 
 1. 在显示的窗口中，填写元数据部分中的所有必填字段，然后选择 **[!UICONTROL 保存]**&#x200B;的
 
@@ -86,7 +87,7 @@ Adobe Acrobat Sign与 [!DNL Veeva Vault] 简化并加速您的文档和签名工
 
    ![](images/select-adobe-sign.png)
 
-1. 如果在Adobe Acrobat Sign帐户中启用了UMG（位于多个组的用户）功能，并且发件人属于多个组，则会看到如下所示的对话框。 在对话框中，选择组，然后选择 **[!UICONTROL 下一个]**&#x200B;的
+1. 如果在Adobe Acrobat Sign帐户上启用了UMG（位于多个组的用户）功能，并且发件人属于多个组，则会看到如下所示的对话框。 在对话框中，选择组，然后选择 **[!UICONTROL 下一个]**&#x200B;的
 
    ![](images/umg-dialog.png)
 
@@ -94,16 +95,16 @@ Adobe Acrobat Sign与 [!DNL Veeva Vault] 简化并加速您的文档和签名工
 
    ![](images/iframe.png)
 
-   **注意：** 如果不存在用于发送者电子邮件的Adobe Acrobat Sign用户帐户，则iFrame窗口会显示一条消息，如下所示。 它还会向用户发送一封电子邮件，其中包含激活帐户的说明。
+   **注意：** 如果发送者的电子邮件不存在Adobe Acrobat Sign用户帐户，则iFrame窗口会显示一条消息，如下所示。 它还会向用户发送一封电子邮件，其中包含激活帐户的说明。
 
    ![](images/iFrame-registration-message.png)
 
    ![](images/iFrame-confirm-email.png)
 
-   但是，如果 *自动设置Sign用户* 该功能已禁用，Adobe Acrobat Sign用户创建失败，并且iFrame窗口显示一条消息，要求用户联系其Adobe Acrobat Sign帐户管理员。 Adobe Acrobat Sign帐户管理员可以采取以下任一操作：
+   但是，如果 *自动设置Sign用户* 功能已禁用，Adobe Acrobat Sign用户创建失败，并且iFrame窗口显示一条消息，要求用户联系其Adobe Acrobat Sign帐户管理员。 Adobe Acrobat Sign帐户管理员可以采取以下任一操作：
 
    * 启用 *自动设置Sign用户* 功能。
-   * 使用Veeva Vault Adobe Acrobat Sign集成之前，请在Adobe Acrobat Sign中创建用户。
+   * 使用Veeva Vault Adobe Acrobat Sign集成之前，在Adobe Acrobat Sign中创建用户。
 
    ![](images/iFrame-contact-administrator.png)
 
