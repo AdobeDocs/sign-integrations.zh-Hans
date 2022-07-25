@@ -10,16 +10,16 @@ solution: Acrobat Sign
 role: User, Developer
 topic: Integrations
 exl-id: 5d61a428-06e4-413b-868a-da296532c964
-source-git-commit: c164692d78608c436d136caef44b19fe8d37b9d8
+source-git-commit: 163c74a2e03aeaa0627d972b791166d4ea4e66a6
 workflow-type: tm+mt
-source-wordcount: '3931'
+source-wordcount: '3933'
 ht-degree: 3%
 
 ---
 
 # [!DNL Veeva Vault] 安装指南{#veeva-installation-guide}
 
-[**联系Adobe Acrobat Sign支持**](https://adobe.com/go/adobesign-support-center_cn)
+[**联系Adobe Acrobat Sign支持**](https://adobe.com/cn/go/adobesign-support-center)
 
 ## 概览 {#overview}
 
@@ -52,7 +52,7 @@ ht-degree: 3%
 
 ### 步骤 2. 部署包 {#deploy-package}
 
-[部署包](https://helpx.adobe.com/content/dam/help/en/PKG-AdobeSign-Integration-veeva.zip) 然后按照步骤操作。 部署后，程序包将创建：
+[部署包](https://helpx.adobe.com/content/dam/help/en/sign-integrations-new/veeva-vault/PKG-AdobeSign-Integration-Veeva.zip) 然后按照步骤操作。 部署后，程序包将创建：
 
 * 自定义对象：签名对象、签名者对象、签名事件对象、处理保险箱对象
 * 签名对象页面布局
