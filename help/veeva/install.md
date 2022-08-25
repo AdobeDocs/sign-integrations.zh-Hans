@@ -10,7 +10,7 @@ solution: Acrobat Sign
 role: User, Developer
 topic: Integrations
 exl-id: 5d61a428-06e4-413b-868a-da296532c964
-source-git-commit: 08d55f79fd4fff8f13dc23b9d155e501ca038be1
+source-git-commit: c09759f2455b476fd1093d845cee4f5c3c3601d7
 workflow-type: tm+mt
 source-wordcount: '4169'
 ht-degree: 3%
@@ -289,13 +289,13 @@ Adobe Acrobat Sign集成的Vault系统帐户用户必须：
 
 新的格式副本类型称为 *Adobe Sign Rendition(adobe_sign_rendition__c)* 由Vault集成用于将已签名的PDF文档上传到Adobe Acrobat Sign。 您必须为每个文档类型声明Adobe Sign格式副本，才有资格获得Adobe Acrobat签名。
 
-您必须为每个文档类型声明符合“Adobe Acrobat签名”条件的原始格式副本。
-
 ![呈现类型的图像](images/rendition-type.png)
 
 ![图像](images/edit-details-clinical.png)
 
 新的格式副本类型称为 *原始格式副本* (original_rendition__c)被Vault集成用作格式副本的名称，如果签名的文档被导入为可视格式副本，则应当使用该格式副本来存储原始的可视格式副本。
+
+您必须为每个文档类型声明符合“Adobe Acrobat签名”条件的原始格式副本。
 
 ![图像](images/original-rendition.png)
 
