@@ -10,9 +10,9 @@ solution: Acrobat Sign
 role: User, Developer
 topic: Integrations
 exl-id: 5d61a428-06e4-413b-868a-da296532c964
-source-git-commit: 00db62c894df93abac31bf8196730382d54e8fa0
+source-git-commit: 76f1be575130e89d96dfe45f7343382b3a519903
 workflow-type: tm+mt
-source-wordcount: '4176'
+source-wordcount: '4171'
 ht-degree: 3%
 
 ---
@@ -320,7 +320,7 @@ Adobe Acrobat Sign集成的Vault系统帐户用户必须：
 
 要随数字签名和审核记录一起查看文档内容，请不要在用于数字签名的Admin UI中选择“将审核报告附加到签名格式副本”和“显示Acrobat Sign格式副本”。
 
-您可以使用“Adobe审核记录呈现形式”功能，将Adobe审核记录作为与已签名呈现形式不同的单独呈现形式下载或查看。
+您可以使用“Adobe审核记录”呈现形式下载Adobe审核记录，或将其作为单独的呈现形式查看。
 
 ![图像](images/audit-trail-rendition-setup-4.png)
 
