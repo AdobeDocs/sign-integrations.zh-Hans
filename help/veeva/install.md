@@ -10,9 +10,9 @@ solution: Acrobat Sign
 role: User, Developer
 topic: Integrations
 exl-id: 5d61a428-06e4-413b-868a-da296532c964
-source-git-commit: 163c74a2e03aeaa0627d972b791166d4ea4e66a6
+source-git-commit: 08d55f79fd4fff8f13dc23b9d155e501ca038be1
 workflow-type: tm+mt
-source-wordcount: '3933'
+source-wordcount: '4169'
 ht-degree: 3%
 
 ---
@@ -289,13 +289,40 @@ Adobe Acrobat Sign集成的Vault系统帐户用户必须：
 
 新的格式副本类型称为 *Adobe Sign Rendition(adobe_sign_rendition__c)* 由Vault集成用于将已签名的PDF文档上传到Adobe Acrobat Sign。 您必须为每个文档类型声明Adobe Sign格式副本，才有资格获得Adobe Acrobat签名。
 
+您必须为每个文档类型声明符合“Adobe Acrobat签名”条件的原始格式副本。
+
 ![呈现类型的图像](images/rendition-type.png)
 
 ![图像](images/edit-details-clinical.png)
 
-新的格式副本类型称为 *原始格式副本(original_rendition__c)* 被Vault集成用作格式副本的名称，如果签名文档导入为可视格式副本，则应当使用该格式副本存储原始可视格式副本。
+新的格式副本类型称为 *原始格式副本* (original_rendition__c)被Vault集成用作格式副本的名称，如果签名的文档被导入为可视格式副本，则应当使用该格式副本来存储原始的可视格式副本。
 
 ![图像](images/original-rendition.png)
+
+（可选）Vault可以具有新的呈现形式类型“Adobe审核记录呈现”(adobe_audit_trail_rendition__c),Vault集成使用该呈示类型存储Adobe审核记录报告。
+
+按照以下步骤设置Adobe审查追踪呈现：
+
+1. 转到 **呈现形式类型** > **创建新的呈现形式类型**的
+将新的“呈现形式类型”创建为“审核记录呈现形式”(adobe_audit_trail_rendition__c)。
+
+   ![图像](images/audit-trail-rendition-setup-1.png)
+
+1. 要查看和下载文档的Adobe审查追踪呈现形式，请声明 *Adobe审核记录呈现* 适用于符合Adobe Acrobat Signature的每个文档类型。
+
+   ![图像](images/audit-trail-rendition-setup-2.png)
+
+**注释**:您可以通过启用，选择将审计报告附加到已签名的呈现形式 **[!UICONTROL 将审核报告附加到已签名的呈现形式]** 并通过启用 ****[!UICONTROL 显示Acrobat Sign Rendition]**** “管理UI设置”中的选项。
+
+![图像](images/audit-trail-rendition-setup-3.png)
+
+当用户选择具有上述设置的数字签名协议时，将显示一条消息（如下所示），指示Adobe Acrobat Sign正在使用PDFPortfolio来组合数字签名PDF和审核跟踪报告。
+
+要随数字签名和审核记录一起查看文档内容，请不要在用于数字签名的Admin UI中选择“将审核报告附加到签名格式副本”和“显示Acrobat Sign格式副本”。
+
+您可以下载或查看Adobe审查追踪，将其作为与已签名格式副本分开的格式副本。
+
+![图像](images/audit-trail-rendition-setup-4.png)
 
 ### 步骤 9. 更新Web操作 {#web-actions}
 
