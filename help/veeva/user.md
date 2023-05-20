@@ -12,17 +12,17 @@ exl-id: 39a43637-af3f-432e-a784-8f472aa86df5
 source-git-commit: c164692d78608c436d136caef44b19fe8d37b9d8
 workflow-type: tm+mt
 source-wordcount: '721'
-ht-degree: 2%
+ht-degree: 0%
 
 ---
 
 # 适用于 [!DNL Veeva Vault]:用户指南 {#veeva-vault-user-guide}
 
-[**联系Adobe Acrobat Sign支持**](https://adobe.com/go/adobesign-support-center_cn)
+[**联系Adobe Acrobat Sign支持**](https://adobe.com/go/adobesign-support-center)
 
 本文档旨在帮助您 [!DNL Veeva Vault] 客户了解如何使用Adobe Acrobat Sign for [!DNL Veeva Vault] 用于发送协议的集成。
 
-## 概览 {#overview}
+## 概述 {#overview}
 
 Adobe Acrobat Sign与 [!DNL Veeva Vault] 对于需要合法签名或可审核文档处理的任何文档，可加快获取签名或审批的过程。
 
@@ -33,7 +33,7 @@ Adobe Acrobat Sign与 [!DNL Veeva Vault] 简化并加速您的文档和签名工
 * 节省在蜗牛邮件、邮寄或传真上花费的时间和资源。
 * 发送合同以进行电子签名或审批 [!DNL Veeva Vault]、访问实时合同历史记录，并查看保存的合同。
 * 实时跟踪贵组织中的交易，并在查看、签署、取消或拒绝协议时获取更新。
-* 使用 20 多种语言进行电子签名，并在全球 50 多个区域支持回传服务.
+* 使用20多种语言进行电子登录，并在全球50多个地区支持回传服务。
 * 创建用于发送选项的可重用协议模板。
 
 ## 使用Adobe Acrobat Sign for [!DNL Veeva Vault] {#send-sign-vault-agreement}
@@ -59,7 +59,7 @@ Adobe Acrobat Sign与 [!DNL Veeva Vault] 简化并加速您的文档和签名工
 
 1. 要关闭该对话框，请选择 **[!UICONTROL 确定]**&#x200B;的
 
-1. 选择&#x200B;**[!UICONTROL 下一步]**。
+1. 选择 **[!UICONTROL 下一个]**&#x200B;的
 
 1. 在显示的窗口中，填写元数据部分中的所有必填字段，然后选择 **[!UICONTROL 保存]**&#x200B;的
 

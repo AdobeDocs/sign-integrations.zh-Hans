@@ -11,14 +11,14 @@ exl-id: 0512f616-568a-4b96-9bd1-48e67bc3536b
 source-git-commit: 4d73ff36408283805386bd3266b683bc187d6031
 workflow-type: tm+mt
 source-wordcount: '2354'
-ht-degree: 1%
+ht-degree: 0%
 
 ---
 
 
 # [!DNL SugarCRM] 安装指南 {#sugarcrm-install-guide}
 
-[联系客户关怀部门](https://adobe.com/go/adobesign-support-center_cn)
+[联系客户关怀部门](https://adobe.com/go/adobesign-support-center)
 
 Adobe [!DNL EchoSign] 用于 [!DNL SugarCRM] 是一款领先的电子签名和Web合约解决方案，可在各种电子签名解决方案中 [!DNL SugarCRM] 用于电子签名和传真签名。 用户可以直接从SugarCRM发送合同、查看合同历史记录，还可以将电子签名的合同与关联帐户、联系人、报价等一起保存。
 Adobe [!DNL EchoSign] 用于 [!DNL SugarCRM] 适用于所有支持的SugarCRM版本，包括6.3 - 6.7的按需或本地解决方案。

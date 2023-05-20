@@ -11,13 +11,13 @@ exl-id: 378cac01-87c9-4288-8839-482121d49402
 source-git-commit: 568d001a05bd0e642036b4a73067689e987c02ba
 workflow-type: tm+mt
 source-wordcount: '4870'
-ht-degree: 1%
+ht-degree: 0%
 
 ---
 
 # [!DNL NetSuite] 安装和自定义指南(v4.0.4) {#install-customize-NetSuite}
 
-## 概览 {#overview}
+## 概述 {#overview}
 
 适用于 [!DNL NetSuite] 提供与 [!DNL NetSuite]的 您可将Adobe Sign用于 [!DNL NetSuite] 集成可直接从 [!DNL NetSuite]的 您可以从客户、潜在客户、报价和其他人创建和发送Adobe Sign协议 [!DNL NetSuite] 记录。 Adobe Sign更新 [!DNL NetSuite] 并存储与关联方之间的协议 [!DNL NetSuite] 完全执行记录后。 您可以查看所有发送协议的历史记录 [!DNL NetSuite] 从产品内部。
 
@@ -72,7 +72,7 @@ ht-degree: 1%
 
 Adobe Sign使用OAuth 2.0验证您的Adobe Sign帐户 [!DNL NetSuite]的
 
-此协议授权您安装 [!DNL NetSuite] 捆绑以与Adobe Sign通信而无需请求密码。 由于应用程序之间不能直接共享敏感信息，因此您的帐户不太可能会受到威胁。
+此协议授权您安装 [!DNL NetSuite] 捆绑以与Adobe Sign通信而无需请求密码。 由于应用程序之间不会直接共享敏感信息，因此您的帐户不太可能会受到威胁。
 
 此身份验证不会影响您的实现，但在生产或沙箱帐户中安装或升级捆绑后，您必须进行一次性配置。
 
@@ -84,7 +84,7 @@ Adobe Sign使用OAuth 2.0验证您的Adobe Sign帐户 [!DNL NetSuite]的
 
 1. 在“搜索结果”页面中，选择 **视图** 对于 *Adobe Sign Config* 录制。
 
-   ![搜索 Adobe Sign](images/search-for-adobesignconfig.png)
+   ![搜索Adobe Sign](images/search-for-adobesignconfig.png)
 
 1. 在“Adobe Sign配置列表”页面上，选择 **[!UICONTROL 视图]** 对于 *使用OAuth访问Adobe Sign API* 录制。
 
@@ -114,7 +114,7 @@ Adobe Sign使用OAuth 2.0验证您的Adobe Sign帐户 [!DNL NetSuite]的
    >若要继续，您必须更改浏览器中URL(system.netsuite.com)的帐户域部分，以指向 [!DNL NetSuite] 沙箱，如下所示：
    >
    >
-   >更改:
+   >更改：
    >
    >
    >system.netsuite.com/app/site/hosting/scriptlet.nl?script=745&amp;deploy=1&amp;web_access_point=https://echosign.com
@@ -243,7 +243,7 @@ Adobe Sign集成捆绑包允许您自动在中接收更新 [!DNL NetSuite] 关�
 
    * 在SuiteScript部分中，启用 **[!UICONTROL 客户端SuiteScript]** 和 **[!UICONTROL Server SuiteScript]** 并同意两种解决方案的服务条款。
 
-1. 选择&#x200B;**[!UICONTROL 保存]**。
+1. 选择 **[!UICONTROL 保存]**&#x200B;的
 
    您的选项如下图所示。
 
@@ -312,7 +312,7 @@ Adobe Sign集成捆绑已公开包含许多标准的Adobe Sign协议对象 [!DNL
 
    * 使用 **[!UICONTROL Audience]** 子选项卡处于活动状态（默认情况下处于活动状态），选择要授予访问权限的特定角色或用户。 如果要为所有角色和用户授予访问权限，请启用相应的 **[!UICONTROL 全选]** 选项。
 
-   * 选择&#x200B;**[!UICONTROL 保存]**。当显示更改确认时，选择 **[!UICONTROL 返回]**&#x200B;的
+   * 选择 **[!UICONTROL 保存]**&#x200B;的 当显示更改确认时，选择 **[!UICONTROL 返回]**&#x200B;的
 
 
 1. 选择 **[!UICONTROL 列表]** 位于“脚本部署”页面的顶部，可返回 *脚本* 列表页面。
@@ -379,7 +379,7 @@ Adobe Sign集成捆绑已公开包含许多标准的Adobe Sign协议对象 [!DNL
    **[!UICONTROL 无需权限]的** 这适用于以下记录类型：
 
    * Adobe Sign Config
-   * Adobe Sign 文档
+   * Adobe Sign Document
    * Adobe Sign事件
    * Adobe Sign语
    * Adobe Sign脚本错误
@@ -550,7 +550,7 @@ Adobe Sign直接集成了 [!DNL NetSuite] 以便自动生成报价PDF并将其�
    * **发送提醒**  — 向当前签名者发送提醒。
    * **取消协议**  — 取消协议。 如果所有收件人尚未签名，协议在发送出去进行签名后可能会被取消。
 
-![已发出进行签名](images/out-for-signature.png)
+![发出进行签名](images/out-for-signature.png)
 
 新的 *事件* 子选项卡将显示在协议记录中，您可以在其中跟踪协议的状态。
 
@@ -647,4 +647,4 @@ Adobe Sign直接集成了 [!DNL NetSuite] 以便自动生成报价PDF并将其�
 
 ## 支持 {#support}
 
-转到 [Adobe Sign支持门户](https://adobe.com/go/adobesign-support-center_cn) 访问常见问题解答、文档、知识库文章或联系Adobe支持。
+转到 [Adobe Sign支持门户](https://adobe.com/go/adobesign-support-center) 访问常见问题解答、文档、知识库文章或联系Adobe支持。

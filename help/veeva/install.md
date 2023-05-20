@@ -13,15 +13,15 @@ exl-id: 5d61a428-06e4-413b-868a-da296532c964
 source-git-commit: 76f1be575130e89d96dfe45f7343382b3a519903
 workflow-type: tm+mt
 source-wordcount: '4171'
-ht-degree: 3%
+ht-degree: 0%
 
 ---
 
 # [!DNL Veeva Vault] 安装指南{#veeva-installation-guide}
 
-[**联系Adobe Acrobat Sign支持**](https://adobe.com/cn/go/adobesign-support-center)
+[**联系Adobe Acrobat Sign支持**](https://adobe.com/go/adobesign-support-center)
 
-## 概览 {#overview}
+## 概述 {#overview}
 
 本文档介绍如何将Adobe Acrobat Sign与 [!DNL Veeva Vault] 平台。 [!DNL Veeva Vault] 是一个为生命科学而构建的企业内容管理(ECM)平台。 “存储库”是一个内容和数据存储库，通常用于法规归档、研究报告、授权应用程序、总承包等。 单个企业可以有多个必须单独维护的“保管库”。
 
@@ -44,13 +44,13 @@ ht-degree: 3%
 
 要配置 [!DNL Veeva Vault] 要与Adobe Acrobat Sign集成，您必须实施下面列出的步骤。
 
-### 步骤 1. 创建组 {#create-group}
+### 步骤1. 创建组 {#create-group}
 
 要为 [!DNL Vault]，一个新组名为 *Adobe Sign Admin Group* 的条目。 此组用于为Adobe Acrobat Sign相关字段设置文档字段级别安全性，并应包括 *Adobe Sign集成配置文件* 默认情况下。
 
 ![签名事件详细信息的图像](images/create-admin-group.png)
 
-### 步骤 2. 部署包 {#deploy-package}
+### 步骤2. 部署包 {#deploy-package}
 
 [部署包](https://helpx.adobe.com/content/dam/help/en/sign-integrations-new/veeva-vault/PKG-AdobeSign-Integration-Veeva.zip) 然后按照步骤操作。 部署后，程序包将创建：
 
@@ -77,9 +77,9 @@ ht-degree: 3%
 
 **签名对象字段**
 
-| 字段 | 标签 | 类型 | 说明 |
+| 字段 | 标签 | 文字 | 说明 |
 |:---|:---|:---|:------- | 
-| external_id__c | 协议 ID | 字符串(100) | 保留Adobe Acrobat Sign的唯一协议ID |
+| external_id__c | 协议ID | 字符串(100) | 保留Adobe Acrobat Sign的唯一协议ID |
 | file_hash__c | 文件哈希 | 字符串(50) | 保存已发送到Adobe Acrobat Sign的文件的md5校验和 |
 | name__v | 名称 | 字符串(128) | 保留协议名称 |
 | sender__c | 发件人 | 对象（用户） | 保留对创建协议的存储库用户的引用 |
@@ -88,7 +88,7 @@ ht-degree: 3%
 | start_date__c | 开始日期 | 日期时间 | 发送协议以请求签名的日期 |
 | cancellation_date__c | 取消日期 | 日期时间 | 保留取消协议的日期。 |
 | completion_date__c | 完成日期 | 日期时间 | 保留协议完成的日期。 |
-| viewable_rendition_used__c | 已使用可查看的呈现形式 | 布尔 | 指示是否已发送可查看的呈现形式以进行签名的标记。 （默认情况下为true） |
+| viewable_rendition_used__c | 已使用可查看的呈现形式 | 布尔值 | 指示是否已发送可查看的呈现形式以进行签名的标记。 （默认情况下为true） |
 | plugin_version__c | 插件版本 | 文本(10) | 它用于允许在部署新版本4.0之前正确处理创建的所有协议。 注意：部署4.0自定义Web应用程序版本后，每次创建签名记录时，此字段将设置为4.0。 |
 | external_environment__c | 外部环境 | 文本(20) | 保留创建协议时使用的Adobe Sign环境名称。 |
 
@@ -100,12 +100,12 @@ ht-degree: 3%
 
 **签名者对象字段**
 
-| 字段 | 标签 | 类型 | 说明 |
+| 字段 | 标签 | 文字 | 说明 |
 |:---|:---|:---|:------- | 
 | email__c | 电子邮件 | 字符串(120) | 保留Adobe Acrobat Sign的唯一协议ID |
 | external_id__c | 参与者Id | 字符串(80) | 保留Adobe Acrobat Sign唯一参与者的标识符 |
 | name__v | 名称 | 字符串(128) | 包含Adobe Acrobat Sign参与者的姓名 |
-| order__c | 顺序 | 数字 | 保留Adobe Acrobat Sign协议参与人的订单编号 |
+| order__c | 订单 | 数字 | 保留Adobe Acrobat Sign协议参与人的订单编号 |
 | role__c | 角色 | 字符串(30) | 持有Adobe Acrobat Sign协议参与者的角色 |
 | signature__c | 签名 | 对象（签名） | 保留对签名父记录的引用 |
 | signature_status__c | 签名状态 | 字符串(100) | 保留Adobe Acrobat Sign协议参与人的状态 |
@@ -119,7 +119,7 @@ ht-degree: 3%
 
 签名事件对象字段
 
-| 字段 | 标签 | 类型 | 说明 |
+| 字段 | 标签 | 文字 | 说明 |
 |:---|:---|:---|:-------- | 
 | acting_user_email__c | 代理用户电子邮件 | 字符串 | 保留执行导致生成事件的操作的Adobe Acrobat Sign用户的电子邮件 |
 | acting_user_name__c | 代理用户名 | 字符串 | 保留执行导致生成事件的操作的Adobe Acrobat Sign用户的名称 |
@@ -129,7 +129,7 @@ ht-degree: 3%
 | name__v | 名称 | 字符串 | 自动生成的事件名称 |
 | participant_comment__c | 参与者注释 | 字符串 | 包含Adobe Acrobat Sign参与人的注释（如果有） |
 | participant_email__c | 参与者电子邮件 | 字符串 | 保留Adobe Acrobat Sign参与人的电子邮件 |
-| participant_role__c | 参与人角色 | 字符串 | 具有Adobe Acrobat Sign参与者的角色 |
+| participant_role__c | 参与者角色 | 字符串 | 具有Adobe Acrobat Sign参与者的角色 |
 | signature__c | 签名 | 对象（签名） | 保留对签名父记录的引用 |
 | external_id__c | 外部ID | 文本(200) | 暂挂由Adobe Sign生成的协议事件标识符。 |
 
@@ -149,7 +149,7 @@ AgreementsEventsProcessingJob:此任务可确保处理所有具有活动签名�
 
 Adobe Sign集成任务日志对象字段
 
-| 字段 | 标签 | 类型 | 说明 |
+| 字段 | 标签 | 文字 | 说明 |
 |:--|:--|:--|:---------| 
 | start_date__c | 开始日期 | 日期时间 | 任务开始日期 |
 | end_date__c | 结束日期 | 日期时间 | 任务结束日期 |
@@ -199,7 +199,7 @@ Adobe Sign集成任务日志对象字段
 
    ![图像](images/audit-trail.png)
 
-### 步骤 3. 设置安全性配置文件 {#security-profiles}
+### 步骤3. 设置安全性配置文件 {#security-profiles}
 
 在步骤2中成功部署包将创建Adobe Sign集成配置文件。 Adobe Sign集成配置文件被分配给系统帐户，并由集成在调用Vault API时使用。 此配置文件允许具有以下权限：
 
@@ -210,7 +210,7 @@ Adobe Sign集成任务日志对象字段
 
 ![签名事件详细信息的图像](images/security-profiles.png)
 
-### 步骤 4. 创建用户 {#create-user}
+### 步骤4. 创建用户 {#create-user}
 
 Adobe Acrobat Sign集成的Vault系统帐户用户必须：
 
@@ -229,7 +229,7 @@ Adobe Acrobat Sign集成的Vault系统帐户用户必须：
 
    ![签名事件详细信息的图像](images/add-user.png)
 
-### 步骤 5. 配置文档类型组 {#create-document-type-group}
+### 步骤5. 配置文档类型组 {#create-document-type-group}
 
 部署Adobe Acrobat Sign包时，它会创建名为“Adobe Sign文档”的文档类型组记录。
 
@@ -245,7 +245,7 @@ Adobe Acrobat Sign集成的Vault系统帐户用户必须：
 
 ![文档类型的图像](images/document-type.png)
 
-### 步骤 6. 创建用户角色设置 {#create-user-role-setup}
+### 步骤6. 创建用户角色设置 {#create-user-role-setup}
 
 正确配置生命周期后，系统应确保DAC为适用于Adobe Sign进程的所有文档添加Adobe Acrobat Sign管理员用户。 为此，请创建相应的用户角色设置记录，其中指定：
 
@@ -255,7 +255,7 @@ Adobe Acrobat Sign集成的Vault系统帐户用户必须：
 
 ![用户角色设置的图像](images/user-role-setup.png)
 
-### 步骤 7. 设置文档字段 {#create-fields}
+### 步骤7. 设置文档字段 {#create-fields}
 
 包部署将创建以下新的共享文档字段，这些字段是建立集成所必需的：
 
@@ -285,7 +285,7 @@ Adobe Acrobat Sign集成的Vault系统帐户用户必须：
 
 “禁用电子仓库叠加”(disable_vault_overlays__v)是现有的共享字段。 或者，该字段可以具有特定的安全性，该安全性仅允许Adobe Sign管理员组的成员更新其值。
 
-### 步骤 8. 声明文档演绎版 {#declare-renditions}
+### 步骤8. 声明文档演绎版 {#declare-renditions}
 
 新的格式副本类型称为 *Adobe Sign Rendition(adobe_sign_rendition__c)* 由Vault集成用于将已签名的PDF文档上传到Adobe Acrobat Sign。 您必须为每个文档类型声明Adobe Sign格式副本，才有资格获得Adobe Acrobat签名。
 
@@ -324,7 +324,7 @@ Adobe Acrobat Sign集成的Vault系统帐户用户必须：
 
 ![图像](images/audit-trail-rendition-setup-4.png)
 
-### 步骤 9. 更新Web操作 {#web-actions}
+### 步骤9. 更新Web操作 {#web-actions}
 
 Adobe Acrobat Sign和Vault集成要求您创建和配置以下两个Web操作：
 
@@ -340,7 +340,7 @@ Adobe Acrobat Sign和Vault集成要求您创建和配置以下两个Web操作：
 
    ![取消Adobe Sign的图像](images/cancel-adobe-sign.png)
 
-### 步骤 10. 更新文档生命周期 {#document-lifecycle}
+### 步骤10. 更新文档生命周期 {#document-lifecycle}
 
 对于符合“Adobe签名”条件的每个文档类型，您都必须通过添加新生命周期角色和状态来更新相应的文档生命周期。
 
@@ -351,7 +351,7 @@ Adobe Acrobat Sign协议生命周期包括以下状态：
 * OUT_FOR_SIGNATURE或OUT_FOR_APPROVAL
 * 已签名或已批准
 * 已取消
-* 已过期
+* 过期
 
 要更新文档生命周期，请执行以下步骤：
 
@@ -449,21 +449,21 @@ Adobe Acrobat Sign协议生命周期包括以下状态：
 
    ![图像](images/sign-vault-mappings.png)
 
-### 步骤 11. 将Adobe Sign阶段添加到生命周期阶段组中的常规生命周期
+### 步骤11. 将Adobe Sign阶段添加到生命周期阶段组中的常规生命周期
 
 ![图像](images/add-adobe-sign-stage.png)
 
-### 步骤 12. 设置用户角色在生命周期状态下的权限
+### 步骤12. 设置用户角色在生命周期状态下的权限
 
 您必须在“生命周期状态”为每个用户角色设置相应的权限，如下图所示。
 
 ![图像](images/set-user-role-permissions.png)
 
-### 步骤 13. 根据文档状态和用户角色设置原子安全
+### 步骤13. 根据文档状态和用户角色设置原子安全
 
 ![图像](images/set-atomic-security.png)
 
-### 步骤 14. 创建文档消息以取消Adobe Sign
+### 步骤14. 创建文档消息以取消Adobe Sign
 
 ![图像](images/create-cancel-message.png)
 

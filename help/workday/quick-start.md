@@ -1,5 +1,5 @@
 ---
-title: Workday 快速入门指南
+title: Workday快速入门指南
 description: 适用于希望在Workday环境中使用Adobe Sign的客户的快速入门指南。
 uuid: 10bf8ee8-9075-44d1-a836-e454950e2d9a
 products: Adobe Sign
@@ -14,15 +14,15 @@ exl-id: 8b6fa8b4-e240-4ebe-ae2a-8807d75a6c69
 source-git-commit: 2cc0ea55ee7dca3682896c61c85eec29a555339c
 workflow-type: tm+mt
 source-wordcount: '1347'
-ht-degree: 30%
+ht-degree: 0%
 
 ---
 
 # [!DNL Workday] 快速入门指南{#workday-quick-start-guide}
 
-[**联系 Adobe Sign 技术支持**](https://www.adobe.com/go/adobesign-support-center)
+[**联系Adobe Sign支持**](https://www.adobe.com/go/adobesign-support-center)
 
-## 概览 {#overview}
+## 概述 {#overview}
 
 本文档旨在帮助您 [!DNL Workday] 管理员了解如何自定义 [!DNL Workday] 业务流程包含Adobe Sign以获取电子签名。 要在 [!DNL Workday]，您必须知道如何创建和修改 [!DNL Workday] 例如：
 
@@ -30,7 +30,7 @@ ht-degree: 30%
 * 租户设置和配置
 * 报告和 [!DNL Workday] Studio集成
 
-## 在 中访问 Adobe Sign[!DNL Workday] {#access-adobe-sign}
+## 访问Adobe Sign [!DNL Workday] {#access-adobe-sign}
 
 [!UICONTROL Adobe Sign电子签名功能] 显示为 [!UICONTROL 审阅文档步骤] 在 [!UICONTROL 业务流程框架(BPF)] 以及分发文档任务。
 
@@ -53,18 +53,18 @@ ht-degree: 30%
 
 要配置 [!UICONTROL 审阅文档步骤]:
 
-1. 将&#x200B;*[!UICONTROL 电子签名集成类型]*&#x200B;指定为 *[!UICONTROL Adobe 提供的 eSign]*.
+1. 指定 *[!UICONTROL 电子签名集成类型]* 作为 *[!UICONTROL eSign byAdobe]*&#x200B;的
 
-1. 在签名网格中添加行.
+1. 向签名网格中添加行。
 
-   * 签名网格指定文档被传递进行签名的序列顺序。每一行均包含一个或多个角色，并且每一行均代表签名流程中的一个步骤。
-   * 特定步骤内角色的每一个成员都会收到通知：有一个签名事件处于待定状态.
-   * 在角色中的一个人员签名后，行步骤即已完成并且文档将被移到下一个行步骤.
+   * 签名网格指定文档发送以进行签名的序列顺序。 每一行可以包含一个或多个角色，并且每一行表示签名过程中的一个步骤。
+   * 特定步骤中角色的每个成员都会收到通知，说明签名事件处于待处理状态。
+   * 角色中的一个人签名后，行步骤即完成，文档将移至下一行步骤。
    * 当所有行都已签名后， [!UICONTROL 审阅文档步骤] 已完成。
 
-1. 指定要签名的文档。如果文档是 [!UICONTROL 优惠BP]，您可以在“生成文档”步骤中使用它。 否则，请选择一个现有的文档或报告。
+1. 指定要签名的文档。 如果文档是 [!UICONTROL 优惠BP]，您可以在“生成文档”步骤中使用它。 否则，请选择现有文档或报告。
 
-1. 您可以根据需要对任意数量的文档重复步骤 3。
+1. 根据需要为多个文档重复步骤3。
 
    ![配置审阅文档步骤](images/configure-rd-stepsmaller-575.png)
 
@@ -84,7 +84,7 @@ ht-degree: 30%
 
 * 完成步骤由搜索图标的相关操作菜单来设置。 只有在“查看”BP时，而不是“编辑”BP时，才有可能做到这一点。
 
-* 业务流程的每一个步骤都会按顺序执行.
+* 业务流程的每个步骤都按顺序执行。
 
    您可以通过更改顺序值来更改步骤的顺序。 例如，要在项目“c”和“d”之间插入一个步骤，请将新项目指定为“ca”。
 
@@ -94,7 +94,7 @@ ht-degree: 30%
 
 在以下示例中， [!UICONTROL 审阅文档步骤] 正在北美和日本使用动态文档步骤。
 
-![[!DNL Workday] 业务流程的示例](images/bp-for-offersmaller-575.png)
+![示例 [!DNL Workday] 业务流程](images/bp-for-offersmaller-575.png)
 
 此业务流程执行以下操作：
 
@@ -108,13 +108,13 @@ ht-degree: 30%
 * 在中定义签名过程 [!UICONTROL 审阅文档步骤] &quot;bc&quot;
 * 在要求的完成步骤“d”中定义要约的决策点。
 
-在步骤“ba”中生成的动态文档称为[!UICONTROL 聘用信]，并且包含一个名为[!UICONTROL 快速聘用]的文本块。您可以根据需要添加多个文本块，如标题、问候、薪酬、图库、结束语、条款等。
+在步骤“ba”中生成的动态文档称为 [!UICONTROL 聘用信] 并包含一个名为 [!UICONTROL 快速优惠]的 您可以根据需要添加多个文本块，如标题、问候、薪酬、图库、结束语、条款等。
 
 ![[!DNL Workday] 查看文档页面](images/offer-letter-575.png)
 
 以下动态聘用信是在 [!DNL Workday] 富文本编辑器。 高亮显示的项目 *灰色* 是 [!DNL Workday] 提供了引用上下文数据的对象。
 
-中的项目 {{brackets}} 是 [Adobe文本标记](https://adobe.com/go/adobesign_text_tag_guide_cn)的
+中的项目 {{brackets}} 是 [Adobe文本标记](https://adobe.com/go/adobesign_text_tag_guide)的
 
 ![动态表单示例](images/script.png)
 
@@ -126,7 +126,7 @@ ht-degree: 30%
 
 ### 示例：分发文档 {#example-distribute-documents}
 
-引入 [!DNL Workday] 30，批量分发文档或任务任务可用于将单个文档发送给大量(&lt;20K)的个人签名者。 它仅限于每个文档的单个签名。通过访问“[!UICONTROL 创建分发文档或任务]”操作。
+引入 [!DNL Workday] 30，批量分发文档或任务任务可用于将单个文档发送给大量(&lt;20K)的个人签名者。 它仅限于每个文档的单个签名。 通过访问“[!UICONTROL 创建分发文档或任务]”操作。
 
 示例：将员工权益选择表发送给具有 [!UICONTROL 全球现代服务]的 如果需要，您可以进一步对单个经理进行筛选。
 
@@ -136,21 +136,21 @@ ht-degree: 30%
 
 ### 示例：报告 {#example-reporting}
 
-[!DNL Workday] 具有一个丰富的报告基础结构。要查看 Adobe Sign 流程的详细信息，请检查&#x200B;*审阅文档事件*&#x200B;的元素。
+[!DNL Workday] 具有丰富的报告基础结构。 要查看Adobe Sign进程的详细信息，请检查 *审阅文档事件*&#x200B;的
 
-以下是一个简单的自定义报告，它可在所有业务流程间运行以查找 Adobe Sign 事务及其状态。
+以下是一个简单的自定义报告，可在所有业务流程中运行该报告以查找Adobe Sign事务及其状态。
 
-![[!DNL Workday] 自定义报告的示例](images/review-document-eventsmaller-575.png)
+![示例 [!DNL Workday] 自定义报告](images/review-document-eventsmaller-575.png)
 
-以下报告通过查看实施租户内的聘用、入职和提议补偿业务流程而生成。
+以下报告是通过查看实施租户中的聘用、入职和建议报酬业务流程生成的。
 
 您可以看到：
 
-* 文档已发出进行签名
-* 关联的业务流程步骤
-* 等待签名的下一个人员
+* 已发出进行签名的文档
+* 关联的BP步骤
+* 等待签名的下一个人
 
-![[!DNL Workday]使用三个对象的 报告的示例](images/workday-reportsmaller-575.png)
+![示例 [!DNL Workday] 使用三个对象的报告](images/workday-reportsmaller-575.png)
 
 ## 已签名的文档 {#signed-documents}
 
@@ -158,7 +158,7 @@ ht-degree: 30%
 
 所有签名组对文档进行签名后，系统会通过电子邮件将签名文档的副本分发给签名组的所有成员。
 
-要禁止此行为，您可以联系 [!UICONTROL Adobe Sign Success Manager] 或 [Adobe Sign支持团队](https://adobe.com/go/adobesign-support-center_cn)的
+要禁止此行为，您可以联系 [!UICONTROL Adobe Sign Success Manager] 或 [Adobe Sign支持团队](https://adobe.com/go/adobesign-support-center)的
 
 在 [!DNL Workday]，您可以在完整流程记录中访问已签名的文档。 您可能会发现：
 
@@ -173,7 +173,7 @@ ht-degree: 30%
 
 ### [!DNL Workday] 支持 {#workday-support}
 
-[!DNL Workday] 是集成所有者，如果您要咨询有关集成范围问题、功能请求或集成日常功能问题，请首先联系 Workday。
+[!DNL Workday] 是集成所有者，对于有关集成范围的问题、功能请求或集成的日常功能问题，您应当成为第一个联系点。
 
 在 [!DNL Workday] 社区中有几篇关于如何解决集成问题和生成文档的好文章：
 
@@ -184,11 +184,11 @@ ht-degree: 30%
 
 ### Adobe Sign支持 {#adobe-sign-support}
 
-Adobe Sign 是集成合作伙伴，如果集成获取签名失败或待定签名通知失败时，请联系 Adobe Sign。
+Adobe Sign是集成合作伙伴，如果集成无法获取签名，或挂起的签名通知失败，应与它联系。
 
 Adobe Sign客户应联系 [!UICONTROL 客户成功经理] 以获取支持。 或者， [!UICONTROL Adobe技术支持] 可通过电话联系：1-866-318-4100，等待产品列表，然后输入：4和2（根据提示）。
 
-* [将 Adobe 文本标记添加到文档](https://www.adobe.com/go/adobesign_text_tag_guide)
+* [添加Adobe文本标记到文档](https://www.adobe.com/go/adobesign_text_tag_guide)
 
 <!--
 [Download PDF](images/adobe-sign-for-workday-quick-start-guide-2016.pdf)
